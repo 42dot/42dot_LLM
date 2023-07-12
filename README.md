@@ -34,7 +34,7 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 
 ### 평가
 - 비교대상:
-  - [Polyglot-Ko-1.3B-SFT]: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 ChatBaker와 동일한 데이터로 학습한 모델
+  - Polyglot-Ko-1.3B-SFT: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 ChatBaker와 동일한 데이터로 학습한 모델
   - [ChatGPT](https://chat.openai.com/): OpenAI가 공개한 생성형 언어 모델 서비스
   - [Bard](https://bard.google.com/): Google이 공개한 생성형 언어 모델 서비스
 - 평가 데이터셋:
