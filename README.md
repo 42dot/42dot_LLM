@@ -5,105 +5,87 @@
 - 한영통합 PLM을 기반으로 생성형 언어 모델 학습
 - 자체 구축한 (수집, 정제) 데이터, 학습 인프라 사용
 
+#### [온라인 데모](demolink)
+ChatBaker 한영통합 7B 모델을 경험해보세요!
 
-[Sample GIF 추가]
+[데모 샘플 GIF 추가]
 
-
-## 사전 학습 모델 (PLM)
-
-Transformer decoder 기반의 LLaMA 아키텍쳐를 사용했고, 
 
 ## 생성형 언어 모델
+챗베이커 (ChatBaker) 학습에 [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna/)의 베이스 코드인 [FastChat](https://github.com/lm-sys/FastChat)을 사용했고, 사용한 파라미터는 아래와 같습니다.
+
+| Hyperparameter | Global Batch Size | Learning rate | Epochs | Max length | Weight decay | Warmup ratio |
+| -- | -- | -- | -- | -- | -- | -- |
+| ChatBaker | 16 | 2e-5 | 3/6/9 | 2,048 | 0 | 0.03 |
+
+### 학습 데이터셋
+
+요청 및 이에 대한 응답으로 이루어진 대화형태의 데이터를 사용했습니다.
+- 한국어: 약 15만 건
+- 영어: 약 25만 건
+- 챗베이커 (ChatBaker) 학습에 사용한 데이터는 공개하지 않습니다. 대신, 다양한 한국어 ([evolve-instruct](https://github.com/lcw99/evolve-instruct), [ko-lima-vicuna](https://huggingface.co/datasets/changpt/ko-lima-vicuna), 등) 및 영어 (ShareGPT, OpenAssistant, etc.) 대화 데이터가 공개되어 있습니다.
+
+### 평가
+- 평가 데이터셋:
+[데이터셋 내용 추가]
+- 평가 방법:
+[평가 방법 추가]
+
+![SFT 성능](/asset/image.png){: width="10%" height="50%"}{: .center}
+
+<center><img src="asset/image.png" width="50%" height="50%"/></center>
+
+[성능 그래프 추가]
+
+#### 요약
+[평가 결과 추가]
+
+## 사전 학습 모델 (PLM)
+### 아키텍쳐
+Transformer decoder 기반의 [LLaMA](https://arxiv.org/abs/2302.13971) 아키텍쳐를 사용했고, 사용한 파라미터는 아래와 같습니다.
+
+| Hyperparameter | Global Batch Size | Learning rate | Epochs | Max length | Weight decay |
+| -- | -- | -- | -- | -- | -- |
+| PLM | | | | 2,048 | |
+
+| Hyperparameter | Layer |  |  |  |  |
+| -- | -- | -- | -- | -- | -- |
+| 1.3B | | | | | |
+| 7B | | | | | |
+
+A100 80G GPU 256장 (8 GPUs * 32 Nodes)을 사용했습니다.
+
+| Model | KO 1.3B | KOEN 1.3B | KOEN 7B |
+| -- | -- | -- | -- |
+| Training time | xx days | xx days | 30 days+ |
 
 
+### 학습 데이터셋
+- 한국어: 100B 토큰
+- 영어: 1T 토큰
+
+### 토크나이저
+Byte-level BPE 토크나이저를 사용했고, 한국어와 한영통합 토크나이저는 각각 문서 100만건으로 학습했습니다.
+
+### 평가
+#### 한국어
+- 평가 데이터셋: [KoBEST](https://huggingface.co/datasets/skt/kobest_v1) 
+- 지표: Macro F1
+
+[성능 그래프 추가]
+
+#### 영어
+- 평가 데이터셋: 영어 Benchmarks 14종
+    - anli, arc, boolq, hellaswag, openbookqa, piqa, record, rte, truthfulqa_mc, wic, winogrande
+
+[성능 그래프 추가]
+
+#### 요약
+- 한국어 모델은 polyglot-ko 1.3B 대비 약 5% 높은 성능 달성
+- 한영통합 모델은 kogpt (skt) 대비 약 2% 높은 성능과, polyglot-ko 1.3B 대비 오차범위 이내의 성능을 보였습니다.
 
 
+## 한계점
 
-## Getting started
+## 라이센스
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://gitlab.42dot.ai/hyperai/chatbaker.git
-git branch -M main
-git push -uf origin main
-```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://gitlab.42dot.ai/hyperai/chatbaker/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
