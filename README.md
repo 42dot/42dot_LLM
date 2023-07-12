@@ -33,6 +33,10 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 주) 챗베이커 (ChatBaker) 학습에 사용한 데이터는 공개하지 않습니다. 대신, 다양한 한국어 ([evolve-instruct](https://github.com/lcw99/evolve-instruct), [ko-lima-vicuna](https://huggingface.co/datasets/changpt/ko-lima-vicuna), 등) 및 영어 (ShareGPT, OpenAssistant, etc.) 대화 데이터가 공개되어 있습니다.
 
 ### 평가
+- 비교대상:
+  - [Polyglot-Ko-1.3B-SFT]: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 ChatBaker와 동일한 데이터로 학습한 모델
+  - [ChatGPT](https://chat.openai.com/): OpenAI가 공개한 생성형 언어 모델 서비스
+  - [Bard](https://bard.google.com/): Google이 공개한 생성형 언어 모델 서비스
 - 평가 데이터셋:
 [데이터셋 내용 추가]
 - 평가 방법:
@@ -76,12 +80,21 @@ Byte-level BPE 토크나이저를 사용했고, 한국어와 한영통합 토크
 
 ### 평가
 #### 한국어
-- 평가 데이터셋: [KoBEST](https://huggingface.co/datasets/skt/kobest_v1) 
+- 비교대상:
+  - [Polyglot-Ko](https://github.com/EleutherAI/polyglot): LLaMA 아키테쳐를 기반으로 한국어 213B 토큰 (863 GB)의 데이터셋으로 학습한 모델
+  - [KoGPT2](https://github.com/SKT-AI/KoGPT2): GPT 아키텍쳐를 기반으로 40GB 이상의 한국어 데이터셋으로 학습한 모델
+- 평가 데이터셋:
+  - [KoBEST](https://huggingface.co/datasets/skt/kobest_v1) 
+  - HyperClova에서 평가한 데이터셋은?
 - 지표: Macro F1
 
 [성능 그래프 추가]
 
 #### 영어
+- 비교대상:
+  - [OPT](OPT 링크): 
+  - [MPT](MPT 링크): 
+  - [LLaMA](LLaMA 링크): 
 - 평가 데이터셋: 영어 Benchmarks 14종
     - anli, arc, boolq, hellaswag, openbookqa, piqa, record, rte, truthfulqa_mc, wic, winogrande
 
