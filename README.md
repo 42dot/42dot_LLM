@@ -5,7 +5,7 @@
 - 한영통합 PLM을 기반으로 생성형 언어 모델 학습
 - 자체 구축한 (수집, 정제) 데이터, 학습 인프라 사용
 
-#### [온라인 데모](demolink)
+### [온라인 데모](demolink)
 ChatBaker 한영통합 7B 모델을 경험해보세요!
 
 [데모 샘플 GIF 추가]
@@ -18,12 +18,19 @@ ChatBaker 한영통합 7B 모델을 경험해보세요!
 | -- | -- | -- | -- | -- | -- | -- |
 | ChatBaker | 16 | 2e-5 | 3/6/9 | 2,048 | 0 | 0.03 |
 
+A100 80G GPU 8장을 학습에 사용했습니다.
+
+| Model | ChatBaker-1.3B-kr | ChatBaker-1.3B-kr-en | ChatBaker-7B-kr-en |
+| -- | -- | -- | -- |
+| Training time | 9 hours | 20 hours | 48 hours |
+
 ### 학습 데이터셋
 
 요청 및 이에 대한 응답으로 이루어진 대화형태의 데이터를 사용했습니다.
 - 한국어: 약 15만 건
 - 영어: 약 25만 건
-- 챗베이커 (ChatBaker) 학습에 사용한 데이터는 공개하지 않습니다. 대신, 다양한 한국어 ([evolve-instruct](https://github.com/lcw99/evolve-instruct), [ko-lima-vicuna](https://huggingface.co/datasets/changpt/ko-lima-vicuna), 등) 및 영어 (ShareGPT, OpenAssistant, etc.) 대화 데이터가 공개되어 있습니다.
+
+주) 챗베이커 (ChatBaker) 학습에 사용한 데이터는 공개하지 않습니다. 대신, 다양한 한국어 ([evolve-instruct](https://github.com/lcw99/evolve-instruct), [ko-lima-vicuna](https://huggingface.co/datasets/changpt/ko-lima-vicuna), 등) 및 영어 (ShareGPT, OpenAssistant, etc.) 대화 데이터가 공개되어 있습니다.
 
 ### 평가
 - 평가 데이터셋:
@@ -31,14 +38,14 @@ ChatBaker 한영통합 7B 모델을 경험해보세요!
 - 평가 방법:
 [평가 방법 추가]
 
-![SFT 성능](/asset/image.png){: width="10%" height="50%"}{: .center}
 
-<center><img src="asset/image.png" width="50%" height="50%"/></center>
+<img src="asset/image.png" width="90%" height="90%"/>
 
-[성능 그래프 추가]
+[성능 그래프 대체]
 
 #### 요약
 [평가 결과 추가]
+
 
 ## 사전 학습 모델 (PLM)
 ### 아키텍쳐
@@ -48,9 +55,9 @@ Transformer decoder 기반의 [LLaMA](https://arxiv.org/abs/2302.13971) 아키�
 | -- | -- | -- | -- | -- | -- |
 | PLM | | | | 2,048 | |
 
-| Hyperparameter | Layer |  |  |  |  |
+| Hyperparameter | Layers | Attention heads | Hidden size |  |  |
 | -- | -- | -- | -- | -- | -- |
-| 1.3B | | | | | |
+| 1.3B | 24 | 32 | 2,048 | | |
 | 7B | | | | | |
 
 A100 80G GPU 256장 (8 GPUs * 32 Nodes)을 사용했습니다.
@@ -84,8 +91,18 @@ Byte-level BPE 토크나이저를 사용했고, 한국어와 한영통합 토크
 - 한국어 모델은 polyglot-ko 1.3B 대비 약 5% 높은 성능 달성
 - 한영통합 모델은 kogpt (skt) 대비 약 2% 높은 성능과, polyglot-ko 1.3B 대비 오차범위 이내의 성능을 보였습니다.
 
+### 모델 공개
+
+🤗[한영통합-1.3B](허깅페이스 링크)
+
 
 ## 한계점
+다른 LLM (ChatGPT, Vicuna, 등)과 마찬가지로 챗베이커 (ChatBaker) 또한 많은 한계를 가지고 있습니다. 
+
+We have noticed that, similar to other large language models, Vicuna has certain limitations. For instance, it is not good at tasks involving reasoning or mathematics, and it may have limitations in accurately identifying itself or ensuring the factual accuracy of its outputs. Additionally, it has not been sufficiently optimized to guarantee safety or mitigate potential toxicity or bias. To address the safety concerns, we use the OpenAI moderation API to filter out inappropriate user inputs in our online demo. Nonetheless, we anticipate that Vicuna can serve as an open starting point for future research to tackle these limitations.
 
 ## 라이센스
+- 코드: 
+- 모델:
+
 
