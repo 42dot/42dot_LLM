@@ -1,4 +1,21 @@
-# ChatBaker
+# 챗베이커 (ChatBaker)
+
+챗베이커 (ChatBaker)는 42dot에서 개발한 생성형 언어 모델입니다.
+- 대한민국 최초의 한영통합 거대 언어 모델 (Large Language Model, LLM) 학습
+- 한영통합 PLM을 기반으로 생성형 언어 모델 학습
+- 자체 구축한 (수집, 정제) 데이터, 학습 인프라 사용
+
+
+[Sample GIF 추가]
+
+
+## 사전 학습 모델 (PLM)
+
+Transformer decoder 기반의 LLaMA 아키텍쳐를 사용했고, 
+
+## 생성형 언어 모델
+
+
 
 
 
