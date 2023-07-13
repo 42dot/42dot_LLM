@@ -1,20 +1,20 @@
-<img src="asset/42dot.png" width="25%" height="25%"  align="right" />
+<img src="asset/42dot.png" width="25%" height="25%" />
 
 # 챗베이커 (ChatBaker)
 
 챗베이커 (ChatBaker)는 42dot에서 개발한 생성형 언어 모델입니다.
-- 대한민국 최초의 한영통합 거대 언어 모델 (Large Language Model, LLM) 학습
+- 대한민국 최초의 **한영통합 거대 언어 모델** (Large Language Model, LLM) 학습
 - 한영통합 PLM을 기반으로 생성형 언어 모델 학습
 - 자체 구축한 (수집, 정제) 데이터, 학습 인프라 사용
 
 ### [온라인 데모](demolink)
-ChatBaker 한영통합 7B 모델을 경험해보세요!
+**ChatBaker 한영통합 7B 모델을 경험해보세요!**
 
 [데모 샘플 GIF 추가]
 
 
 ## 생성형 언어 모델
-챗베이커 (ChatBaker) 학습에 [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna/)의 베이스 코드인 [FastChat](https://github.com/lm-sys/FastChat)을 사용했고, 사용한 파라미터는 아래와 같습니다.
+챗베이커 (ChatBaker)는 [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna/)의 베이스 코드인 [FastChat](https://github.com/lm-sys/FastChat)으로 학습했고, 사용한 파라미터는 아래와 같습니다.
 
 | Hyperparameter | Global Batch Size | Learning rate | Epochs | Max length | Weight decay | Warmup ratio |
 | -- | -- | -- | -- | -- | -- | -- |
@@ -44,10 +44,12 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 - 평가 방법:
 [평가 방법 추가]
 
-
+#### 한국어 평가
 <img src="asset/image.png" width="90%" height="90%"/>
 
 [성능 그래프 대체]
+
+#### 영어 평가
 
 #### 요약
 [평가 결과 추가]
