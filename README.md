@@ -118,8 +118,12 @@ Byte-level BPE 토크나이저를 사용했고, 한국어와 한영통합 토크
 
 ## 한계점
 다른 LLMs과 마찬가지로 챗베이커 (ChatBaker)도 많은 한계를 가지고 있습니다.
-- 생성현 언어 모델은 랜덤 샘플링 방식을 따르고 있습니다. 이로 인해, 동일한 입력에 대해 매번 다른 응답을 생성 할 수 있습니다. 또한, 입력 구문의 조정이나 동일한 프롬프트의 시도에 민감합니다. 예를 들어, 질문의 한 구절이 주어지면 모델은 답을 모른다고 주장할 수 있지만, 약간의 표현이 주어지면 정확하게 답할 수 있습니다.
-- 도덕, 인종, 성별, 나이, 지역 등에 대한 부적절한 질문 또는 요청에 대해 응답을 회피하도록 노력했습니다. 하지만, 저희가 파악하지 못한 탈옥 (jailbreak) 등의 방법에 의해 옳지 않은 답변이 만들어 질 수 있습니다.
+- 할루시네이션 문제
+  - 여전히 있다. (사이즈 크기에 따른 차이 언급 x)
+  - 요청에 대한 응답을 생성하게 학습했을 뿐, 정답을 맞추도록 학습시키지 않았다.
+- 처리 못하는 응답 케이스
+- 생성현 언어 모델은 랜덤 샘플링 방식을 따르고 있습니다. 이로 인해, 동일한 입력에 대해 매번 다른 응답을 생성 할 수 있습니다. 또한, 사용자가 입력한 질문/요청인 프롬프트에 민감합니다. 예를 들어, 주어진 질문에 정확한 답변을 생성했더라도, 표현방식이 다른 동일한 질문/요청에 잘못된 응답을 생성 할 수 있습니다.
+- 도덕, 인종, 성별, 나이, 지역 등에 대한 부적절한 질문 또는 요청에 대해 응답을 회피하도록 노력했습니다. 하지만, 저희가 파악하지 못한 탈옥 (jailbreak) 등의 방법에 의해 옳지 않거나 편향적인 응답이 만들어 질 수 있습니다.
 
 We have noticed that, similar to other large language models, Vicuna has certain limitations. For instance, it is not good at tasks involving reasoning or mathematics, and it may have limitations in accurately identifying itself or ensuring the factual accuracy of its outputs. Additionally, it has not been sufficiently optimized to guarantee safety or mitigate potential toxicity or bias. To address the safety concerns, we use the OpenAI moderation API to filter out inappropriate user inputs in our online demo. Nonetheless, we anticipate that Vicuna can serve as an open starting point for future research to tackle these limitations.
 
