@@ -2,10 +2,13 @@
 
 # 챗베이커 (ChatBaker)
 
-챗베이커 (ChatBaker)는 [42dot](https://42dot.ai/)에서 개발한 생성형 언어 모델입니다.
+**챗베이커 (ChatBaker)**는 [42dot](https://42dot.ai/)에서 자체 개발한 생성형 언어 모델로, 다음의 특징을 가지고 있습니다.
 - 대한민국 최초의 **한영통합 거대 언어 모델** (Large Language Model, LLM) 학습
-- 한영통합 PLM을 기반으로 생성형 언어 모델 학습
-- 자체 구축한 (수집, 정제) 데이터, 학습 인프라 사용
+  - 한영통합 1.3B, 7B 모델 (+ 한국어 전용 1.3B 모델)
+- 한영통합 PLM을 기반으로 **생성형 언어 모델** 학습
+- 직접 구축한 (수집, 정제) 데이터, 자체 학습 인프라 사용
+
+뿐만아니라, 🤗에 공개한 [한영통합 1.3B PLM 모델](허깅페이스 모델 페이지 링크)을 직접 사용해 볼 수 있습니다.
 
 ### [온라인 데모](demolink)
 **ChatBaker를 경험해보세요!** (한영통합 7B)
@@ -37,8 +40,8 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 ### 평가
 - 비교대상:
   - Polyglot-Ko-1.3B-SFT: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 ChatBaker와 동일한 데이터로 학습한 모델
-  - [ChatGPT](https://chat.openai.com/): OpenAI가 공개한 생성형 언어 모델 서비스
-  - [Bard](https://bard.google.com/): Google이 공개한 생성형 언어 모델 서비스
+  - [ChatGPT](https://chat.openai.com/): OpenAI가 공개한 생성형 언어 모델 서비스 (GPT-3.5: 175B, GPT-4: 모델 크기 필요)
+  - [Bard](https://bard.google.com/): Google이 공개한 생성형 언어 모델 서비스 (137B)
 - 평가 데이터셋:
 [데이터셋 내용 추가]
 - 평가 방법:
@@ -80,7 +83,7 @@ A100 80G GPU 256장 (8 GPUs * 32 Nodes)을 사용했습니다.
 - 영어: 1T 토큰
 
 ### 토크나이저
-Byte-level BPE 토크나이저를 사용했고, 한국어와 한영통합 토크나이저는 각각 문서 100만건으로 학습했습니다.
+Byte-level BPE 토크나이저를 사용했고, 한국어와 한영통합 토크나이저는 PLM 학습 데이터셋에서 각각 문서를 100만건을 샘플링해 학습했습니다.
 
 ### 평가
 #### 한국어
@@ -114,12 +117,12 @@ Byte-level BPE 토크나이저를 사용했고, 한국어와 한영통합 토크
 
 
 ## 한계점
-다른 LLM (ChatGPT, Vicuna, 등)과 마찬가지로 챗베이커 (ChatBaker) 또한 많은 한계를 가지고 있습니다. 
+다른 LLMs과 마찬가지로 챗베이커 (ChatBaker)도 많은 한계를 가지고 있습니다.
+- 생성현 언어 모델은 랜덤 샘플링 방식을 따르고 있습니다. 이로 인해, 동일한 입력에 대해 매번 다른 응답을 생성 할 수 있습니다. 또한, 입력 구문의 조정이나 동일한 프롬프트의 시도에 민감합니다. 예를 들어, 질문의 한 구절이 주어지면 모델은 답을 모른다고 주장할 수 있지만, 약간의 표현이 주어지면 정확하게 답할 수 있습니다.
+- 도덕, 인종, 성별, 나이, 지역 등에 대한 부적절한 질문 또는 요청에 대해 응답을 회피하도록 노력했습니다. 하지만, 저희가 파악하지 못한 탈옥 (jailbreak) 등의 방법에 의해 옳지 않은 답변이 만들어 질 수 있습니다.
 
 We have noticed that, similar to other large language models, Vicuna has certain limitations. For instance, it is not good at tasks involving reasoning or mathematics, and it may have limitations in accurately identifying itself or ensuring the factual accuracy of its outputs. Additionally, it has not been sufficiently optimized to guarantee safety or mitigate potential toxicity or bias. To address the safety concerns, we use the OpenAI moderation API to filter out inappropriate user inputs in our online demo. Nonetheless, we anticipate that Vicuna can serve as an open starting point for future research to tackle these limitations.
 
 ## 라이센스
 - 코드: 
 - 모델:
-
-
