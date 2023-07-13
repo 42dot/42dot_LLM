@@ -1,3 +1,5 @@
+<img src="asset/42dot.png" width="25%" height="25%"  align="right" />
+
 # 챗베이커 (ChatBaker)
 
 챗베이커 (ChatBaker)는 42dot에서 개발한 생성형 언어 모델입니다.
