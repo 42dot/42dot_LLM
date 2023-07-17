@@ -4,14 +4,14 @@
 
 **챗베이커 (ChatBaker)**는 [42dot](https://42dot.ai/)에서 자체 개발한 생성형 언어 모델로, 다음의 특징을 가지고 있습니다.
 - 대한민국 기관 최초의 **한영통합 거대 언어 모델** (Large Language Model, LLM) 학습
-  - 한영통합 PLM 1.3B, 7B 모델 (+ 한국어 PLM 1.3B 모델)
+  - 한영통합 PLM 1.3B, 7B (+ 한국어 PLM 1.3B)
 - 한영통합 PLM을 기반으로 **생성형 언어 모델** 학습
 - 직접 구축한 (수집, 정제) 데이터, 자체 학습 인프라 사용
 
-뿐만아니라, [🤗한영통합 PLM 1.3B 모델](허깅페이스 모델 페이지 링크)과 [온라인 데모](https://gitlab.42dot.ai/hyperai/ChatBaker/-/blob/main/README.md#%EC%98%A8%EB%9D%BC%EC%9D%B8-%EB%8D%B0%EB%AA%A8)를 통해 직접 사용해 볼 수 있습니다.
+뿐만아니라, [🤗한영통합 PLM 1.3B](허깅페이스 모델 페이지 링크)과 [온라인 데모](https://gitlab.42dot.ai/hyperai/ChatBaker/-/blob/main/README.md#%EC%98%A8%EB%9D%BC%EC%9D%B8-%EB%8D%B0%EB%AA%A8)를 통해 직접 사용해 볼 수 있습니다.
 
 ### 온라인 데모
-'한영통합 PLM 7B' 모델에 SFT (Supervised Fine-Tuning)을 진행한 **[ChatBaker를 경험해보세요!](demolink)**
+'한영통합 PLM 7B'에 SFT (Supervised Fine-Tuning)을 진행한 **[ChatBaker를 경험해보세요!](demolink)**
 
 [데모 샘플 GIF 추가]
 
@@ -126,7 +126,7 @@ Byte-level BPE 토크나이저를 사용했고, 한국어와 한영통합 토크
 
 ## 라이센스
 - 코드: SFT 학습에 사용한 본 레포의 코드는 [FastChat](https://github.com/lm-sys/FastChat)의 것으로, FastChat의 라이센스인 Apache License 2.0을 따릅니다.
-- **수정필요** 모델&데모: 공개한 모델 (PLM 한영통합 1.3B)와 온라인 데모 (SFT 한영통합 7B)는 42dot의 R&D preview로서, 비상업적인 용도로만 사용 가능합니다.
+- **수정필요** 모델&데모: 공개한 모델 (한영통합 PLM 1.3B)과 온라인 데모 (한영통합 SFT 7B)는 42dot의 R&D 결과물로서, 비상업적인 용도로만 사용 가능합니다.
 
 
 ## 유의사항
