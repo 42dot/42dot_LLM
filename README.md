@@ -11,7 +11,7 @@
 뿐만아니라, [[🤗한영통합 PLM 1.3B](허깅페이스 모델 페이지 링크)]을 공개했고, [[온라인 데모](https://gitlab.42dot.ai/hyperai/ChatBaker/-/blob/main/README.md#%EC%98%A8%EB%9D%BC%EC%9D%B8-%EB%8D%B0%EB%AA%A8)]를 통해 챗베이커 (ChatBaker)를 직접 사용해 볼 수 있습니다.
 
 ### 온라인 데모
-'한영통합 PLM 7B'에 SFT (Supervised Fine-Tuning)을 수행한 **[ChatBaker를 경험해보세요!](demolink)**
+'한영통합 PLM 7B'에 SFT (Supervised Fine-Tuning)으로 학습한 **[ChatBaker를 경험해보세요!](demolink)**
 
 [데모 샘플 GIF 추가]
 
@@ -31,11 +31,8 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 
 ### 학습 데이터셋
 
-요청 및 이에 대한 응답으로 이루어진 대화형태의 데이터를 사용했습니다.
-- 한국어: 약 15만 건
-- 영어: 약 25만 건
-
-주) 챗베이커 (ChatBaker)의 학습 데이터는 공개하지 않습니다. 대신, 다양한 한국어 ([evolve-instruct](https://github.com/lcw99/evolve-instruct), [ko-lima-vicuna](https://huggingface.co/datasets/changpt/ko-lima-vicuna), 등) 및 영어 (ShareGPT, OpenAssistant, etc.)의 Single/Multi-turn 대화 데이터가 공개되어 있습니다.
+질문/요청 및 이에 대한 응답으로 이루어진 Single/Multi-turn 형태의 대화 데이터를 학습에 사용했습니다.
+- 챗베이커 (ChatBaker)의 학습 데이터 관련 내용은 공개하지 않습니다. 대신, 다양한 한국어 ([evolve-instruct](https://github.com/lcw99/evolve-instruct), [ko-lima-vicuna](https://huggingface.co/datasets/changpt/ko-lima-vicuna), 등) 및 영어 ([ShareGPT](링크추가), [OpenAssistant](https://huggingface.co/datasets/OpenAssistant/oasst1), etc.)의 Single/Multi-turn 대화 데이터가 공개되어 있습니다.
 
 ### 평가
 - 비교대상:
