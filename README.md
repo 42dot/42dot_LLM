@@ -35,7 +35,7 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 - 한국어: 약 15만 건
 - 영어: 약 25만 건
 
-주) 챗베이커 (ChatBaker)의 학습 데이터는 공개하지 않습니다. 대신, 다양한 한국어 ([evolve-instruct](https://github.com/lcw99/evolve-instruct), [ko-lima-vicuna](https://huggingface.co/datasets/changpt/ko-lima-vicuna), 등) 및 영어 (ShareGPT, OpenAssistant, etc.) 대화 데이터가 공개되어 있습니다.
+주) 챗베이커 (ChatBaker)의 학습 데이터는 공개하지 않습니다. 대신, 다양한 한국어 ([evolve-instruct](https://github.com/lcw99/evolve-instruct), [ko-lima-vicuna](https://huggingface.co/datasets/changpt/ko-lima-vicuna), 등) 및 영어 (ShareGPT, OpenAssistant, etc.)의 Single/Multi-turn 대화 데이터가 공개되어 있습니다.
 
 ### 평가
 - 비교대상:
