@@ -3,21 +3,21 @@
 # 챗베이커 (ChatBaker)
 
 **챗베이커 (ChatBaker)**는 [42dot](https://42dot.ai/)에서 자체 개발한 생성형 언어 모델로, 다음의 특징을 가지고 있습니다.
-- 대한민국 최초의 **한영통합 거대 언어 모델** (Large Language Model, LLM) 학습
+- 대한민국 기관 최초의 **한영통합 거대 언어 모델** (Large Language Model, LLM) 학습
   - 한영통합 1.3B, 7B 모델 (+ 한국어 전용 1.3B 모델)
 - 한영통합 PLM을 기반으로 **생성형 언어 모델** 학습
 - 직접 구축한 (수집, 정제) 데이터, 자체 학습 인프라 사용
 
-뿐만아니라, 🤗에 공개한 [한영통합 1.3B PLM 모델](허깅페이스 모델 페이지 링크)을 직접 사용해 볼 수 있습니다.
+뿐만아니라, [🤗한영통합 PLM 1.3B 모델](허깅페이스 모델 페이지 링크)을 직접 사용해 볼 수 있습니다.
 
-### [온라인 데모](demolink)
-**ChatBaker를 경험해보세요!** (한영통합 7B)
+### 온라인 데모
+**[ChatBaker를 경험해보세요!](demolink)** (한영통합 7B)
 
 [데모 샘플 GIF 추가]
 
 
 ## 생성형 언어 모델
-챗베이커 (ChatBaker)는 [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna/)의 베이스 코드인 [FastChat](https://github.com/lm-sys/FastChat)으로 학습했고, 사용한 파라미터는 아래와 같습니다.
+챗베이커 (ChatBaker)는 [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna/)의 베이스 코드인 [FastChat](https://github.com/lm-sys/FastChat)으로 SFT (Supervised Fine-Tuning)을 진행했고, 사용한 파라미터는 아래와 같습니다.
 
 | Hyperparameter | Global Batch Size | Learning rate | Epochs | Max length | Weight decay | Warmup ratio |
 | -- | -- | -- | -- | -- | -- | -- |
@@ -117,16 +117,17 @@ Byte-level BPE 토크나이저를 사용했고, 한국어와 한영통합 토크
 
 
 ## 한계점
-다른 LLMs과 마찬가지로 챗베이커 (ChatBaker)도 많은 한계를 가지고 있습니다.
-- 할루시네이션 문제
-  - 여전히 있다. (사이즈 크기에 따른 차이 언급 x)
-  - 요청에 대한 응답을 생성하게 학습했을 뿐, 정답을 맞추도록 학습시키지 않았다.
-- 처리 못하는 응답 케이스
+다른 LLM과 마찬가지로 챗베이커 (ChatBaker)도 많은 한계를 가지고 있습니다.
+- 언어 모델을 기반으로하는 생성형 모델은 '환각 (Hallucination)'이라는 근본적인 문제가 있습니다. 언어모델을 사용하는 챗베이커 (ChatBaker)도 이러한 환각 문제를 가지고 있고, 이를 해결하기 위해 개발을 진행 중입니다.
+- 챗베이커 (ChatBaker) 학습 데이터의 자체 구축으로 인해 기대하는 형태의 응답을 생성하지 못 할 수 있습니다. 이러한 케이스는 사용자 피드백을 통해 지속적으로 보완해 나갈 계획입니다.
 - 생성현 언어 모델은 랜덤 샘플링 방식을 따르고 있습니다. 이로 인해, 동일한 입력에 대해 매번 다른 응답을 생성 할 수 있습니다. 또한, 사용자가 입력한 질문/요청인 프롬프트에 민감합니다. 예를 들어, 주어진 질문에 정확한 답변을 생성했더라도, 표현방식이 다른 동일한 질문/요청에 잘못된 응답을 생성 할 수 있습니다.
 - 도덕, 인종, 성별, 나이, 지역 등에 대한 부적절한 질문 또는 요청에 대해 응답을 회피하도록 노력했습니다. 하지만, 저희가 파악하지 못한 탈옥 (jailbreak) 등의 방법에 의해 옳지 않거나 편향적인 응답이 만들어 질 수 있습니다.
 
-We have noticed that, similar to other large language models, Vicuna has certain limitations. For instance, it is not good at tasks involving reasoning or mathematics, and it may have limitations in accurately identifying itself or ensuring the factual accuracy of its outputs. Additionally, it has not been sufficiently optimized to guarantee safety or mitigate potential toxicity or bias. To address the safety concerns, we use the OpenAI moderation API to filter out inappropriate user inputs in our online demo. Nonetheless, we anticipate that Vicuna can serve as an open starting point for future research to tackle these limitations.
 
 ## 라이센스
-- 코드: 
-- 모델:
+- 코드: SFT 학습에 사용한 본 레포의 코드는 [FastChat](https://github.com/lm-sys/FastChat)의 것으로, FastChat의 라이센스인 Apache License 2.0을 따릅니다.
+- **수정필요** 모델&데모: 공개한 모델 (PLM 한영통합 1.3B)와 온라인 데모 (SFT 한영통합 7B)는 42dot의 R&D preview로서, 비상업적인 용도로만 사용 가능합니다.
+
+
+## 유의사항
+본 페이지를 통해 공개하는 모델 (PLM) 및 챗베이커 데모를 통해 생성한 응답은 42dot의 입장과 무관하며, 42dot은 응답 내용 및 이로인해 발생하는 문제에 대해 책임지지 않습니다.
