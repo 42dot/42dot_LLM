@@ -24,6 +24,7 @@
 
 ### 온라인 데모
 '한영통합 PLM 7B'에 SFT (Supervised Fine-Tuning)으로 학습한 [**ChatBaker를 경험해보세요!**](demolink)
+주) ChatGPT, GPT-4, Bard와 같은 서비스와 다르게 챗베이커는 모델 단독으로 동작합니다.
 
 [데모 샘플 GIF 추가]
 
@@ -48,7 +49,7 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 
 ### 평가
 - 비교대상:
-  - Polyglot-Ko-1.3B-SFT: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 ChatBaker와 동일한 데이터로 학습한 모델
+  - Polyglot-Ko-1.3B-SFT: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 챗베이커와 동일한 데이터로 학습한 모델
   - [ChatGPT](https://chat.openai.com/): OpenAI가 공개한 생성형 언어 모델 서비스 (GPT-3.5: 175B, GPT-4: 모델 크기 필요)
   - [Bard](https://bard.google.com/): Google이 공개한 생성형 언어 모델 서비스 (137B)
 - [평가 데이터셋](asset/benchmark_set_v2.csv):
