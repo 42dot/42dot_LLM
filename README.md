@@ -3,9 +3,9 @@
 # 챗베이커 (ChatBaker)
 
 **챗베이커** (**ChatBaker**)는 [**42dot**](https://42dot.ai/)에서 자체 개발한 생성형 언어 모델로, 다음의 특징을 가지고 있습니다.
-- 대한민국 기관 최초의 **한영통합 거대 언어 모델** (Large Language Model, LLM) 학습 [more](https://gitlab.42dot.ai/hyperai/ChatBaker/-/blob/main/README.md#%EC%82%AC%EC%A0%84-%ED%95%99%EC%8A%B5-%EB%AA%A8%EB%8D%B8-plm)
+- 대한민국 기관 최초의 **한영통합 거대 언어 모델** (Large Language Model, LLM) 학습 [more](#사전-학습-모델-plm)
   - 한영통합 PLM 1.3B, 7B (+ 한국어 PLM 1.3B) 
-- 한영통합 PLM을 기반으로 **생성형 언어 모델** 학습 [more](https://gitlab.42dot.ai/hyperai/ChatBaker/-/blob/main/README.md#%EC%83%9D%EC%84%B1%ED%98%95-%EC%96%B8%EC%96%B4-%EB%AA%A8%EB%8D%B8)
+- 한영통합 PLM을 기반으로 **생성형 언어 모델** 학습 [more](#생성형-언어-모델)
 - 직접 구축한 (수집, 정제) 데이터, 자체 학습 인프라 사용
 
 뿐만아니라, [[🤗한영통합 PLM 1.3B](허깅페이스 모델 페이지 링크)]을 공개했고, [[온라인 데모](https://gitlab.42dot.ai/hyperai/ChatBaker/-/blob/main/README.md#%EC%98%A8%EB%9D%BC%EC%9D%B8-%EB%8D%B0%EB%AA%A8)]를 통해 챗베이커 (ChatBaker)를 직접 사용해 볼 수 있습니다.
