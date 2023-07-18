@@ -10,7 +10,7 @@
   * [유의사항](#유의사항)
 
 
-<img src="asset/42dot.png" width="25%" height="25%" />
+<img src="asset/42dot.png" width="25%" height="25%" /><img src="asset/tagline.png" width="25%" height="25%" />
 
 # 챗베이커 (ChatBaker)
 
