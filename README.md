@@ -21,17 +21,17 @@
 - 한영통합 PLM을 기반으로 **생성형 언어 모델** 학습 [more](#생성형-언어-모델)
 - 직접 구축한 (수집, 정제) 데이터, 자체 학습 인프라 사용
 
-뿐만아니라, [[🤗한영통합 PLM 1.3B](허깅페이스 모델 페이지 링크)]을 공개했고, [[온라인 데모](#온라인-데모)]를 통해 챗베이커 (ChatBaker)를 직접 사용해 볼 수 있습니다.
+뿐만아니라, [[🤗한영통합 PLM 1.3B](허깅페이스 모델 페이지 링크)]을 공개했고, [[온라인 데모](#온라인-데모)]를 통해 챗베이커를 직접 사용해 볼 수 있습니다.
 
 ### 온라인 데모
-'한영통합 PLM 7B'에 SFT (Supervised Fine-Tuning)로 학습한 [**ChatBaker를 경험해보세요!**](demolink)
+'한영통합 PLM 7B'에 SFT (Supervised Fine-Tuning)로 학습한 [**챗베이커**를 경험해보세요!](demolink)
 - 주) ChatGPT, GPT-4, Bard와 같은 서비스와 다르게 챗베이커는 모델 단독으로 동작합니다.
 
 [데모 샘플 GIF 추가]
 
 
 ## 생성형 언어 모델
-챗베이커 (ChatBaker)는 [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna/)의 베이스 코드인 [FastChat](https://github.com/lm-sys/FastChat)을 사용했고, 파라미터는 아래와 같습니다.
+챗베이커는 [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna/)의 베이스 코드인 [FastChat](https://github.com/lm-sys/FastChat)을 사용했고, 파라미터는 아래와 같습니다.
 
 | Hyperparameter | Global Batch Size | Learning rate | Epochs | Max length | Weight decay | Warmup ratio |
 | -- | -- | -- | -- | -- | -- | -- |
@@ -46,7 +46,7 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 ### 학습 데이터셋
 
 질문/요청 및 이에 대한 응답으로 이루어진 Single/Multi-turn 형태의 대화 데이터를 학습에 사용했습니다.
-- 챗베이커 (ChatBaker)의 학습 데이터 관련 내용은 공개하지 않습니다. 대신, 다양한 한국어 ([evolve-instruct](https://github.com/lcw99/evolve-instruct), [ko-lima-vicuna](https://huggingface.co/datasets/changpt/ko-lima-vicuna), 등) 및 영어 ([ShareGPT](링크추가), [OpenAssistant](https://huggingface.co/datasets/OpenAssistant/oasst1), etc.)의 Single/Multi-turn 대화 데이터가 공개되어 있습니다.
+- 챗베이커의 학습 데이터 관련 내용은 공개하지 않습니다. 대신, 다양한 한국어 ([evolve-instruct](https://github.com/lcw99/evolve-instruct), [ko-lima-vicuna](https://huggingface.co/datasets/changpt/ko-lima-vicuna), 등) 및 영어 ([ShareGPT](링크추가), [OpenAssistant](https://huggingface.co/datasets/OpenAssistant/oasst1), etc.)의 Single/Multi-turn 대화 데이터가 공개되어 있습니다.
 
 ### 평가
 - 비교대상:
@@ -140,16 +140,16 @@ Byte-level BPE 토크나이저를 사용했고, 한국어와 한영통합 토크
 
 
 ## 한계점
-다른 LLM과 마찬가지로 챗베이커 (ChatBaker)도 아직 여러가지 한계를 가지고 있습니다.
-- 언어 모델을 기반으로하는 생성형 모델은 '환각 (Hallucination)'이라는 근본적인 문제가 있습니다. 언어모델을 사용하는 챗베이커 (ChatBaker)도 이러한 환각 문제를 가지고 있고, 이를 해결하기 위해 개발을 진행 중입니다.
-- 챗베이커 (ChatBaker) 학습 데이터를 자체적으로 구축했지만, 미처 포함하지 못한 질문-응답 케이스가 존재할 수 있기 때문에 기대하는 형태의 응답을 생성하지 못 할 수 있습니다. 이러한 케이스는 사용자 피드백을 통해 지속적으로 보완해 나갈 계획입니다.
-- 생성형 언어 모델인 챗베이커 (ChatBaker)는 랜덤 샘플링 방식을 따르고 있습니다. 이로 인해, 동일한 입력에 대해 매번 다른 응답을 생성 할 수 있습니다. 또한, 사용자가 입력한 질문/요청인 프롬프트에 민감합니다. 예를 들어, 주어진 질문에 정확한 답변을 생성했더라도, 표현방식이 다른 동일한 질문/요청에 잘못된 응답을 생성 할 수 있습니다.
+다른 LLM과 마찬가지로 챗베이커도 아직 여러가지 한계를 가지고 있습니다.
+- 언어 모델을 기반으로하는 생성형 모델은 '환각 (Hallucination)'이라는 근본적인 문제가 있습니다. 언어모델을 사용하는 챗베이커도 이러한 환각 문제를 가지고 있고, 이를 해결하기 위해 개발을 진행 중입니다.
+- 챗베이커의 학습 데이터를 자체적으로 구축했지만, 미처 포함하지 못한 질문-응답 케이스가 존재할 수 있기 때문에 기대하는 형태의 응답을 생성하지 못 할 수 있습니다. 이러한 케이스는 사용자 피드백을 통해 지속적으로 보완해 나갈 계획입니다.
+- 생성형 언어 모델인 챗베이커는 랜덤 샘플링 방식을 따르고 있습니다. 이로 인해, 동일한 입력에 대해 매번 다른 응답을 생성 할 수 있습니다. 또한, 사용자가 입력한 질문/요청인 프롬프트에 민감합니다. 예를 들어, 주어진 질문에 정확한 답변을 생성했더라도, 표현방식이 다른 동일한 질문/요청에 잘못된 응답을 생성 할 수 있습니다.
 - 도덕, 인종, 문화, 성별, 나이, 지역 등에 대한 부적절한 질문 또는 요청에 대해 응답을 회피하도록 노력했습니다. 하지만, 저희가 파악하지 못한 탈옥 (jailbreak) 등의 방법에 의해 옳지 않거나 편향적인 응답이 만들어 질 수 있습니다.
 
 
 ## 라이센스
 - 코드: SFT 학습에 사용한 본 레포의 코드는 [FastChat](https://github.com/lm-sys/FastChat)의 것으로, FastChat의 라이센스인 Apache License 2.0을 따릅니다.
-- 데이터: 챗베이커 (ChatBaker) 학습에 ShareGPT를 포함한 ChatGPT의 데이터를 일부 사용했습니다. 해당 데이터에 대해서는 OpenAI에 의해 생성된 데이터의 [약관](https://openai.com/policies/terms-of-use)과 ShareGPT의 [Privacy Practices](https://chrome.google.com/webstore/detail/sharegpt-share-your-chatg/daiacboceoaocpibfodeljbdfacokfjb)를 따릅니다.
+- 데이터: 챗베이커 학습에 ShareGPT를 포함한 ChatGPT의 데이터를 일부 사용했습니다. 해당 데이터에 대해서는 OpenAI에 의해 생성된 데이터의 [약관](https://openai.com/policies/terms-of-use)과 ShareGPT의 [Privacy Practices](https://chrome.google.com/webstore/detail/sharegpt-share-your-chatg/daiacboceoaocpibfodeljbdfacokfjb)를 따릅니다.
 - **수정필요, 라이센스 추가** 모델&데모: 공개한 모델 (한영통합 PLM 1.3B)과 온라인 데모 (한영통합 SFT 7B)는 42dot의 R&D 결과물로서, 비상업적인 용도로만 사용 가능합니다.
 
 
