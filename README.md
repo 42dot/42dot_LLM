@@ -110,7 +110,7 @@ Transformer decoder 기반의 [LLaMA](https://arxiv.org/abs/2302.13971) 아키�
 
 ### 학습
 
-Pretraining 은 [NeMo Framework](https://github.com/NVIDIA/NeMo) 을 이용해 진행했으며 컴퓨팅 자원으로서 NVIDIA A100 80G 256장을 동원하였습니다. 학습에 소요된 시간은 아래와 같습니다.
+Pretraining 은 NVIDIA A100 80G 256장을 이용해 진행했으며, 학습에 소요된 시간은 아래와 같습니다.
 
 | Model | KO 1.3B | KOEN 1.3B | KOEN 7B |
 | -- | -- | -- | -- |
@@ -120,7 +120,7 @@ Pretraining 은 [NeMo Framework](https://github.com/NVIDIA/NeMo) 을 이용해 �
 ### 학습 데이터셋
 PLM용 학습 데이터는 모두 웹 상에 공개된 데이터를 이용해 진행하였고 그 구성은 아래와 같습니다.
 - 한국어: 약 100B 토큰
-  - [AI Hub](https://aihub.or.kr/), [직지 프로젝트](http://jikji.duckdns.org/), [mC4](https://huggingface.co/datasets/mc4), [모두의 말뭉치](https://corpus.korean.go.kr/), [LBox Open](https://github.com/lbox-kr/lbox-open), [KLUE](https://huggingface.co/datasets/klue), [위키피디아 (한국어)](https://ko.wikipedia.org/) 등 포함
+  - [직지 프로젝트](http://jikji.duckdns.org/), [mC4](https://huggingface.co/datasets/mc4), [LBox Open](https://github.com/lbox-kr/lbox-open), [KLUE](https://huggingface.co/datasets/klue), [위키피디아 (한국어)](https://ko.wikipedia.org/) 등 포함
 - 영어: 약 1.3T 토큰
   - [The Pile](https://github.com/EleutherAI/the-pile), [RedPajama](https://github.com/togethercomputer/RedPajama-Data), [C4](https://huggingface.co/datasets/c4) 등 포함
 
