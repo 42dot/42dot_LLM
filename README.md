@@ -58,8 +58,8 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 ### 평가
 - 비교대상:
   - Polyglot-Ko-1.3B-SFT: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 ChatBaker와 동일한 데이터로 학습한 모델
-  - [ChatGPT](https://chat.openai.com/): OpenAI가 공개한 생성형 언어 모델 서비스 (GPT-3.5: 175B, GPT-4: 모델 크기 필요)
-  - [Bard](https://bard.google.com/): Google이 공개한 생성형 언어 모델 서비스 (137B)
+  - [ChatGPT](https://chat.openai.com/): OpenAI가 공개한 생성형 언어 모델 서비스 (GPT-3.5 및 GPT-4)
+  - [Bard](https://bard.google.com/): Google이 공개한 생성형 언어 모델 서비스
 - [평가 데이터셋](asset/benchmark_set_v2.csv):
   - 10가지의 Category에서 총 121개의 Task로 구성했습니다.
   - 영어 평가의 경우 한국어 데이터셋을 번역해 사용했습니다.
@@ -103,8 +103,8 @@ Transformer decoder 기반의 [LLaMA](https://arxiv.org/abs/2302.13971) 아키�
 
 | Hyperparameter | Global batch size\* | Initial learning rate | Train iter.\* | Max length\* | Weight decay |
 | -- | -- | -- | -- | -- | -- |
-| 1.3B | 4.0M | 4E-4 | 1.0T | 2K | Cosine |
-| 7B | 4.0M | 3E-4 | 1.5T | 2K | Cosine |
+| 1.3B | 4.0M | 4E-4 | 1.0T | 2K | 0.1 |
+| 7B | 4.0M | 3E-4 | 1.5T | 2K | 0.1 |
 
 (\* 단위: tokens)
 
@@ -112,9 +112,9 @@ Transformer decoder 기반의 [LLaMA](https://arxiv.org/abs/2302.13971) 아키�
 
 Pretraining 은 NVIDIA A100 80G 256장을 이용해 진행했으며, 학습에 소요된 시간은 아래와 같습니다.
 
-| Model | KO 1.3B | KOEN 1.3B | KOEN 7B |
-| -- | -- | -- | -- |
-| Training time (approx.) | 6 days | 6 days | 25 days |
+| Model | ko / ko-en 1.3B | ko-en 7B |
+| -- | -- | -- |
+| Training time (approx.) | 6 days | 25 days |
 
 
 ### 학습 데이터셋
@@ -132,14 +132,24 @@ PLM 의 성능을 비교하기 위해 한국어 및 영어 Zero-shot 벤치마�
 #### 한국어
 - 비교대상:
   - [Polyglot-Ko 1.3B](https://github.com/EleutherAI/polyglot): [GPT-NeoX](https://github.com/EleutherAI/gpt-neox) 아키텍쳐를 기반으로 한국어 213B 토큰 (863 GB)의 데이터셋으로 학습한 모델
+  - [KoGPT2 1.2B](https://github.com/SKT-AI/KoGPT2): GPT 아키텍쳐를 기반으로 40GB 이상의 한국어 데이터셋으로 학습한 모델
   - [XGLM 1.7B](https://huggingface.co/facebook/xglm-1.7B): GPT-3 아키텍쳐를 기반으로 한국어를 포함한 30개 국어, 500B 토큰 데이터셋으로 학습한 모델
   - [PolyLM 1.7B](https://huggingface.co/DAMO-NLP-MT/polylm-1.7b): LLaMA 아키텍처를 기반으로 한국어를 포함한 18개 국어, 640B 토큰 데이터셋으로 학습한 모델
-  - [KoGPT2 1.2B](https://github.com/SKT-AI/KoGPT2): GPT 아키텍쳐를 기반으로 40GB 이상의 한국어 데이터셋으로 학습한 모델
 - 평가 데이터셋:
   - [KoBEST](https://huggingface.co/datasets/skt/kobest_v1) 의 모든 하위 task (BoolQ, COPA, HellaSwag, SentiNeg, WiC)
 - 지표: Macro-F1
 
-[성능 그래프 추가]
+|Tasks / Metric|KoGPT2 1.2B|Polygolt-ko 1.3B|ChatBaker-PLM 1.3B ko|XGLM 1.7B|PolyLM 1.7B|ChatBaker-PLM 1.3B ko-en|
+|--------------|-----------|----------------|---------------------|---------|-----------|------------------------|
+|boolq         |0.337      |0.355           |0.588                |0.502    |0.334      |0.334                   |
+|copa          |0.67       |0.721           |0.746                |0.616    |0.513      |0.724                   |
+|hellaswag     |0.404      |0.401           |0.458                |0.374    |0.321      |0.442                   |
+|sentineg      |0.606      |0.679           |0.562                |0.46     |0.382      |0.634                   |
+|wic           |0.328      |0.328           |0.364                |0.328    |0.328      |0.329                   |
+|average       |0.469      |0.497           |0.544                |0.456    |0.376      |0.493                   |
+
+<img src="asset/plm_benchmark_ko.png" width="90%" height="90%"/>
+
 
 #### 영어
 - 비교대상:
