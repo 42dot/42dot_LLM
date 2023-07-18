@@ -17,7 +17,7 @@
 
 
 ## 생성형 언어 모델
-챗베이커 (ChatBaker)는 [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna/)의 베이스 코드인 [FastChat](https://github.com/lm-sys/FastChat)을 사용했고, 적용한 파라미터는 아래와 같습니다.
+챗베이커 (ChatBaker)는 [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna/)의 베이스 코드인 [FastChat](https://github.com/lm-sys/FastChat)을 사용했고, 파라미터는 아래와 같습니다.
 
 | Hyperparameter | Global Batch Size | Learning rate | Epochs | Max length | Weight decay | Warmup ratio |
 | -- | -- | -- | -- | -- | -- | -- |
@@ -51,13 +51,12 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 
 #### 영어 평가
 
-#### 요약
-[평가 결과 추가]
+[성능 그래프 추가]
 
 
 ## 사전 학습 모델 (PLM)
 ### 아키텍쳐
-Transformer decoder 기반의 [LLaMA](https://arxiv.org/abs/2302.13971) 아키텍쳐를 사용했고, 적용한 파라미터는 아래와 같습니다.
+Transformer decoder 기반의 [LLaMA](https://arxiv.org/abs/2302.13971) 아키텍쳐를 사용했고, 파라미터는 아래와 같습니다.
 
 | Hyperparameter | Global Batch Size | Learning rate | Epochs | Max length | Weight decay |
 | -- | -- | -- | -- | -- | -- |
@@ -104,9 +103,6 @@ Byte-level BPE 토크나이저를 사용했고, 한국어와 한영통합 토크
 
 [성능 그래프 추가]
 
-#### 요약
-- 한국어 모델은 polyglot-ko 1.3B 대비 약 5% 높은 성능 달성
-- 한영통합 모델은 kogpt (skt) 대비 약 2% 높은 성능과, polyglot-ko 1.3B 대비 오차범위 이내의 성능을 보였습니다.
 
 ### 모델 공개
 
@@ -123,9 +119,9 @@ Byte-level BPE 토크나이저를 사용했고, 한국어와 한영통합 토크
 
 ## 라이센스
 - 코드: SFT 학습에 사용한 본 레포의 코드는 [FastChat](https://github.com/lm-sys/FastChat)의 것으로, FastChat의 라이센스인 Apache License 2.0을 따릅니다.
-- 데이터: 챗베이커 (ChatBaker) 학습에 ShareGPT를 포함한 ChatGPT의 데이터를 일부 사용했습니다. 따라서, OpenAI에 의해 생성된 데이터의 [약관](https://openai.com/policies/terms-of-use)과 ShareGPT의 [Privacy Practices](https://chrome.google.com/webstore/detail/sharegpt-share-your-chatg/daiacboceoaocpibfodeljbdfacokfjb)를 따릅니다.
+- 데이터: 챗베이커 (ChatBaker) 학습에 ShareGPT를 포함한 ChatGPT의 데이터를 일부 사용했습니다. 해당 데이터에 대해서는 OpenAI에 의해 생성된 데이터의 [약관](https://openai.com/policies/terms-of-use)과 ShareGPT의 [Privacy Practices](https://chrome.google.com/webstore/detail/sharegpt-share-your-chatg/daiacboceoaocpibfodeljbdfacokfjb)를 따릅니다.
 - **수정필요, 라이센스 추가** 모델&데모: 공개한 모델 (한영통합 PLM 1.3B)과 온라인 데모 (한영통합 SFT 7B)는 42dot의 R&D 결과물로서, 비상업적인 용도로만 사용 가능합니다.
 
 
 ## 유의사항
-본 페이지를 통해 공개하는 모델 (PLM) 및 챗베이커 데모를 통해 생성한 응답은 42dot의 입장과 무관하며, 42dot은 응답 내용 및 이로인해 발생하는 문제에 대해 책임지지 않습니다.
+본 페이지를 통해 공개하는 모델 (PLM) 및 챗베이커 온라인 데모를 통해 생성한 응답은 42dot의 입장과 무관하며, 42dot은 응답 내용 및 이로인해 발생하는 문제에 대해 책임지지 않습니다.
