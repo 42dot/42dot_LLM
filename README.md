@@ -1,3 +1,15 @@
+* [챗베이커 (ChatBaker)](#챗베이커-chatbaker)
+  * [온라인 데모](#온라인-데모)
+  * [생성형 언어 모델](#생성형-언어-모델)
+    * 데이터셋, 한국어/영어 평가
+  * [사전 학습 모델](#사전-학습-모델-plm)
+    * 아키텍쳐, 데이터셋, 토크나이저, 한국어/영어 평가
+    * [모델 공개](#모델-공개)
+  * [한계점](#한계점)
+  * [라이센스](#라이센스)
+  * [유의사항](#유의사항)
+
+
 <img src="asset/42dot.png" width="25%" height="25%" />
 
 # 챗베이커 (ChatBaker)
@@ -8,10 +20,10 @@
 - 한영통합 PLM을 기반으로 **생성형 언어 모델** 학습 [more](#생성형-언어-모델)
 - 직접 구축한 (수집, 정제) 데이터, 자체 학습 인프라 사용
 
-뿐만아니라, [[🤗한영통합 PLM 1.3B](허깅페이스 모델 페이지 링크)]을 공개했고, [[온라인 데모](https://gitlab.42dot.ai/hyperai/ChatBaker/-/blob/main/README.md#%EC%98%A8%EB%9D%BC%EC%9D%B8-%EB%8D%B0%EB%AA%A8)]를 통해 챗베이커 (ChatBaker)를 직접 사용해 볼 수 있습니다.
+뿐만아니라, [[🤗한영통합 PLM 1.3B](허깅페이스 모델 페이지 링크)]을 공개했고, [[온라인 데모](#온라인-데모)]를 통해 챗베이커 (ChatBaker)를 직접 사용해 볼 수 있습니다.
 
 ### 온라인 데모
-'한영통합 PLM 7B'에 SFT (Supervised Fine-Tuning)으로 학습한 **[ChatBaker를 경험해보세요!](demolink)**
+'한영통합 PLM 7B'에 SFT (Supervised Fine-Tuning)으로 학습한 [**ChatBaker를 경험해보세요!**](demolink)
 
 [데모 샘플 GIF 추가]
 
