@@ -24,7 +24,7 @@
 
 ### 온라인 데모
 '한영통합 PLM 7B'에 SFT (Supervised Fine-Tuning)으로 학습한 [**ChatBaker를 경험해보세요!**](demolink)
-주) ChatGPT, GPT-4, Bard와 같은 서비스와 다르게 챗베이커는 모델 단독으로 동작합니다.
+- 주) ChatGPT, GPT-4, Bard와 같은 서비스와 다르게 챗베이커는 모델 단독으로 동작합니다.
 
 [데모 샘플 GIF 추가]
 
