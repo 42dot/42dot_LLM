@@ -56,50 +56,64 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 
 ## 사전 학습 모델 (PLM)
 ### 아키텍쳐
-Transformer decoder 기반의 [LLaMA](https://arxiv.org/abs/2302.13971) 아키텍쳐를 사용했고, 파라미터는 아래와 같습니다.
+Transformer decoder 기반의 [LLaMA](https://arxiv.org/abs/2302.13971) 아키텍쳐를 사용했고, 모델 하이퍼파라미터는 아래와 같습니다.
 
-| Hyperparameter | Global Batch Size | Learning rate | Epochs | Max length | Weight decay |
+| Hyperparameter | Layers | Attention heads | Hidden size | FFN size |  |
 | -- | -- | -- | -- | -- | -- |
-| PLM | | | | 2,048 | |
+| 1.3B | 24 | 32 | 2,048 | 5,632 | |
+| 7B | 32 | 32 | 4,096 | 11,008 |  |
 
-| Hyperparameter | Layers | Attention heads | Hidden size |  |  |
+학습 세팅은 아래와 같습니다.
+
+| Hyperparameter | Global batch size\* | Initial learning rate | Train iter.\* | Max length\* | Weight decay |
 | -- | -- | -- | -- | -- | -- |
-| 1.3B | 24 | 32 | 2,048 | | |
-| 7B | | | | | |
+| 1.3B | 4.0M | 4E-4 | 1.0T | 2K | Cosine |
+| 7B | 4.0M | 3E-4 | 1.5T | 2K | Cosine |
 
-A100 80G GPU 256장 (8 GPUs * 32 Nodes)을 사용했습니다.
+(\* 단위: tokens)
+
+### 학습
+
+Pretraining 은 [NeMo Framework](https://github.com/NVIDIA/NeMo) 을 이용해 진행했으며 컴퓨팅 자원으로서 NVIDIA A100 80G 256장을 동원하였습니다. 학습에 소요된 시간은 아래와 같습니다.
 
 | Model | KO 1.3B | KOEN 1.3B | KOEN 7B |
 | -- | -- | -- | -- |
-| Training time | xx days | xx days | 30 days+ |
+| Training time (approx.) | 6 days | 6 days | 25 days |
 
 
 ### 학습 데이터셋
-- 한국어: 100B 토큰
-- 영어: 1T 토큰
+PLM용 학습 데이터는 모두 웹 상에 공개된 데이터를 이용해 진행하였고 그 구성은 아래와 같습니다.
+- 한국어: 약 100B 토큰
+  - [AI Hub](https://aihub.or.kr/), [직지 프로젝트](http://jikji.duckdns.org/), [mC4](https://huggingface.co/datasets/mc4), [모두의 말뭉치](https://corpus.korean.go.kr/), [LBox Open](https://github.com/lbox-kr/lbox-open), [KLUE](https://huggingface.co/datasets/klue), [위키피디아 (한국어)](https://ko.wikipedia.org/) 등 포함
+- 영어: 약 1.3T 토큰
+  - [The Pile](https://github.com/EleutherAI/the-pile), [RedPajama](https://github.com/togethercomputer/RedPajama-Data), [C4](https://huggingface.co/datasets/c4) 등 포함
 
 ### 토크나이저
-Byte-level BPE 토크나이저를 사용했고, 한국어와 한영통합 토크나이저는 PLM의 학습 데이터셋에서 각각 100만건의 문서를 샘플링해 학습했습니다.
+Byte-level BPE 토크나이저를 사용했고, 한국어와 한영통합 토크나이저는 PLM의 학습 데이터셋에서 각각 1000만건의 문서를 샘플링해 학습했습니다. Vocaburaly 크기는 약 50K 입니다.
 
-### 평가
+### Zero-shot 성능 평가
+PLM 의 성능을 비교하기 위해 한국어 및 영어 Zero-shot 벤치마크를 진행했으며 그 결과를 첨부하였습니다. 아래 모든 평가는 [lm-eval-harness](https://github.com/EleutherAI/lm-evaluation-harness/tree/polyglot) 를 통해 수행하여 도출된 결과입니다.
 #### 한국어
 - 비교대상:
-  - [Polyglot-Ko](https://github.com/EleutherAI/polyglot): LLaMA 아키테쳐를 기반으로 한국어 213B 토큰 (863 GB)의 데이터셋으로 학습한 모델
-  - [KoGPT2](https://github.com/SKT-AI/KoGPT2): GPT 아키텍쳐를 기반으로 40GB 이상의 한국어 데이터셋으로 학습한 모델
+  - [Polyglot-Ko 1.3B](https://github.com/EleutherAI/polyglot): [GPT-NeoX](https://github.com/EleutherAI/gpt-neox) 아키텍쳐를 기반으로 한국어 213B 토큰 (863 GB)의 데이터셋으로 학습한 모델
+  - [XGLM 1.7B](https://huggingface.co/facebook/xglm-1.7B): GPT-3 아키텍쳐를 기반으로 한국어를 포함한 30개 국어, 500B 토큰 데이터셋으로 학습한 모델
+  - [PolyLM 1.7B](https://huggingface.co/DAMO-NLP-MT/polylm-1.7b): LLaMA 아키텍처를 기반으로 한국어를 포함한 18개 국어, 640B 토큰 데이터셋으로 학습한 모델
+  - [KoGPT2 1.2B](https://github.com/SKT-AI/KoGPT2): GPT 아키텍쳐를 기반으로 40GB 이상의 한국어 데이터셋으로 학습한 모델
 - 평가 데이터셋:
-  - [KoBEST](https://huggingface.co/datasets/skt/kobest_v1)
-  - HyperClova에서 평가한 데이터셋은?
-- 지표: Macro F1
+  - [KoBEST](https://huggingface.co/datasets/skt/kobest_v1) 의 모든 하위 task (BoolQ, COPA, HellaSwag, SentiNeg, WiC)
+- 지표: Macro-F1
 
 [성능 그래프 추가]
 
 #### 영어
 - 비교대상:
-  - [OPT](OPT 링크): 
-  - [MPT](MPT 링크): 
-  - [LLaMA](LLaMA 링크): 
+  - [OPT 1.3B](https://huggingface.co/facebook/opt-1.3b): GPT-3 아키텍쳐를 기반으로 영어 300B 토큰 데이터셋으로 학습한 모델
+  - [MPT 1B](https://huggingface.co/mosaicml/mpt-1b-redpajama-200b): [MPT](https://www.mosaicml.com/blog/mpt-7b) 아키텍쳐를 기반으로 RedPajama 데이터에 200B 토큰 학습한 모델
+  - XGLM 1.7B
+  - PolyLM 1.7B
 - 평가 데이터셋: 영어 Benchmarks 14종
     - anli, arc, boolq, hellaswag, openbookqa, piqa, record, rte, truthfulqa_mc, wic, winogrande
+- 지표: 각 task 별 지표 (acc, acc_norm, f1, em)
 
 [성능 그래프 추가]
 
