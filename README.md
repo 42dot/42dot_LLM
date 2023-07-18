@@ -96,7 +96,7 @@ Byte-level BPE 토크나이저를 사용했고, 한국어와 한영통합 토크
 ### 평가
 #### 한국어
 - 비교대상:
-  - [Polyglot-Ko](https://github.com/EleutherAI/polyglot): LLaMA 아키테쳐를 기반으로 한국어 213B 토큰 (863 GB)의 데이터셋으로 학습한 모델
+  - [Polyglot-Ko](https://github.com/EleutherAI/polyglot): GPT-NeoX 프레임워크에서 한국어 213B 토큰 (863 GB)의 데이터셋으로 학습한 모델
   - [KoGPT2](https://github.com/SKT-AI/KoGPT2): GPT 아키텍쳐를 기반으로 40GB 이상의 한국어 데이터셋으로 학습한 모델
 - 평가 데이터셋:
   - [KoBEST](https://huggingface.co/datasets/skt/kobest_v1)
