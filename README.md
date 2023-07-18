@@ -24,7 +24,7 @@
 뿐만아니라, [[🤗한영통합 PLM 1.3B](허깅페이스 모델 페이지 링크)]을 공개했고, [[온라인 데모](#온라인-데모)]를 통해 챗베이커 (ChatBaker)를 직접 사용해 볼 수 있습니다.
 
 ### 온라인 데모
-'한영통합 PLM 7B'에 SFT (Supervised Fine-Tuning)으로 학습한 [**ChatBaker를 경험해보세요!**](demolink)
+'한영통합 PLM 7B'에 SFT (Supervised Fine-Tuning)로 학습한 [**ChatBaker를 경험해보세요!**](demolink)
 - 주) ChatGPT, GPT-4, Bard와 같은 서비스와 다르게 챗베이커는 모델 단독으로 동작합니다.
 
 [데모 샘플 GIF 추가]
