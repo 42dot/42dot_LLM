@@ -129,18 +129,18 @@ PLM용 학습 데이터는 모두 웹 상에 공개된 데이터를 이용해 �
 Byte-level BPE 토크나이저를 사용했고, 한국어와 한영통합 토크나이저는 PLM의 학습 데이터셋에서 각각 1000만건의 문서를 샘플링해 학습했습니다. Vocaburaly 크기는 약 50K 입니다.
 
 ### Zero-shot 성능 평가
-PLM 의 성능을 비교하기 위해 한국어 및 영어 Zero-shot 벤치마크를 진행했으며 그 결과를 첨부하였습니다. 아래 모든 평가는 [lm-eval-harness](https://github.com/EleutherAI/lm-evaluation-harness/tree/polyglot) 를 통해 수행하여 도출된 결과입니다.
+ChatBaker-PLM 1.3B 및 비슷한 파라미터 크기의 타 PLM과의 성능을 비교하기 위해 한국어 및 영어 Zero-shot 벤치마크를 진행했으며 그 결과를 첨부하였습니다. 아래 모든 평가 결과는 [lm-eval-harness](https://github.com/EleutherAI/lm-evaluation-harness/tree/polyglot) 를 이용해 도출되었습니다.
 #### 한국어
 - 비교대상:
   - [Polyglot-Ko 1.3B](https://github.com/EleutherAI/polyglot): [GPT-NeoX](https://github.com/EleutherAI/gpt-neox) 아키텍쳐를 기반으로 한국어 213B 토큰 (863 GB)의 데이터셋으로 학습한 모델
   - [KoGPT2 1.2B](https://github.com/SKT-AI/KoGPT2): GPT 아키텍쳐를 기반으로 40GB 이상의 한국어 데이터셋으로 학습한 모델
-  - [XGLM 1.7B](https://huggingface.co/facebook/xglm-1.7B): GPT-3 아키텍쳐를 기반으로 한국어를 포함한 30개 국어, 500B 토큰 데이터셋으로 학습한 모델
+  - [XGLM 1.7B](https://huggingface.co/facebook/xglm-1.7B): [GPT-3](https://arxiv.org/abs/2005.14165) 아키텍쳐를 기반으로 한국어를 포함한 30개 국어, 500B 토큰 데이터셋으로 학습한 모델
   - [PolyLM 1.7B](https://huggingface.co/DAMO-NLP-MT/polylm-1.7b): LLaMA 아키텍처를 기반으로 한국어를 포함한 18개 국어, 640B 토큰 데이터셋으로 학습한 모델
 - 평가 데이터셋:
   - [KoBEST](https://huggingface.co/datasets/skt/kobest_v1) 의 모든 하위 task (BoolQ, COPA, HellaSwag, SentiNeg, WiC)
 - 지표: Macro-F1
 
-|Tasks / Metric|KoGPT2 1.2B|Polygolt-ko 1.3B|ChatBaker-PLM 1.3B ko|XGLM 1.7B|PolyLM 1.7B|ChatBaker-PLM 1.3B ko-en|
+|Tasks / Metric|KoGPT2 <br>1.2B|Polygolt-ko <br>1.3B|ChatBaker-PLM <br>1.3B ko|XGLM <br>1.7B|PolyLM <br>1.7B|ChatBaker-PLM <br>1.3B ko-en|
 |--------------|-----------|----------------|---------------------|---------|-----------|------------------------|
 |boolq         |0.337      |0.355           |**0.588**                |0.502    |0.334      |0.334                   |
 |copa          |0.67       |0.721           |**0.746**                |0.616    |0.513      |0.724                   |
@@ -171,11 +171,15 @@ PLM 의 성능을 비교하기 위해 한국어 및 영어 Zero-shot 벤치마�
 
 
 ## 한계점
-다른 LLM과 마찬가지로 챗베이커 (ChatBaker)도 많은 한계를 가지고 있습니다.
-- 언어 모델을 기반으로하는 생성형 모델은 '환각 (Hallucination)'이라는 근본적인 문제가 있습니다. 언어모델을 사용하는 챗베이커 (ChatBaker)도 이러한 환각 문제를 가지고 있고, 이를 해결하기 위해 개발을 진행 중입니다.
-- 챗베이커 (ChatBaker) 학습 데이터를 자체적으로 구축했지만, 미처 포함하지 못한 질문-응답 케이스가 존재할 수 있기 때문에 기대하는 형태의 응답을 생성하지 못 할 수 있습니다. 이러한 케이스는 사용자 피드백을 통해 지속적으로 보완해 나갈 계획입니다.
-- 생성형 언어 모델인 챗베이커 (ChatBaker)는 랜덤 샘플링 방식을 따르고 있습니다. 이로 인해, 동일한 입력에 대해 매번 다른 응답을 생성 할 수 있습니다. 또한, 사용자가 입력한 질문/요청인 프롬프트에 민감합니다. 예를 들어, 주어진 질문에 정확한 답변을 생성했더라도, 표현방식이 다른 동일한 질문/요청에 잘못된 응답을 생성 할 수 있습니다.
-- 도덕, 인종, 문화, 성별, 나이, 지역 등에 대한 부적절한 질문 또는 요청에 대해 응답을 회피하도록 노력했습니다. 하지만, 저희가 파악하지 못한 탈옥 (jailbreak) 등의 방법에 의해 옳지 않거나 편향적인 응답이 만들어 질 수 있습니다.
+다른 LLM과 마찬가지로 챗베이커 (ChatBaker) 도 여러 한계를 가지고 있습니다. 이러한 한계점들을 감안하여 연구 용도에 한해 챗베이커 (ChatBaker) 모델을 활용하시기를 권장합니다.
+- 언어 모델을 기반으로하는 생성형 모델은 '환각 (Hallucination)'이라는 근본적인 문제가 있습니다. (참고 문헌: [위키백과](https://ko.wikipedia.org/wiki/%ED%95%A0%EB%A3%A8%EC%8B%9C%EB%84%A4%EC%9D%B4%EC%85%98_(%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5))) 마찬가지로 언어 모델 기반인 챗베이커 (ChatBaker)도 이러한 환각 문제를 가지고 있으며, 생성하는 답변 내용이 사실과 일치하지 않을 수 있습니다.
+- 자체적으로 챗베이커 (ChatBaker) 학습 데이터를 최대한 다양하게 구축했지만, 미처 포함하지 못한 질문-응답 케이스가 존재할 수 있기 때문에 기대하는 형태의 응답을 생성하지 못 할 수 있습니다. 
+- 생성형 언어 모델인 챗베이커 (ChatBaker)는 랜덤 샘플링 방식을 따르고 있습니다. 이로 인해, 동일한 입력에 대해 매번 다른 응답을 생성 할 수 있습니다. 또한, 사용자가 입력한 질문/요청인 프롬프트에 민감합니다. 예를 들어, 주어진 질문에 정확한 답변을 생성했더라도, 표현방식이 다른 동일한 질문/요청에 전혀 다른 응답을 생성 할 수 있습니다.
+- 챗베이커 (ChatBaker) 는 생성 내용에 대해 별도의 필터링이 적용되지 않으며 따라서 도덕, 인종, 문화, 성별, 나이, 지역, 종교, 정치성향 등에 대해 편향되거나 부적절한 응답을 생성할 수 있습니다.
+
+
+[//]: # (이를 해결하기 위해 개발을 진행 중입니다.)
+[//]: # (이러한 케이스는 사용자 피드백을 통해 지속적으로 보완해 나갈 계획입니다.)
 
 
 ## 라이센스
