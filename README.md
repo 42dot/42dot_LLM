@@ -221,10 +221,10 @@ ChatBaker-PLM 1.3B 및 비슷한 파라미터 크기의 타 PLM과의 성능을 
 
 
 ## 라이센스
-- 코드: SFT 학습에 사용한 본 레포의 코드는 [FastChat](https://github.com/lm-sys/FastChat)의 것으로, FastChat의 라이센스인 Apache License 2.0을 따릅니다.
 - 데이터: 챗베이커 학습에 ShareGPT를 포함한 ChatGPT의 데이터를 일부 사용했습니다. 해당 데이터에 대해서는 OpenAI에 의해 생성된 데이터의 [약관](https://openai.com/policies/terms-of-use)과 ShareGPT의 [Privacy Practices](https://chrome.google.com/webstore/detail/sharegpt-share-your-chatg/daiacboceoaocpibfodeljbdfacokfjb)를 따릅니다.
 - **수정필요, 라이센스 추가** 모델&데모: 공개한 모델 (한영통합 PLM 1.3B)과 온라인 데모 (한영통합 SFT 7B)는 42dot의 R&D 결과물로서, 비상업적인 용도로만 사용 가능합니다.
 
+[//]: # (- 코드: SFT 학습에 사용한 본 레포의 코드는 [FastChat](https://github.com/lm-sys/FastChat)의 것으로, FastChat의 라이센스인 Apache License 2.0을 따릅니다.)
 
 ## 유의사항
 본 페이지를 통해 공개하는 모델 (PLM) 및 챗베이커 온라인 데모를 통해 생성한 응답은 42dot의 입장과 무관하며, 42dot은 응답 내용 및 이로인해 발생하는 문제에 대해 책임지지 않습니다.
