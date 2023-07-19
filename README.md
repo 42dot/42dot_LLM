@@ -40,7 +40,7 @@
 ## 생성형 언어 모델
 챗베이커는 [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna/)의 베이스 코드인 [FastChat](https://github.com/lm-sys/FastChat)을 사용했고, 파라미터는 아래와 같습니다.
 
-| Hyperparameter | Global Batch Size | Learning rate | Epochs | Max length | Weight decay | Warmup ratio |
+| Model | Global Batch Size | Learning rate | Epochs | Max length | Weight decay | Warmup ratio |
 | -- | -- | -- | -- | -- | -- | -- |
 | ChatBaker | 16 | 2e-5 | 3/6/9 | 2,048 | 0 | 0.03 |
 
@@ -57,7 +57,7 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 
 ### 평가
 - 비교대상:
-  - Polyglot-Ko-1.3B-SFT: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 ChatBaker와 동일한 데이터로 학습한 모델
+  - Polyglot-Ko-1.3B-SFT: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 ChatBaker와 동일한 데이터 및 세팅으로 학습한 모델
   - [ChatGPT](https://chat.openai.com/): OpenAI가 공개한 생성형 언어 모델 서비스 (GPT-3.5 및 GPT-4)
   - [Bard](https://bard.google.com/): Google이 공개한 생성형 언어 모델 서비스
   - [Vicuna-7b-v1.3](https://huggingface.co/lmsys/vicuna-7b-v1.3): LLaMA 7B 모델에 ShareGPT 70k 데이터셋으로 SFT를 수행한 오픈소스 모델
@@ -99,14 +99,14 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 ### 아키텍쳐
 Transformer decoder 기반의 [LLaMA](https://arxiv.org/abs/2302.13971) 아키텍쳐를 사용했고, 모델 하이퍼파라미터는 아래와 같습니다.
 
-| Hyperparameter | Layers | Attention heads | Hidden size | FFN size |
+| Params | Layers | Attention heads | Hidden size | FFN size |
 | -- | -- | -- | -- | -- |
 | 1.3B | 24 | 32 | 2,048 | 5,632 |
 | 7B | 32 | 32 | 4,096 | 11,008 |
 
 학습 세팅은 아래와 같습니다.
 
-| Hyperparameter | Global batch size\* | Initial learning rate | Train iter.\* | Max length\* | Weight decay |
+| Params | Global batch size\* | Initial learning rate | Train iter.\* | Max length\* | Weight decay |
 | -- | -- | -- | -- | -- | -- |
 | 1.3B | 4.0M | 4E-4 | 1.0T | 2K | 0.1 |
 | 7B | 4.0M | 3E-4 | 1.5T | 2K | 0.1 |
