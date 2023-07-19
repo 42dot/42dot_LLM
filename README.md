@@ -32,7 +32,7 @@
 
 ### 온라인 데모
 '한영통합 PLM 7B'에 SFT (Supervised Fine-Tuning)로 학습한 [**챗베이커**를 경험해보세요!](demolink)
-- 주) ChatGPT, GPT-4, Bard와 같은 서비스와 다르게 챗베이커는 모델 단독으로 동작합니다.
+- 주) ChatGPT, GPT-4, Bard 같은 서비스와 다르게 챗베이커는 모델 단독으로 동작합니다.
 
 [데모 샘플 GIF 추가]
 
@@ -53,14 +53,14 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 ### 학습 데이터셋
 
 질문/요청 및 이에 대한 응답으로 이루어진 Single/Multi-turn 형태의 대화 데이터를 학습에 사용했습니다.
-- 챗베이커의 학습 데이터 관련 내용은 공개하지 않습니다. 대신, 다양한 한국어 ([evolve-instruct](https://github.com/lcw99/evolve-instruct), [ko-lima-vicuna](https://huggingface.co/datasets/changpt/ko-lima-vicuna), 등) 및 영어 ([ShareGPT](링크추가), [OpenAssistant](https://huggingface.co/datasets/OpenAssistant/oasst1), etc.)의 Single/Multi-turn 대화 데이터가 공개되어 있습니다.
+- 챗베이커의 학습 데이터 관련 내용은 공개하지 않습니다. 대신, 다양한 한국어 ([evolve-instruct](https://github.com/lcw99/evolve-instruct), [ko-lima-vicuna](https://huggingface.co/datasets/changpt/ko-lima-vicuna), 등) 및 영어 ([ShareGPT](https://sharegpt.com), [OpenAssistant](https://huggingface.co/datasets/OpenAssistant/oasst1), etc.)의 Single/Multi-turn 대화 데이터가 공개되어 있습니다.
 
 ### 평가
 - 비교대상:
   - Polyglot-Ko-1.3B-SFT: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 ChatBaker와 동일한 데이터로 학습한 모델
   - [ChatGPT](https://chat.openai.com/): OpenAI가 공개한 생성형 언어 모델 서비스 (GPT-3.5 및 GPT-4)
   - [Bard](https://bard.google.com/): Google이 공개한 생성형 언어 모델 서비스
-  - [Vicuna-7b-v1.3](https://huggingface.co/lmsys/vicuna-7b-v1.3): LLaMA 모델에 ShareGPT 70k 데이터셋으로 SFT를 수행한 오픈소스 모델
+  - [Vicuna-7b-v1.3](https://huggingface.co/lmsys/vicuna-7b-v1.3): LLaMA 7B 모델에 ShareGPT 70k 데이터셋으로 SFT를 수행한 오픈소스 모델
 - [평가 데이터셋](asset/benchmark_set_v2.csv):
   - 10가지의 Category에서 총 121개의 Task로 구성했습니다.
   - 영어 평가의 경우 한국어 데이터셋을 번역해 사용했습니다.
@@ -99,10 +99,10 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 ### 아키텍쳐
 Transformer decoder 기반의 [LLaMA](https://arxiv.org/abs/2302.13971) 아키텍쳐를 사용했고, 모델 하이퍼파라미터는 아래와 같습니다.
 
-| Hyperparameter | Layers | Attention heads | Hidden size | FFN size |  |
-| -- | -- | -- | -- | -- | -- |
-| 1.3B | 24 | 32 | 2,048 | 5,632 | |
-| 7B | 32 | 32 | 4,096 | 11,008 |  |
+| Hyperparameter | Layers | Attention heads | Hidden size | FFN size |
+| -- | -- | -- | -- | -- |
+| 1.3B | 24 | 32 | 2,048 | 5,632 |
+| 7B | 32 | 32 | 4,096 | 11,008 |
 
 학습 세팅은 아래와 같습니다.
 
@@ -153,7 +153,10 @@ ChatBaker-PLM 1.3B 및 비슷한 파라미터 크기의 타 PLM과의 성능을 
 |wic           |0.328      |0.328           |**0.364**                |0.328    |0.328      |0.329                   |
 |**average**       |0.469      |0.497           |**0.544**                |0.456    |0.376      |0.493                   |
 
+<figure align="center">
 <img src="asset/plm_benchmark_ko.png" width="90%" height="90%"/>
+<figcaption><b>PLM의 한국어 성능</b></figcaption>
+</figure>
 
 
 #### 영어
@@ -191,7 +194,10 @@ ChatBaker-PLM 1.3B 및 비슷한 파라미터 크기의 타 PLM과의 성능을 
 | winogrande/acc         | 0.574  | **0.595**    | 0.55      | 0.519       | **0.595**                    |
 | **avearge**                | 0.479  | 0.482    | 0.452     | 0.429       | **0.491**                    |
 
+<figure align="center">
 <img src="asset/plm_benchmark_en.png" width="90%" height="90%"/>
+<figcaption><b>PLM의 영어 성능</b></figcaption>
+</figure>
 
 
 ### 모델 공개
