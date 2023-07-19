@@ -4,8 +4,6 @@
   - [생성형 언어 모델](#생성형-언어-모델)
     - [학습 데이터셋](#학습-데이터셋)
     - [평가](#평가)
-      - [한국어 평가](#한국어-평가)
-      - [영어 평가](#영어-평가)
   - [사전 학습 모델 (PLM)](#사전-학습-모델-plm)
     - [아키텍쳐](#아키텍쳐)
     - [학습](#학습)
@@ -62,6 +60,7 @@ A100 80G GPU 8장을 학습에 사용했습니다.
   - Polyglot-Ko-1.3B-SFT: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 ChatBaker와 동일한 데이터로 학습한 모델
   - [ChatGPT](https://chat.openai.com/): OpenAI가 공개한 생성형 언어 모델 서비스 (GPT-3.5 및 GPT-4)
   - [Bard](https://bard.google.com/): Google이 공개한 생성형 언어 모델 서비스
+  - [Vicuna-7b-v1.3](https://huggingface.co/lmsys/vicuna-7b-v1.3): LLaMA 모델에 ShareGPT 70k 데이터셋으로 SFT를 수행한 오픈소스 모델
 - [평가 데이터셋](asset/benchmark_set_v2.csv):
   - 10가지의 Category에서 총 121개의 Task로 구성했습니다.
   - 영어 평가의 경우 한국어 데이터셋을 번역해 사용했습니다.
@@ -86,11 +85,15 @@ A100 80G GPU 8장을 학습에 사용했습니다.
   <a> : {answer} <end of a>
   ```
 
-#### 한국어 평가
+<figure align="center">
 <img src="asset/Ko-Score.png" width="90%" height="90%"/>
+<figcaption><b>한국어 평가 데이터셋에 대한 6개 지표의 총합</b></figcaption>
+</figure>
 
-#### 영어 평가
+<figure align="center">
 <img src="asset/EnKo-Score.png" width="90%" height="90%"/>
+<figcaption><b>영어 평가 데이터셋에 대한 6개 지표의 총합</b></figcaption>
+</figure>
 
 ## 사전 학습 모델 (PLM)
 ### 아키텍쳐
