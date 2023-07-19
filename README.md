@@ -78,10 +78,10 @@ A100 80G GPU 8장을 학습에 사용했습니다.
   ```
 
 #### 한국어 평가
-<img src="asset/한국어평가.png" width="90%" height="90%"/>
+<img src="asset/Ko-Score.png" width="90%" height="90%"/>
 
 #### 영어 평가
-<img src="asset/영어평가.png" width="90%" height="90%"/>
+<img src="asset/EnKo-score.png" width="90%" height="90%"/>
 
 ## 사전 학습 모델 (PLM)
 ### 아키텍쳐
