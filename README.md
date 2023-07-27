@@ -91,7 +91,7 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 </figure>
 
 <figure align="center">
-<img src="asset/EnKo-Score.png" width="90%" height="90%"/>
+<img src="asset/En-Score.png" width="90%" height="90%"/>
 <figcaption><b>영어 평가 데이터셋에 대한 6개 지표의 총합</b></figcaption>
 </figure>
 
