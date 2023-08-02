@@ -228,3 +228,17 @@ ChatBaker-PLM 1.3B 및 비슷한 파라미터 크기의 타 PLM과의 성능을 
 
 ## 유의사항
 본 페이지를 통해 공개하는 모델 (ChatBaker, ChatBaker-PLM) 및 온라인 데모를 통해 생성한 응답은 42dot의 입장과 무관하며, 42dot은 응답 내용 및 이로인해 발생하는 문제에 대해 책임지지 않습니다.
+
+## Citation
+The code (training, serving, and evaluation) in this repository is mostly developed for or derived from the paper below.
+Please cite it if you find the repository helpful.
+
+```
+@misc{zheng2023judging,
+      title={ChatBaker: Instruction Tuned Large Language Model of 42dot},
+      author={Woo-Jong Ryu and SangKil Park and Jinwoo Park and Sungmin Lee and Yongkeun Hwang},
+      year={2023},
+      url = {https://gitlab.42dot.ai/NLP/hyperai/ChatBaker},
+      version = {pre-release},
+}
+```
