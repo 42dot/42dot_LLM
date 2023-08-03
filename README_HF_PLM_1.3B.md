@@ -56,7 +56,7 @@ We evaluate ChatBaker-PLM on a variety of academic benchmarks both on Korean and
 |**average**       |0.469      |0.497           |0.456    |0.376      |**0.526**                   |
 
 <figure align="center">
-<img src="asset/plm_benchmark_ko.png" width="90%" height="90%"/>
+<img src="asset/plm_benchmark_ko_hf.png" width="90%" height="90%"/>
 <figcaption><b>Evaluation results, Korean</b></figcaption>
 </figure>
 
