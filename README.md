@@ -23,9 +23,9 @@
 # 챗베이커 (ChatBaker)
 
 **챗베이커** (**ChatBaker**)는 [**42dot**](https://42dot.ai/)에서 자체 개발한 생성형 언어 모델로, 다음의 특징을 가지고 있습니다.
-- 대한민국 기관 최초의 **한영통합 거대 언어 모델 (=ChatBaker-PLM)** 공개 [more](#사전-학습-모델-plm)
+- 대한민국 기관 최초의 **한영통합 거대 언어 모델 (=ChatBaker-PLM)** [more](#사전-학습-모델-plm)
   - 한영통합 1.3B, 7B (+ 한국어 1.3B) 
-- 한영통합 ChatBaker-PLM을 기반으로 **생성형 언어 모델 (=ChatBaker)** 공개 [more](#생성형-언어-모델)
+- 한영통합 ChatBaker-PLM 기반의 **생성형 언어 모델 (=ChatBaker)** [more](#생성형-언어-모델)
   - 한영통합 1.3B
 - 직접 구축한 (수집, 정제) 데이터, 자체 학습 인프라 사용
 
@@ -36,7 +36,7 @@
 - 주) ChatGPT, GPT-4, Bard 같은 서비스와 다르게 ChatBaker는 모델 단독으로만 동작합니다.
 
 <figure align="center">
-<img src="asset/chatbaker_gif.gif" width="70%" height="70%" />
+<img src="asset/chatbaker_gif.gif" width="80%" height="80%" />
 </figure>
 
 
