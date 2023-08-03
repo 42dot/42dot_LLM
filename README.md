@@ -35,7 +35,7 @@
 '한영통합 ChatBaker-PLM 7B'에 SFT (Supervised Fine-Tuning)로 학습한 [**ChatBaker**를 경험해보세요!](demolink)
 - 주) ChatGPT, GPT-4, Bard 같은 서비스와 다르게 ChatBaker는 모델 단독으로만 동작합니다.
 
-[데모 샘플 GIF 추가]
+<img src="asset/chatbaker_gif.gif" width="70%" height="70%" />
 
 
 ## 생성형 언어 모델
