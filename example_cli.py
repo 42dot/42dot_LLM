@@ -1,7 +1,7 @@
 # coding=utf-8
 # Copyright 2023 42dot Inc.
 #
-# @author: sang.park@42dot.ai
+# @author   sang.park@42dot.ai
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -76,7 +76,6 @@ class RichChatIO:
                 if not outputs:
                     continue
                 text = outputs["text"]
-                # print(text)
                 # Render the accumulated text as Markdown
                 # NOTE: this is a workaround for the rendering "unstandard markdown"
                 #  in rich. The chatbots output treat "\n" as a new line for
@@ -163,10 +162,10 @@ def chat_loop(
 
         # Remove oldest conversation if the prompt size exceeds the limit.
         while True:
-            prompt = (f'{system_prompt} '
+            prompt = (f'{system_prompt}'
                       f'{"".join(conv)}'
                       f'<human>: {inputs} <bot>:')
-            if len(tokenizer.encode(prompt)) < 2048 - 512:
+            if len(tokenizer.encode(prompt)) < 2048 - max_new_tokens:
                 break
             conv.pop(0)
 
@@ -198,6 +197,7 @@ def chat_loop(
                     "total_tokens": prompt_tokens + completion_tokens,
                 },
                 "finish_reason": finish_reason,
+                "device": device,
                 "speed (token/s)": round(completion_tokens / (time.time() - t), 2),
             }
             print_json(json.dumps(msg))
@@ -205,7 +205,8 @@ def chat_loop(
 
 def main(
         # TODO: 아래는 오픈 직전에 허깅페이스 주소로 변경해야 합니다.
-        model='/6917396/models/v0.1.3_enko_1.3b_free_3ep_yk',
+        # model='/6917396/models/v0.1.3_enko_1.3b_free_3ep_yk',
+        model='/Users/H6917396/workspace/gitlab.42dot.ai/hyperai/ChatBaker/model',
         temperature=0.5,
         repetition_penalty=1.2,
         top_p=0.95,

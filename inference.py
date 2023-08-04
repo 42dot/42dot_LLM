@@ -1,7 +1,7 @@
 # coding=utf-8
 # Copyright 2023 42dot Inc.
 #
-# @author: sang.park@42dot.ai
+# @author   sang.park@42dot.ai
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -102,7 +102,7 @@ def generate_stream(
         else:
             all_output_ids = None
 
-        # Transformer's LogitsProcessor using the next token's logit.
+        # Transformer's LogitsProcessor using the last token's logit.
         last_token_logits = logits_processor(all_output_ids, logits[:, -1, :])[0]
 
         if temperature < 1e-5 or top_p < 1e-8:  # Greedy for very small option value.
