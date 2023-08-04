@@ -52,7 +52,6 @@ We evaluate ChatBaker-PLM on a variety of academic benchmarks both on Korean and
 |hellaswag     |0.404      |0.401           |0.374    |0.321      |**0.438**                   |
 |sentineg      |0.606      |0.679           |0.46     |0.382      |**0.74**                   |
 |wic           |0.328      |0.328           |0.328    |0.328      |0.328                   |
-| | | | | | |
 |**average**       |0.469      |0.497           |0.456    |0.376      |**0.526**                   |
 
 <figure align="center">
@@ -86,7 +85,6 @@ We evaluate ChatBaker-PLM on a variety of academic benchmarks both on Korean and
 | truthfulqa_mc/mc2      | 0.387  | 0.386    | 0.373     | **0.428**       | 0.392                    |
 | wic/acc                | 0.498  | **0.509**    | 0.503     | 0.5         | 0.502                    |
 | winogrande/acc         | 0.574  | **0.595**    | 0.55      | 0.519       | 0.579                    |
-| | | | | | |
 | **avearge**                | 0.479  | 0.482    | 0.452     | 0.429       | **0.485**                    |
 
 <figure align="center">

@@ -16,6 +16,7 @@
   - [한계점](#한계점)
   - [라이센스](#라이센스)
   - [유의사항](#유의사항)
+  - [Citation](#citation)
 
 
 <img src="asset/42dot.png" width="25%" height="25%" /><img src="asset/tagline.png" width="25%" height="25%" /><img src="asset/asterisk.png" width="10%" height="10%" />
@@ -100,7 +101,7 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 
 ## 사전 학습 모델 (PLM)
 ### 아키텍쳐
-Transformer decoder 기반의 [LLaMA](https://arxiv.org/abs/2302.13971) 아키텍쳐를 사용했고, 모델 하이퍼파라미터는 아래와 같습니다.
+ChatBaker-PLM 은 [LLaMA 2](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/) 와 유사한 Transformer decoder 아키텍쳐를 사용했고, 모델 하이퍼파라미터는 아래와 같습니다.
 
 | Params | Layers | Attention heads | Hidden size | FFN size |
 | -- | -- | -- | -- | -- |
@@ -147,15 +148,14 @@ ChatBaker-PLM 1.3B 및 비슷한 파라미터 크기의 타 PLM과의 성능을 
   - [KoBEST](https://huggingface.co/datasets/skt/kobest_v1) 의 모든 하위 task (BoolQ, COPA, HellaSwag, SentiNeg, WiC)
 - 지표: Macro-F1
 
-|Tasks / Metric|KoGPT2 <br>1.2B|Polygolt-ko <br>1.3B|ChatBaker-PLM <br>1.3B ko|XGLM <br>1.7B|PolyLM <br>1.7B|ChatBaker-PLM <br>1.3B ko-en|
-|--------------|-----------|----------------|---------------------|---------|-----------|------------------------|
-|boolq         |0.337      |0.355           |**0.588**                |0.502    |0.334      |0.424                   |
-|copa          |0.67       |0.721           |**0.746**                |0.616    |0.513      |0.698                   |
-|hellaswag     |0.404      |0.401           |**0.458**                |0.374    |0.321      |0.438                   |
-|sentineg      |0.606      |0.679           |0.562                |0.46     |0.382      |**0.74**                   |
-|wic           |0.328      |0.328           |**0.364**                |0.328    |0.328      |0.328                   |
-| | | | | | | |
-|**average**       |0.469      |0.497           |**0.544**                |0.456    |0.376      |0.526                   |
+|Tasks / Macro-F1|[KoGPT2](https://github.com/SKT-AI/KoGPT2) <br>1.2B|[Polyglot-Ko](https://github.com/EleutherAI/polyglot) <br>1.3B|[XGLM](https://huggingface.co/facebook/xglm-1.7B) <br>1.7B|[PolyLM](https://huggingface.co/DAMO-NLP-MT/polylm-1.7b) <br>1.7B|ChatBaker-PLM <br>1.3B ko-en|
+|--------------|-----------|----------------|---------|-----------|------------------------|
+|boolq         |0.337      |0.355           |**0.502**    |0.334      |0.424                   |
+|copa          |0.67       |**0.721**           |0.616    |0.513      |0.698                   |
+|hellaswag     |0.404      |0.401           |0.374    |0.321      |**0.438**                   |
+|sentineg      |0.606      |0.679           |0.46     |0.382      |**0.74**                   |
+|wic           |0.328      |0.328           |0.328    |0.328      |0.328                   |
+|**average**       |0.469      |0.497           |0.456    |0.376      |**0.526**                   |
 
 <figure align="center">
 <img src="asset/plm_benchmark_ko.png" width="90%" height="90%"/>
@@ -196,7 +196,6 @@ ChatBaker-PLM 1.3B 및 비슷한 파라미터 크기의 타 PLM과의 성능을 
 | truthfulqa_mc/mc2      | 0.387  | 0.386    | 0.373     | **0.428**       | 0.392                    |
 | wic/acc                | 0.498  | **0.509**    | 0.503     | 0.5         | 0.502                    |
 | winogrande/acc         | 0.574  | **0.595**    | 0.55      | 0.519       | 0.579                    |
-| | | | | | |
 | **avearge**                | 0.479  | 0.482    | 0.452     | 0.429       | **0.485**                    |
 
 <figure align="center">
