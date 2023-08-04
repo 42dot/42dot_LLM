@@ -100,14 +100,12 @@ Transformer decoder 기반의 [LLaMA](https://arxiv.org/abs/2302.13971) 아키�
 | Params | Layers | Attention heads | Hidden size | FFN size |
 | -- | -- | -- | -- | -- |
 | 1.3B | 24 | 32 | 2,048 | 5,632 |
-| 7B | 32 | 32 | 4,096 | 11,008 |
 
 학습 세팅은 아래와 같습니다.
 
 | Params | Global batch size\* | Initial learning rate | Train iter.\* | Max length\* | Weight decay |
 | -- | -- | -- | -- | -- | -- |
 | 1.3B | 4.0M | 4E-4 | 1.0T | 2K | 0.1 |
-| 7B | 4.0M | 3E-4 | 1.5T | 2K | 0.1 |
 
 (\* 단위: tokens)
 
@@ -115,9 +113,9 @@ Transformer decoder 기반의 [LLaMA](https://arxiv.org/abs/2302.13971) 아키�
 
 Pretraining 은 NVIDIA A100 80G 256장을 이용해 진행했으며, 학습에 소요된 시간은 아래와 같습니다.
 
-| Model | ko / ko-en 1.3B | ko-en 7B |
-| -- | -- | -- |
-| Training time (approx.) | 6 days | 25 days |
+| Model | ChatBaker-PLM |
+| -- | -- |
+| Training time (approx.) | 6 days |
 
 
 ### 학습 데이터셋
