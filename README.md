@@ -94,8 +94,8 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 </figure>
 
 <figure align="center">
-<img src="asset/En-Score.png" width="90%" height="90%"/>
-<figcaption><b>영어 평가 데이터셋에 대한 6개 지표의 총합</b></figcaption>
+<img src="asset/ChatBaker-vs.png" width="90%" height="90%"/>
+<figcaption><b>여기수정해주세요</b></figcaption>
 </figure>
 
 ## 사전 학습 모델 (PLM)
