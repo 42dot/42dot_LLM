@@ -24,16 +24,11 @@
 
 **챗베이커** (**ChatBaker**)는 [**42dot**](https://42dot.ai/)에서 자체 개발한 생성형 언어 모델로, 다음의 특징을 가지고 있습니다.
 - 대한민국 기관 최초의 **한영통합 거대 언어 모델 (=ChatBaker-PLM)** [more](#사전-학습-모델-plm)
-  - 한영통합 1.3B, 7B (+ 한국어 1.3B) 
 - 한영통합 ChatBaker-PLM 기반의 **생성형 언어 모델 (=ChatBaker)** [more](#생성형-언어-모델)
-  - 한영통합 1.3B
 - 직접 구축한 (수집, 정제) 데이터, 자체 학습 인프라 사용
 
-뿐만아니라, [[🤗한영통합 ChatBaker-PLM 1.3B](허깅페이스 모델 페이지 링크)]을 공개했고, [[온라인 데모](#온라인-데모)]를 통해 ChatBaker를 직접 사용해 볼 수 있습니다.
+뿐만아니라, [🤗한영통합 ChatBaker-PLM 1.3B](허깅페이스 모델 페이지 링크)]와 [🤗한영통합 ChatBaker 1.3B](허깅페이스 모델 페이지 링크)]를 공개했습니다.
 
-### 온라인 데모
-'한영통합 ChatBaker-PLM 7B'에 SFT (Supervised Fine-Tuning)로 학습한 [**ChatBaker**를 경험해보세요!](demolink)
-- 주) ChatGPT, GPT-4, Bard 같은 서비스와 다르게 ChatBaker는 모델 단독으로만 동작합니다.
 
 <figure align="center">
 <img src="asset/chatbaker_gif.gif" width="80%" height="80%" />
@@ -41,17 +36,17 @@
 
 
 ## 생성형 언어 모델
-ChatBaker는 [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna/)의 베이스 코드인 [FastChat](https://github.com/lm-sys/FastChat)을 사용했고, 파라미터는 아래와 같습니다.
+ChatBaker는 ChatBaker-PLM에 SFT (Supervised Fine-Tuning)를 수행한 모델로, 학습을 위한 파라미터는 아래와 같습니다.
 
 | Model | Global Batch Size | Learning rate | Epochs | Max length | Weight decay | Warmup ratio |
 | -- | -- | -- | -- | -- | -- | -- |
-| ChatBaker | 16 | 2e-5 | 3/6/9 | 2,048 | 0 | 0.03 |
+| ChatBaker | 16 | 2e-5 | 3 | 2,048 | 0 | 0.03 |
 
 A100 80G GPU 8장을 학습에 사용했습니다.
 
-| Model | ChatBaker-1.3B-kr | ChatBaker-1.3B-kr-en | ChatBaker-7B-kr-en |
-| -- | -- | -- | -- |
-| Training time | 9 hours | 20 hours | 48 hours |
+| Model | ChatBaker |
+| -- | -- |
+| Training time | 20 hours |
 
 ### 학습 데이터셋
 
@@ -60,15 +55,15 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 
 ### 평가
 - 비교대상:
-  - Polyglot-Ko-1.3B-SFT: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 ChatBaker와 동일한 데이터 및 세팅으로 학습한 모델
+<!--  - Polyglot-Ko-1.3B-SFT: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 ChatBaker와 동일한 데이터 및 세팅으로 학습한 모델 -->
   - [ChatGPT](https://chat.openai.com/): OpenAI가 공개한 생성형 언어 모델 서비스 (GPT-3.5 및 GPT-4)
   - [Bard](https://bard.google.com/): Google이 공개한 생성형 언어 모델 서비스
   - [Vicuna-7b-v1.3](https://huggingface.co/lmsys/vicuna-7b-v1.3): LLaMA 7B 모델에 ShareGPT 70k 데이터셋으로 SFT를 수행한 오픈소스 모델
 - [평가 데이터셋](asset/benchmark_set_v2.csv):
   - 10가지의 Category에서 총 121개의 Task로 구성했습니다.
-  - 영어 평가의 경우 한국어 데이터셋을 번역해 사용했습니다.
+  - 영어 평가의 경우 한국어 데이터셋을 DeepL로 번역해 사용했습니다.
 - 평가 방법:
-  - 비교군의 모델 및 서비스에 평가 데이터셋의 질문으로 요청후 질문과 결과값을 GPT-4로 평가를 진행합니다.
+  - 각각의 비교대상에 평가 데이터셋의 질문을 입력으로 응답을 받고, 해당 질문과 응답을 입력으로 GPT-4를 이용해 평가했습니다. 평가에 사용한 프롬프트는 아래와 같습니다.
   ```yaml
   ## prompt
 
@@ -90,12 +85,12 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 
 <figure align="center">
 <img src="asset/Ko-Score.png" width="90%" height="90%"/>
-<figcaption><b>한국어 평가 데이터셋에 대한 6개 지표의 총합</b></figcaption>
+<figcaption><b>한국어 평가 데이터셋에 대한 응답 품질 평가</b></figcaption>
 </figure>
 
 <figure align="center">
 <img src="asset/ChatBaker-vs.png" width="90%" height="90%"/>
-<figcaption><b>여기수정해주세요</b></figcaption>
+<figcaption><b>상용 서비스와 한영통합 ChatBaker의 응답 비교</b></figcaption>
 </figure>
 
 ## 사전 학습 모델 (PLM)
@@ -159,7 +154,7 @@ ChatBaker-PLM 1.3B 및 비슷한 파라미터 크기의 타 PLM과의 성능을 
 
 <figure align="center">
 <img src="asset/plm_benchmark_ko.png" width="90%" height="90%"/>
-<figcaption><b>ChatBaker-PLM의 한국어 성능</b></figcaption>
+<figcaption><b>ChatBaker-PLM의 한국어 BMT 결과</b></figcaption>
 </figure>
 
 
@@ -208,7 +203,8 @@ ChatBaker-PLM 1.3B 및 비슷한 파라미터 크기의 타 PLM과의 성능을 
 ### 모델 공개
 
 - 🤗[한영통합 ChatBaker-PLM 1.3B](허깅페이스 링크)
-- 한영통합 ChatBaker-PLM 7B (공개예정)
+- 🤗[한영통합 ChatBaker 1.3B](허깅페이스 링크)
+- 한영통합 ChatBaker-PLM 1.3B < (공개예정)
 
 
 ## 한계점
