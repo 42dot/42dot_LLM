@@ -1,6 +1,5 @@
 ## 목차
 - [챗베이커 (ChatBaker)](#챗베이커-chatbaker)
-    - [온라인 데모](#온라인-데모)
   - [생성형 언어 모델](#생성형-언어-모델)
     - [학습 데이터셋](#학습-데이터셋)
     - [평가](#평가)
@@ -13,9 +12,11 @@
       - [한국어](#한국어)
       - [영어](#영어)
     - [모델 공개](#모델-공개)
+  - [사용법](#사용법)
   - [한계점](#한계점)
   - [라이센스](#라이센스)
   - [유의사항](#유의사항)
+  - [Citation](#citation)
 
 
 <img src="asset/42dot.png" width="25%" height="25%" /><img src="asset/tagline.png" width="25%" height="25%" /><img src="asset/asterisk.png" width="10%" height="10%" />
@@ -31,7 +32,7 @@
 
 
 <figure align="center">
-<img src="asset/chatbaker_gif.gif" width="80%" height="80%" />
+<img src="asset/ChatBaker.gif" width="80%" height="80%" />
 </figure>
 
 
@@ -204,6 +205,56 @@ ChatBaker-PLM 1.3B 및 비슷한 파라미터 크기의 타 PLM과의 성능을 
 - 🤗[한영통합 ChatBaker 1.3B](허깅페이스 링크)
 - 한영통합 ChatBaker-PLM 1.3B < (공개예정)
 
+## 사용법
+본 리포지토리에는 간단한 생성 코드를 함께 제공하며, 직접 모델을 구동해보실 수 있습니다.
+
+```bash
+$ python example_cli.py
+============================================================
+                    ChatBaker by 42dot 🚗
+============================================================
+Loading ChatBaker model ...
+16.0s elapsed.
+
+<human>:
+...
+```
+
+생성과 관련한 여러 옵션을 지원하며 `--help`로 도움말을 확인할 수 있습니다.
+
+```bash
+$ python example_cli.py --help
+```
+
+기본적으로 GPU에서 구동되도록 설정되어 있으며, GPU가 없는 장비에서는 다음 옵션을 이용해 CPU로도 구동이 가능합니다. M1 맥북 프로에서는 CPU 옵션으로 로컬 구동이 가능하며, 로컬 구동시 약 4GB정도의 여유 메모리가 필요합니다.
+
+```bash
+$ python example_cli.py --device=cpu
+```
+
+디버그 모드에서는 토큰 수와 프롬프트, 생성 속도 등을 확인하실 수 있습니다.
+```bash
+$ python example_cli.py --device=cpu --debug
+...
+<human>:
+안녕하세요?
+
+<bot>:
+안녕하세요! 어떤 도움이 필요하신가요?
+
+{
+  "prompt": "호기심 많은 인간 (human)과 인공지능 봇 (AI bot)의 대화입니다. 봇의 이름은 챗베이커 (ChatBaker)이고 포티투닷 (42dot)에서 개발했습니다. 봇은 인간의 질문에 대해 친절하게 유용하고 상세한 답변을 제공합니다. <human>: 안녕하세요? <bot>:",
+  "outputs": " 안녕하세요! 어떤 도움이 필요하신가요?",
+  "usage": {
+    "prompt_tokens": 70,
+    "completion_tokens": 9,
+    "total_tokens": 79
+  },
+  "finish_reason": "endoftext",
+  "device": "cpu",
+  "speed (token/s)": 2.73
+}
+```
 
 ## 한계점
 다른 LLM과 마찬가지로 ChatBaker도 여러 한계를 가지고 있습니다. ChatBaker를 활용할 때 이러한 한계점들을 감안하기 바랍니다.
