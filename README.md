@@ -36,7 +36,7 @@
 
 
 ## 생성형 언어 모델
-ChatBaker는 ChatBaker-PLM에 SFT (Supervised Fine-Tuning)를 수행한 모델로, 학습을 위한 파라미터는 아래와 같습니다.
+ChatBaker는 ChatBaker-PLM 1.3B에 SFT (Supervised Fine-Tuning)를 수행한 모델로, 학습을 위한 파라미터는 아래와 같습니다.
 
 | Model | Global Batch Size | Learning rate | Epochs | Max length | Weight decay | Warmup ratio |
 | -- | -- | -- | -- | -- | -- | -- |
