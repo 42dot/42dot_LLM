@@ -1,3 +1,4 @@
+<!--
 ## 목차
 - [챗베이커 (ChatBaker)](#챗베이커-chatbaker)
   - [생성형 언어 모델](#생성형-언어-모델)
@@ -17,15 +18,15 @@
   - [라이센스](#라이센스)
   - [유의사항](#유의사항)
   - [Citation](#citation)
-
+-->
 
 <img src="asset/42dot.png" width="25%" height="25%" /><img src="asset/tagline.png" width="25%" height="25%" /><img src="asset/asterisk.png" width="10%" height="10%" />
 
 # 챗베이커 (ChatBaker)
 
 **챗베이커** (**ChatBaker**)는 [**42dot**](https://42dot.ai/)에서 자체 개발한 생성형 언어 모델로, 다음의 특징을 가지고 있습니다.
-- 대한민국 기관 최초의 **한영통합 거대 언어 모델 (=ChatBaker-PLM)** [more](#사전-학습-모델-plm)
-- 한영통합 ChatBaker-PLM 기반의 **생성형 언어 모델 (=ChatBaker)** [more](#생성형-언어-모델)
+- 대한민국 기관 최초의 **한영통합 언어 모델 (=ChatBaker-PLM)** 공개 [more](#사전-학습-모델-plm)
+- 한영통합 ChatBaker-PLM 기반의 **생성형 언어 모델 (=ChatBaker)** 공개 [more](#생성형-언어-모델)
 - 직접 구축한 (수집, 정제) 데이터, 자체 학습 인프라 사용
 
 뿐만아니라, [🤗ChatBaker-PLM 1.3B](허깅페이스 모델 페이지 링크)]와 [🤗ChatBaker 1.3B](허깅페이스 모델 페이지 링크)]를 공개했습니다.
@@ -56,10 +57,10 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 
 ### 평가
 - 비교대상:
-<!--  - Polyglot-Ko-1.3B-SFT: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 ChatBaker와 동일한 데이터 및 세팅으로 학습한 모델 -->
   - [ChatGPT](https://chat.openai.com/): OpenAI가 공개한 생성형 언어 모델 서비스 (GPT-3.5 및 GPT-4)
   - [Bard](https://bard.google.com/): Google이 공개한 생성형 언어 모델 서비스
   - [Vicuna-7b-v1.3](https://huggingface.co/lmsys/vicuna-7b-v1.3): LLaMA 7B 모델에 ShareGPT 70k 데이터셋으로 SFT를 수행한 오픈소스 모델
+  <!--  - Polyglot-Ko-1.3B-SFT: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 ChatBaker와 동일한 데이터 및 세팅으로 학습한 모델 -->
 - [평가 데이터셋](asset/benchmark_set_v2.csv):
   - 10가지의 Category에서 총 121개의 Task로 구성했습니다.
   - 영어 평가의 경우 한국어 데이터셋을 DeepL로 번역해 사용했습니다.
@@ -85,12 +86,12 @@ A100 80G GPU 8장을 학습에 사용했습니다.
   ```
 
 <figure align="center">
-<img src="asset/Ko-Score.png" width="90%" height="90%"/>
+<img src="asset/Ko-Score.png" width="80%" height="80%"/>
 <figcaption><b>한국어 평가 데이터셋에 대한 응답 품질 평가</b></figcaption>
 </figure>
 
 <figure align="center">
-<img src="asset/ChatBaker-vs.png" width="90%" height="90%"/>
+<img src="asset/ChatBaker-vs.png" width="70%" height="70%"/>
 <figcaption><b>상용 서비스와 ChatBaker의 응답 비교</b></figcaption>
 </figure>
 
