@@ -271,11 +271,11 @@ $ python example_cli.py --device=cpu --debug
 
 ## 라이센스
 - 데이터: ChatBaker 학습에 ShareGPT를 포함한 ChatGPT의 데이터를 일부 사용했습니다. 해당 데이터에 대해서는 OpenAI에 의해 생성된 데이터의 [약관](https://openai.com/policies/terms-of-use)과 ShareGPT의 [Privacy Practices](https://chrome.google.com/webstore/detail/sharegpt-share-your-chatg/daiacboceoaocpibfodeljbdfacokfjb)를 따릅니다.
-- 모델&데모: [공개한 모델](#모델-공개)과 온라인 데모 (한영통합 ChatBaker 7B)는 42dot의 R&D 결과물로서, [Apache License 2.0](https://gitlab.42dot.ai/NLP/hyperai/ChatBaker/-/blob/615e0f8e04183a7ae3870b6815380ef673dd33f3/LICENSE)를 따릅니다.
+- 모델: [공개한 모델](#모델-공개)은 42dot의 R&D 결과물로서, [Apache License 2.0](https://gitlab.42dot.ai/NLP/hyperai/ChatBaker/-/blob/615e0f8e04183a7ae3870b6815380ef673dd33f3/LICENSE)를 따릅니다.
 
 
 ## 유의사항
-본 페이지를 통해 공개하는 모델 (ChatBaker, ChatBaker-PLM) 및 온라인 데모를 통해 생성한 응답은 42dot의 입장과 무관하며, 42dot은 응답 내용 및 이로인해 발생하는 문제에 대해 책임지지 않습니다.
+본 페이지를 통해 공개하는 모델 (ChatBaker, ChatBaker-PLM)을 통해 생성한 응답은 42dot의 입장과 무관하며, 42dot은 응답 내용 및 이로인해 발생하는 문제에 대해 책임지지 않습니다.
 
 ## Citation
 
