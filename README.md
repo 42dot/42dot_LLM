@@ -142,6 +142,11 @@ ChatBaker-PLM 1.3B 및 비슷한 파라미터 크기의 타 PLM과의 성능을 
   - [KoBEST](https://huggingface.co/datasets/skt/kobest_v1) 의 모든 하위 task (BoolQ, COPA, HellaSwag, SentiNeg, WiC)
 - 지표: Macro-F1
 
+<figure align="center">
+<img src="asset/plm_benchmark_ko.png" width="90%" height="90%"/>
+<figcaption><b>ChatBaker-PLM의 한국어 성능</b></figcaption>
+</figure>
+
 |Tasks / Macro-F1|[KoGPT2](https://github.com/SKT-AI/KoGPT2) <br>1.2B|[Polyglot-Ko](https://github.com/EleutherAI/polyglot) <br>1.3B|[XGLM](https://huggingface.co/facebook/xglm-1.7B) <br>1.7B|[PolyLM](https://huggingface.co/DAMO-NLP-MT/polylm-1.7b) <br>1.7B|ChatBaker-PLM <br>1.3B ko-en|
 |--------------|-----------|----------------|---------|-----------|------------------------|
 |boolq         |0.337      |0.355           |**0.502**    |0.334      |0.424                   |
@@ -150,12 +155,6 @@ ChatBaker-PLM 1.3B 및 비슷한 파라미터 크기의 타 PLM과의 성능을 
 |sentineg      |0.606      |0.679           |0.46     |0.382      |**0.74**                   |
 |wic           |0.328      |0.328           |0.328    |0.328      |0.328                   |
 |**average**       |0.469      |0.497           |0.456    |0.376      |**0.526**                   |
-
-<figure align="center">
-<img src="asset/plm_benchmark_ko.png" width="90%" height="90%"/>
-<figcaption><b>ChatBaker-PLM의 한국어 BMT 결과</b></figcaption>
-</figure>
-
 
 #### 영어
 - 비교대상:
@@ -166,6 +165,11 @@ ChatBaker-PLM 1.3B 및 비슷한 파라미터 크기의 타 PLM과의 성능을 
 - 평가 데이터셋: 영어 Benchmarks 14종
     - anli, arc, boolq, hellaswag, openbookqa, piqa, record, rte, truthfulqa_mc, wic, winogrande
 - 지표: 각 task 별 지표 (acc, acc_norm, f1, em)
+
+<figure align="center">
+<img src="asset/plm_benchmark_en.png" width="90%" height="90%"/>
+<figcaption><b>ChatBaker-PLM의 영어 성능</b></figcaption>
+</figure>
 
 | Tasks / Metric         | MPT <br>1B | OPT <br>1.3B | XGLM <br>1.7B | PolyLM <br>1.7B | ChatBaker-PLM <br>1.3B ko-en |
 | ---------------------- | ------ | -------- | --------- | ----------- | ------------------------ |
@@ -191,11 +195,6 @@ ChatBaker-PLM 1.3B 및 비슷한 파라미터 크기의 타 PLM과의 성능을 
 | wic/acc                | 0.498  | **0.509**    | 0.503     | 0.5         | 0.502                    |
 | winogrande/acc         | 0.574  | **0.595**    | 0.55      | 0.519       | 0.579                    |
 | **avearge**                | 0.479  | 0.482    | 0.452     | 0.429       | **0.485**                    |
-
-<figure align="center">
-<img src="asset/plm_benchmark_en.png" width="90%" height="90%"/>
-<figcaption><b>ChatBaker-PLM의 영어 성능</b></figcaption>
-</figure>
 
 
 ### 모델 공개
