@@ -1,6 +1,6 @@
+<!--
 ## 목차
 - [챗베이커 (ChatBaker)](#챗베이커-chatbaker)
-    - [온라인 데모](#온라인-데모)
   - [생성형 언어 모델](#생성형-언어-모델)
     - [학습 데이터셋](#학습-데이터셋)
     - [평가](#평가)
@@ -13,46 +13,42 @@
       - [한국어](#한국어)
       - [영어](#영어)
     - [모델 공개](#모델-공개)
+  - [사용법](#사용법)
   - [한계점](#한계점)
   - [라이센스](#라이센스)
   - [유의사항](#유의사항)
   - [Citation](#citation)
-
+-->
 
 <img src="asset/42dot.png" width="25%" height="25%" /><img src="asset/tagline.png" width="25%" height="25%" /><img src="asset/asterisk.png" width="10%" height="10%" />
 
 # 챗베이커 (ChatBaker)
 
 **챗베이커** (**ChatBaker**)는 [**42dot**](https://42dot.ai/)에서 자체 개발한 생성형 언어 모델로, 다음의 특징을 가지고 있습니다.
-- 대한민국 기관 최초의 **한영통합 거대 언어 모델 (=ChatBaker-PLM)** [more](#사전-학습-모델-plm)
-  - 한영통합 1.3B, 7B (+ 한국어 1.3B) 
-- 한영통합 ChatBaker-PLM 기반의 **생성형 언어 모델 (=ChatBaker)** [more](#생성형-언어-모델)
-  - 한영통합 1.3B
+- 대한민국 기관 최초의 **한영통합 언어 모델 (=ChatBaker-PLM)** 공개 [more](#사전-학습-모델-plm)
+- 한영통합 ChatBaker-PLM 기반의 **생성형 언어 모델 (=ChatBaker)** 공개 [more](#생성형-언어-모델)
 - 직접 구축한 (수집, 정제) 데이터, 자체 학습 인프라 사용
 
-뿐만아니라, [[🤗한영통합 ChatBaker-PLM 1.3B](허깅페이스 모델 페이지 링크)]을 공개했고, [[온라인 데모](#온라인-데모)]를 통해 ChatBaker를 직접 사용해 볼 수 있습니다.
+뿐만아니라, [🤗ChatBaker-PLM 1.3B](허깅페이스 모델 페이지 링크)]와 [🤗ChatBaker 1.3B](허깅페이스 모델 페이지 링크)]를 공개했습니다.
 
-### 온라인 데모
-'한영통합 ChatBaker-PLM 7B'에 SFT (Supervised Fine-Tuning)로 학습한 [**ChatBaker**를 경험해보세요!](demolink)
-- 주) ChatGPT, GPT-4, Bard 같은 서비스와 다르게 ChatBaker는 모델 단독으로만 동작합니다.
 
 <figure align="center">
-<img src="asset/chatbaker_gif.gif" width="80%" height="80%" />
+<img src="asset/ChatBaker.gif" width="80%" height="80%" />
 </figure>
 
 
 ## 생성형 언어 모델
-ChatBaker는 [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna/)의 베이스 코드인 [FastChat](https://github.com/lm-sys/FastChat)을 사용했고, 파라미터는 아래와 같습니다.
+ChatBaker는 ChatBaker-PLM 1.3B에 SFT (Supervised Fine-Tuning)를 수행한 모델로, 학습을 위한 파라미터는 아래와 같습니다.
 
 | Model | Global Batch Size | Learning rate | Epochs | Max length | Weight decay | Warmup ratio |
 | -- | -- | -- | -- | -- | -- | -- |
-| ChatBaker | 16 | 2e-5 | 3/6/9 | 2,048 | 0 | 0.03 |
+| ChatBaker | 16 | 2e-5 | 3 | 2,048 | 0 | 0.03 |
 
 A100 80G GPU 8장을 학습에 사용했습니다.
 
-| Model | ChatBaker-1.3B-kr | ChatBaker-1.3B-kr-en | ChatBaker-7B-kr-en |
-| -- | -- | -- | -- |
-| Training time | 9 hours | 20 hours | 48 hours |
+| Model | ChatBaker |
+| -- | -- |
+| Training time | 20 hours |
 
 ### 학습 데이터셋
 
@@ -61,15 +57,15 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 
 ### 평가
 - 비교대상:
-  - Polyglot-Ko-1.3B-SFT: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 ChatBaker와 동일한 데이터 및 세팅으로 학습한 모델
   - [ChatGPT](https://chat.openai.com/): OpenAI가 공개한 생성형 언어 모델 서비스 (GPT-3.5 및 GPT-4)
   - [Bard](https://bard.google.com/): Google이 공개한 생성형 언어 모델 서비스
   - [Vicuna-7b-v1.3](https://huggingface.co/lmsys/vicuna-7b-v1.3): LLaMA 7B 모델에 ShareGPT 70k 데이터셋으로 SFT를 수행한 오픈소스 모델
+  <!--  - Polyglot-Ko-1.3B-SFT: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 ChatBaker와 동일한 데이터 및 세팅으로 학습한 모델 -->
 - [평가 데이터셋](asset/benchmark_set_v2.csv):
   - 10가지의 Category에서 총 121개의 Task로 구성했습니다.
-  - 영어 평가의 경우 한국어 데이터셋을 번역해 사용했습니다.
+  - 영어 평가의 경우 한국어 데이터셋을 DeepL로 번역해 사용했습니다.
 - 평가 방법:
-  - 비교군의 모델 및 서비스에 평가 데이터셋의 질문으로 요청후 질문과 결과값을 GPT-4로 평가를 진행합니다.
+  - 각각의 비교대상에 평가 데이터셋의 질문을 입력으로 응답을 받고, 해당 질문과 응답을 입력으로 GPT-4를 이용해 평가했습니다. 평가에 사용한 프롬프트는 아래와 같습니다.
   ```yaml
   ## prompt
 
@@ -90,13 +86,13 @@ A100 80G GPU 8장을 학습에 사용했습니다.
   ```
 
 <figure align="center">
-<img src="asset/Ko-Score.png" width="90%" height="90%"/>
-<figcaption><b>한국어 평가 데이터셋에 대한 6개 지표의 총합</b></figcaption>
+<img src="asset/Ko-Score.png" width="80%" height="80%"/>
+<figcaption><b>한국어 평가 데이터셋에 대한 응답 품질 평가</b></figcaption>
 </figure>
 
 <figure align="center">
-<img src="asset/En-Score.png" width="90%" height="90%"/>
-<figcaption><b>영어 평가 데이터셋에 대한 6개 지표의 총합</b></figcaption>
+<img src="asset/ChatBaker-vs.png" width="70%" height="70%"/>
+<figcaption><b>상용 서비스와 ChatBaker의 응답 비교</b></figcaption>
 </figure>
 
 ## 사전 학습 모델 (PLM)
@@ -106,14 +102,12 @@ ChatBaker-PLM 은 [LLaMA 2](https://ai.meta.com/research/publications/llama-2-op
 | Params | Layers | Attention heads | Hidden size | FFN size |
 | -- | -- | -- | -- | -- |
 | 1.3B | 24 | 32 | 2,048 | 5,632 |
-| 7B | 32 | 32 | 4,096 | 11,008 |
 
 학습 세팅은 아래와 같습니다.
 
 | Params | Global batch size\* | Initial learning rate | Train iter.\* | Max length\* | Weight decay |
 | -- | -- | -- | -- | -- | -- |
 | 1.3B | 4.0M | 4E-4 | 1.0T | 2K | 0.1 |
-| 7B | 4.0M | 3E-4 | 1.5T | 2K | 0.1 |
 
 (\* 단위: tokens)
 
@@ -121,9 +115,9 @@ ChatBaker-PLM 은 [LLaMA 2](https://ai.meta.com/research/publications/llama-2-op
 
 Pretraining 은 NVIDIA A100 80G 256장을 이용해 진행했으며, 학습에 소요된 시간은 아래와 같습니다.
 
-| Model | ko / ko-en 1.3B | ko-en 7B |
-| -- | -- | -- |
-| Training time (approx.) | 6 days | 25 days |
+| Model | ChatBaker-PLM |
+| -- | -- |
+| Training time (approx.) | 6 days |
 
 
 ### 학습 데이터셋
@@ -159,7 +153,7 @@ ChatBaker-PLM 1.3B 및 비슷한 파라미터 크기의 타 PLM과의 성능을 
 
 <figure align="center">
 <img src="asset/plm_benchmark_ko.png" width="90%" height="90%"/>
-<figcaption><b>ChatBaker-PLM의 한국어 성능</b></figcaption>
+<figcaption><b>ChatBaker-PLM의 한국어 BMT 결과</b></figcaption>
 </figure>
 
 
@@ -207,8 +201,59 @@ ChatBaker-PLM 1.3B 및 비슷한 파라미터 크기의 타 PLM과의 성능을 
 ### 모델 공개
 
 - 🤗[한영통합 ChatBaker-PLM 1.3B](허깅페이스 링크)
-- 한영통합 ChatBaker-PLM 7B (공개예정)
+- 🤗[한영통합 ChatBaker 1.3B](허깅페이스 링크)
+- 한영통합 ChatBaker-PLM 1.3B < (공개예정)
 
+## 사용법
+본 리포지토리에는 간단한 생성 코드를 함께 제공하며, 직접 모델을 구동해보실 수 있습니다.
+
+```bash
+$ python example_cli.py
+============================================================
+                    ChatBaker by 42dot 🚗
+============================================================
+Loading ChatBaker model ...
+16.0s elapsed.
+
+<human>:
+...
+```
+
+생성과 관련한 여러 옵션을 지원하며 `--help`로 도움말을 확인할 수 있습니다.
+
+```bash
+$ python example_cli.py --help
+```
+
+기본적으로 GPU에서 구동되도록 설정되어 있으며, GPU가 없는 장비에서는 다음 옵션을 이용해 CPU로도 구동이 가능합니다. M1 맥북 프로에서는 CPU 옵션으로 로컬 구동이 가능하며, 로컬 구동시 약 4GB정도의 여유 메모리가 필요합니다.
+
+```bash
+$ python example_cli.py --device=cpu
+```
+
+디버그 모드에서는 토큰 수와 프롬프트, 생성 속도 등을 확인하실 수 있습니다.
+```bash
+$ python example_cli.py --device=cpu --debug
+...
+<human>:
+안녕하세요?
+
+<bot>:
+안녕하세요! 어떤 도움이 필요하신가요?
+
+{
+  "prompt": "호기심 많은 인간 (human)과 인공지능 봇 (AI bot)의 대화입니다. 봇의 이름은 챗베이커 (ChatBaker)이고 포티투닷 (42dot)에서 개발했습니다. 봇은 인간의 질문에 대해 친절하게 유용하고 상세한 답변을 제공합니다. <human>: 안녕하세요? <bot>:",
+  "outputs": " 안녕하세요! 어떤 도움이 필요하신가요?",
+  "usage": {
+    "prompt_tokens": 70,
+    "completion_tokens": 9,
+    "total_tokens": 79
+  },
+  "finish_reason": "endoftext",
+  "device": "cpu",
+  "speed (token/s)": 2.73
+}
+```
 
 ## 한계점
 다른 LLM과 마찬가지로 ChatBaker도 여러 한계를 가지고 있습니다. ChatBaker를 활용할 때 이러한 한계점들을 감안하기 바랍니다.
@@ -224,18 +269,18 @@ ChatBaker-PLM 1.3B 및 비슷한 파라미터 크기의 타 PLM과의 성능을 
 
 ## 라이센스
 - 데이터: ChatBaker 학습에 ShareGPT를 포함한 ChatGPT의 데이터를 일부 사용했습니다. 해당 데이터에 대해서는 OpenAI에 의해 생성된 데이터의 [약관](https://openai.com/policies/terms-of-use)과 ShareGPT의 [Privacy Practices](https://chrome.google.com/webstore/detail/sharegpt-share-your-chatg/daiacboceoaocpibfodeljbdfacokfjb)를 따릅니다.
-- 모델&데모: [공개한 모델](#모델-공개)과 온라인 데모 (한영통합 ChatBaker 7B)는 42dot의 R&D 결과물로서, [Apache License 2.0](https://gitlab.42dot.ai/NLP/hyperai/ChatBaker/-/blob/615e0f8e04183a7ae3870b6815380ef673dd33f3/LICENSE)를 따릅니다.
+- 모델: [공개한 모델](#모델-공개)은 42dot의 R&D 결과물로서, [Apache License 2.0](https://gitlab.42dot.ai/NLP/hyperai/ChatBaker/-/blob/615e0f8e04183a7ae3870b6815380ef673dd33f3/LICENSE)를 따릅니다.
 
 
 ## 유의사항
-본 페이지를 통해 공개하는 모델 (ChatBaker, ChatBaker-PLM) 및 온라인 데모를 통해 생성한 응답은 42dot의 입장과 무관하며, 42dot은 응답 내용 및 이로인해 발생하는 문제에 대해 책임지지 않습니다.
+본 페이지를 통해 공개하는 모델 (ChatBaker, ChatBaker-PLM)을 통해 생성한 응답은 42dot의 입장과 무관하며, 42dot은 응답 내용 및 이로인해 발생하는 문제에 대해 책임지지 않습니다.
 
 ## Citation
 
 ```
 @misc{42dot2023chatbaker,
       title={ChatBaker: Instruction Tuned Large Language Model of 42dot},
-      author={Woo-Jong Ryu and SangKil Park and Jinwoo Park and Sungmin Lee and Yongkeun Hwang},
+      author={Woo-Jong Ryu and Sang-Kil Park and Jinwoo Park and Sungmin Lee and Yongkeun Hwang},
       year={2023},
       url = {https://gitlab.42dot.ai/NLP/hyperai/ChatBaker},
       version = {pre-release},
