@@ -43,14 +43,14 @@
 ChatBaker-PLM은 [LLaMA 2](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/) 와 유사한 Transformer decoder 아키텍쳐를 사용했고, 모델 하이퍼파라미터는 아래와 같습니다.
 
 | Params | Layers | Attention heads | Hidden size | FFN size |
-| -- | -- | -- | -- | -- |
+| :-- | :--: | :--: | :--: | :--: |
 | 1.3B | 24 | 32 | 2,048 | 5,632 |
 
 학습 세팅은 아래와 같습니다.
 
 | Params | Global batch size\* | Initial learning rate | Train iter.\* | Max length\* | Weight decay |
-| -- | -- | -- | -- | -- | -- |
-| 1.3B | 4.0M | 4E-4 | 1.0T | 2K | 0.1 |
+| :-- | :--: | :--: | :--: | :--: | :--: |
+| 1.3B | 4.0M | 4e-4 | 1.0T | 2K | 0.1 |
 
 (\* 단위: tokens)
 
@@ -59,8 +59,8 @@ ChatBaker-PLM은 [LLaMA 2](https://ai.meta.com/research/publications/llama-2-ope
 ChatBaker-PLM의 학습은 A100 80G 256장을 사용했고, 학습에 소요된 시간은 아래와 같습니다.
 
 | Model | ChatBaker-PLM |
-| -- | -- |
-| Training time (approx.) | 6 days |
+| :-- | :--: |
+| Time (approx.) | 6 days |
 
 
 ### 학습 데이터셋
@@ -140,14 +140,14 @@ ChatBaker-PLM 및 비슷한 파라미터 크기의 타 PLM과의 성능을 비�
 ChatBaker-SFT는 ChatBaker-PLM에 SFT (Supervised Fine-Tuning)를 수행한 모델로, 학습을 위한 파라미터는 아래와 같습니다.
 
 | Model | Global Batch Size | Learning rate | Epochs | Max length | Weight decay | Warmup ratio |
-| -- | -- | -- | -- | -- | -- | -- |
+| :-- | :--: | :--: | :--: | :--: | :--: | :--: |
 | ChatBaker-SFT | 16 | 2e-5 | 3 | 2,048 | 0 | 0.03 |
 
 A100 80G GPU 8장을 학습에 사용했습니다.
 
 | Model | ChatBaker-SFT |
-| -- | -- |
-| Training time | 20 hours |
+| :-- | :--: |
+| Time | 20 hours |
 
 ### 학습 데이터셋
 
@@ -163,7 +163,7 @@ A100 80G GPU 8장을 학습에 사용했습니다.
   <!--  - Polyglot-Ko-1.3B-SFT: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 ChatBaker와 동일한 데이터 및 세팅으로 학습한 모델 -->
 
 | Model | GPT-3.5 | GPT-4 | Bard | KORani | ChatBaker |
-| -- | :--: | :--: | :--: | :--: | :--: |
+| :-- | :--: | :--: | :--: | :--: | :--: |
 | Params | 175 B | 1,760 B | 137 B | 13 B | 1.3 B |
 
 - 평가 데이터셋:
