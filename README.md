@@ -191,7 +191,6 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 
 - 🤗[ChatBaker-PLM 1.3B](허깅페이스 링크)
 - 🤗[ChatBaker-SFT 1.3B](허깅페이스 링크)
-- ChatBaker 1.3B < (공개예정)
 
 ---
 
