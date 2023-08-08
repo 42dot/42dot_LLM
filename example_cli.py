@@ -16,13 +16,13 @@
 # limitations under the License.
 
 import json
-import re
+import subprocess
 import time
 
 import fire
+import torch
 from prompt_toolkit import PromptSession
 from prompt_toolkit.auto_suggest import AutoSuggestFromHistory
-from prompt_toolkit.completion import WordCompleter
 from prompt_toolkit.history import InMemoryHistory
 from prompt_toolkit.key_binding import KeyBindings
 from rich import print_json
@@ -43,9 +43,6 @@ class RichChatIO:
 
     def __init__(self, multiline: bool = False, mouse: bool = False):
         self._prompt_session = PromptSession(history=InMemoryHistory())
-        self._completer = WordCompleter(
-            words=["!!exit", "!!reset", "!!save", "!!load"], pattern=re.compile("$")
-        )
         self._console = Console()
         self._multiline = multiline
         self._mouse = mouse
@@ -54,7 +51,6 @@ class RichChatIO:
         self._console.print(f"[bold]{role}:")
 
         prompt_input = self._prompt_session.prompt(
-            completer=self._completer,
             multiline=False,
             mouse_support=self._mouse,
             auto_suggest=AutoSuggestFromHistory(),
@@ -111,7 +107,41 @@ class RichChatIO:
         self._console.print(' ' * 20, end='')
         self._console.print("[bold]ChatBaker by 42dot :car:")
         self._console.print("=" * 60)
-        self._console.print("[bold]Loading ChatBaker model ...")
+
+
+# This code is heavily derived from https://gist.github.com/afspies/7e211b83ca5a8902849b05ded9a10696
+def assign_free_gpus(threshold_vram_usage=7000):
+    """
+    Assigns free gpu to the current process.
+    This function should be called after all imports,
+    Args:
+        threshold_vram_usage (int, optional): A GPU is considered free if the vram usage is below the threshold
+                                              Defaults to 4000 (MiB).
+    """
+
+    def _check():
+        # Get the list of GPUs via nvidia-smi
+        smi_query_result = subprocess.check_output(
+            "nvidia-smi -q -d Memory | grep -A4 GPU", shell=True
+        )
+        # Extract the usage information
+        gpu_info = smi_query_result.decode("utf-8").split("\n")
+        gpu_info = list(filter(lambda info: "Used" in info, gpu_info))
+        gpu_info = [
+            int(x.split(":")[1].replace("MiB", "").strip()) for x in gpu_info
+        ]  # Remove garbage
+        # Keep gpus under threshold only
+        free_gpu = [
+            str(i) for i, mem in enumerate(gpu_info) if mem < threshold_vram_usage
+        ][0]
+        return free_gpu
+
+    if not torch.cuda.is_available():
+        return 'cpu'
+    gpu_to_use = _check()
+    if not gpu_to_use:
+        return 'cpu'
+    return f'cuda:{gpu_to_use}'
 
 
 def chat_loop(
@@ -127,7 +157,16 @@ def chat_loop(
 ):
     chatio.print_banner()
 
+    # Automatic CPU/GPU allocation.
+    if device == 'auto':
+        device = assign_free_gpus()
+        if device.startswith('cuda'):
+            chatio._console.print(f"[yellow]Using [u]GPU:{device[-1]}[/u][/yellow]", end=' / ')
+        else:
+            chatio._console.print("[yellow]Using [u]CPU[/u][/yellow]", end=' / ')
+
     # Load a model.
+    chatio._console.print("[bold]Loading ChatBaker model ...")
     t = time.time()
     model, tokenizer, logits_processor = load_model(
         model,
@@ -205,15 +244,15 @@ def chat_loop(
 
 def main(
         # TODO: 아래는 오픈 직전에 허깅페이스 주소로 변경해야 합니다.
-        # model='/6917396/models/v0.1.3_enko_1.3b_free_3ep_yk',
-        model='/Users/H6917396/workspace/gitlab.42dot.ai/hyperai/ChatBaker/model',
+        model='/6917396/models/v0.1.3_enko_1.3b_free_3ep_yk',
+        # model='/Users/H6917396/workspace/gitlab.42dot.ai/hyperai/ChatBaker/model',
         temperature=0.5,
         repetition_penalty=1.2,
         top_p=0.95,
         top_k=20,
         max_new_tokens=512,
         debug=False,
-        device='cuda',
+        device='auto',
 ):
     try:
         chat_loop(

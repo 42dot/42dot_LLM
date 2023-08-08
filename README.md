@@ -212,8 +212,8 @@ $ python example_cli.py
 ============================================================
                     ChatBaker by 42dot 🚗
 ============================================================
-Loading ChatBaker model ...
-16.0s elapsed.
+Using GPU:0 / Loading ChatBaker model ...
+17.37s elapsed.
 
 <human>:
 ...
@@ -225,7 +225,7 @@ Loading ChatBaker model ...
 $ python example_cli.py --help
 ```
 
-기본적으로 GPU에서 구동되도록 설정되어 있으며, GPU가 없는 장비에서는 다음 옵션을 이용해 CPU로도 구동이 가능합니다. M1 맥북 프로에서는 CPU 옵션으로 로컬 구동이 가능하며, 로컬 구동시 약 4GB정도의 여유 메모리가 필요합니다.
+기본적으로 디바이스 설정을 자동으로 찾도록 되어 있으며, CPU 또는 메모리 여유가 충분한 GPU를 자동으로 찾아 최적의 디바이스에서 동작하도록 되어 있습니다. 또한 `--device=cpu` 옵션으로 항상 CPU에서 구동할 수 있습니다. M1 맥북 프로에서는 CPU 옵션으로 로컬 구동이 가능하며, 로컬 구동시 약 4GB정도의 여유 메모리가 필요합니다.
 
 ```bash
 $ python example_cli.py --device=cpu
