@@ -5,7 +5,7 @@
     - [학습 데이터셋](#학습-데이터셋)
     - [평가](#평가)
   - [사전 학습 모델 (PLM)](#사전-학습-모델-plm)
-    - [아키텍쳐](#아키텍쳐)
+    - [아키텍처](#아키텍처)
     - [학습](#학습)
     - [학습 데이터셋](#학습-데이터셋-1)
     - [토크나이저](#토크나이저)
@@ -29,7 +29,7 @@
 - ChatBaker-PLM 기반의 **생성형 언어 모델 (=ChatBaker-SFT)** 공개 [more](#chatbaker-sft-생성형-언어-모델)
 - 직접 구축한 (수집, 정제) 데이터, 자체 학습 인프라 사용
 
-뿐만아니라, [🤗ChatBaker-PLM 1.3B](허깅페이스 모델 페이지 링크)와 [🤗ChatBaker-SFT 1.3B](허깅페이스 모델 페이지 링크)를 공개했습니다.
+뿐만 아니라, [🤗ChatBaker-PLM 1.3B](허깅페이스 모델 페이지 링크)와 [🤗ChatBaker-SFT 1.3B](허깅페이스 모델 페이지 링크)를 공개했습니다.
 
 
 <figure align="center">
@@ -40,8 +40,8 @@
 ---
 
 ## ChatBaker-PLM (사전 학습 모델)
-### 아키텍쳐
-ChatBaker-PLM은 [LLaMA 2](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/) 와 유사한 Transformer decoder 아키텍쳐를 사용했고, 모델 하이퍼파라미터는 아래와 같습니다.
+### 아키텍처
+ChatBaker-PLM은 [LLaMA 2](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/) 와 유사한 Transformer decoder 아키텍처를 사용했고, 모델 하이퍼파라미터는 아래와 같습니다.
 
 | Params | Layers | Attention heads | Hidden size | FFN size |
 | :-- | :--: | :--: | :--: | :--: |
@@ -72,15 +72,15 @@ ChatBaker-PLM의 학습 데이터는 모두 웹 상에 공개된 데이터를 �
   - [The Pile](https://github.com/EleutherAI/the-pile), [RedPajama](https://github.com/togethercomputer/RedPajama-Data), [C4](https://huggingface.co/datasets/c4) 등 포함
 
 ### 토크나이저
-Byte-level BPE 토크나이저를 사용했고, 학습 데이터셋에서 1,000만건의 문서를 샘플링해 학습했습니다. Vocabulary 크기는 약 50K 입니다.
+Byte-level BPE 토크나이저를 사용했고, 학습 데이터셋에서 1,000만 건의 문서를 샘플링해 학습했습니다. Vocabulary 크기는 약 50K입니다.
 
 ### Zero-shot 성능 평가
 ChatBaker-PLM 및 비슷한 파라미터 크기의 타 PLM과의 성능을 비교하기 위해 한국어 및 영어 Zero-shot 벤치마크를 진행했고, 아래의 평가결과는 [lm-eval-harness](https://github.com/EleutherAI/lm-evaluation-harness/tree/polyglot)를 이용해 도출했습니다.
 #### 한국어
 - 비교대상:
-  - [Polyglot-Ko 1.3B](https://github.com/EleutherAI/polyglot): [GPT-NeoX](https://github.com/EleutherAI/gpt-neox) 아키텍쳐로 한국어 213B 토큰 (863 GB)을 학습한 모델
-  - [KoGPT2 1.2B](https://github.com/SKT-AI/KoGPT2): GPT 아키텍쳐로 40GB 이상의 한국어 데이터셋을 학습한 모델
-  - [XGLM 1.7B](https://huggingface.co/facebook/xglm-1.7B): [GPT-3](https://arxiv.org/abs/2005.14165) 아키텍쳐로 한국어를 포함한 30개 국어, 500B 토큰을 학습한 모델
+  - [Polyglot-Ko 1.3B](https://github.com/EleutherAI/polyglot): [GPT-NeoX](https://github.com/EleutherAI/gpt-neox) 아키텍처로 한국어 213B 토큰 (863 GB)을 학습한 모델
+  - [KoGPT2 1.2B](https://github.com/SKT-AI/KoGPT2): GPT 아키텍처로 40GB 이상의 한국어 데이터셋을 학습한 모델
+  - [XGLM 1.7B](https://huggingface.co/facebook/xglm-1.7B): [GPT-3](https://arxiv.org/abs/2005.14165) 아키텍처로 한국어를 포함한 30개 국어, 500B 토큰을 학습한 모델
   - [PolyLM 1.7B](https://huggingface.co/DAMO-NLP-MT/polylm-1.7b): LLaMA 아키텍처로 한국어를 포함한 18개 국어, 640B 토큰을 학습한 모델
 - 평가 데이터셋:
   - [KoBEST](https://huggingface.co/datasets/skt/kobest_v1): BoolQ, COPA, HellaSwag, SentiNeg, WiC의 5개 태스크
@@ -101,8 +101,8 @@ ChatBaker-PLM 및 비슷한 파라미터 크기의 타 PLM과의 성능을 비�
 
 #### 영어
 - 비교대상:
-  - [OPT 1.3B](https://huggingface.co/facebook/opt-1.3b): GPT-3 아키텍쳐로 영어 300B 토큰을 학습한 모델
-  - [MPT 1B](https://huggingface.co/mosaicml/mpt-1b-redpajama-200b): [MPT](https://www.mosaicml.com/blog/mpt-7b) 아키텍쳐로 RedPajama 데이터의 200B 토큰을 학습한 모델
+  - [OPT 1.3B](https://huggingface.co/facebook/opt-1.3b): GPT-3 아키텍처로 영어 300B 토큰을 학습한 모델
+  - [MPT 1B](https://huggingface.co/mosaicml/mpt-1b-redpajama-200b): [MPT](https://www.mosaicml.com/blog/mpt-7b) 아키텍처로 RedPajama 데이터의 200B 토큰을 학습한 모델
   - XGLM 1.7B
   - PolyLM 1.7B
 
@@ -195,14 +195,14 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 ---
 
 ## 사용법
-본 리포지토리에는 간단한 생성 코드를 함께 제공하며, 아래 명령을 통해 관련 패키지를 설치하고 직접 모델을 구동해볼 수 있습니다.
+본 리포지토리에는 간단한 생성 코드를 함께 제공하며, 아래 명령을 통해 관련 패키지를 설치하고 직접 모델을 구동해 볼 수 있습니다.
 
 ```bash
 $ pip install -r requirements.txt
 $ python example_cli.py
 ```
 
-기본적으로 디바이스 설정을 자동으로 찾도록 되어 있으며, CPU 또는 메모리 여유가 충분한 GPU를 자동으로 찾아 최적의 디바이스에서 동작하도록 되어 있습니다. 또한 `--device=cpu` 옵션으로 항상 CPU에서 구동할 수 있습니다. M1 맥북 프로에서는 CPU 옵션으로 로컬 구동이 가능하며, 로컬 구동시 약 4GB정도의 여유 메모리가 필요합니다. 이외에도 생성과 관련한 여러 옵션을 지원하며 `--help`로 도움말을 확인할 수 있습니다.
+기본적으로 디바이스 설정을 자동으로 찾도록 되어 있으며, CPU 또는 메모리 여유가 충분한 GPU를 자동으로 찾아 최적의 디바이스에서 동작하도록 되어 있습니다. 또한 `--device=cpu` 옵션으로 항상 CPU에서 구동할 수 있습니다. M1 맥북 프로에서는 CPU 옵션으로 로컬 구동이 가능하며, 로컬 구동 시 약 4GB 정도의 여유 메모리가 필요합니다. 이외에도 생성과 관련한 여러 옵션을 지원하며 `--help`로 도움말을 확인할 수 있습니다.
 
 ```bash
 $ python example_cli.py --help
@@ -213,7 +213,7 @@ $ python example_cli.py --help
 ## 한계점
 다른 LLM과 마찬가지로 ChatBaker도 여러 한계를 가지고 있습니다. ChatBaker를 활용할 때 이러한 한계점들을 감안하기 바랍니다.
 - 언어 모델은 [환각 (Hallucination)](https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence))이라는 근본적인 문제가 있습니다. 마찬가지로 언어 모델인 ChatBaker도 이러한 환각 문제를 가지고 있으며, 생성하는 내용이 사실과 일치하지 않을 수 있습니다.
-- 자체적으로 ChatBaker-SFT의 학습 데이터를 구축하면서 케이스를 최대한 다양화 했지만, 미처 포함하지 못한 질문-응답 케이스가 존재할 수 있기 때문에 기대하는 형태의 응답을 생성하지 못할 수 있습니다. 
+- 자체적으로 ChatBaker-SFT의 학습 데이터를 구축하면서 케이스를 최대한 다양화했지만, 미처 포함하지 못한 질문-응답 케이스가 존재할 수 있기 때문에 기대하는 형태의 응답을 생성하지 못할 수 있습니다. 
 - ChatBaker-SFT는 랜덤 샘플링 방식을 따르고 있습니다. 이로 인해, 동일한 입력에 대해 매번 다른 응답을 생성할 수 있습니다. 또한, 사용자가 입력한 질문/요청인 프롬프트에 민감합니다. 예를 들어, 주어진 질문에 정확한 답변을 생성했더라도, 동일한 내용에 표현 방식만 다른 질문/요청에 전혀 다른 응답을 생성할 수 있습니다.
 - ChatBaker는 생성 결과에 별도의 필터링을 적용하지 않았습니다. 따라서 도덕, 인종, 문화, 성별, 나이, 지역, 종교, 정치성향 등에 대해 편향적이거나 부적절한 응답을 생성할 수 있습니다.
 
@@ -230,7 +230,7 @@ $ python example_cli.py --help
 ---
 
 ## 유의사항
-ChatBaker를 통해 생성한 내용은 42dot의 입장과 무관하며, 42dot은 생성 내용 및 이로인해 발생하는 문제에 대해 책임지지 않습니다.
+ChatBaker를 통해 생성한 내용은 42dot의 입장과 무관하며, 42dot은 생성 내용 및 이로 인해 발생하는 문제에 대해 책임지지 않습니다.
 
 ---
 
