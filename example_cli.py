@@ -116,7 +116,7 @@ def assign_free_gpus(threshold_vram_usage=7000):
     This function should be called after all imports,
     Args:
         threshold_vram_usage (int, optional): A GPU is considered free if the vram usage is below the threshold
-                                              Defaults to 4000 (MiB).
+                                              Defaults to 7000 (MiB).
     """
 
     def _check():
