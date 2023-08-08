@@ -176,7 +176,7 @@ A100 80G GPU 8장을 학습에 사용했습니다.
   - GPT-4를 평가 수단으로 사용했고, <태스크, 질문, 응답>을 포함하는 [프롬프트](eval/eval_prompt.yaml)를 입력으로 6가지 항목에 대해 각 비교대상의 응답을 평가했습니다.
 
 <figure align="center">
-<img src="asset/Ko-Score.png" width="80%" height="80%"/>
+<img src="asset/Ko-Score.png" width="70%" height="70%"/>
 <figcaption><b>한국어 평가 데이터셋에 대한 응답 품질 평가</b></figcaption>
 </figure>
 
