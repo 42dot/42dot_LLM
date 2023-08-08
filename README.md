@@ -24,9 +24,9 @@
 
 # 챗베이커 (ChatBaker)
 
-**챗베이커** (**ChatBaker**)는 [**42dot**](https://42dot.ai/)에서 자체 개발한 언어 모델의 명칭으로, 다음의 특징을 가지고 있습니다.
-- 대한민국 기관 최초의 **한영통합 언어 모델 (=ChatBaker-PLM)** 공개 [more](#사전-학습-모델-plm)
-- ChatBaker-PLM 기반의 **생성형 언어 모델 (=ChatBaker-SFT)** 공개 [more](#생성형-언어-모델)
+**챗베이커** (**ChatBaker**)는 [**포티투닷**](https://42dot.ai/) ([**42dot**](https://42dot.ai/))에서 자체 개발한 언어 모델들의 시리즈로, 다음의 특징을 가지고 있습니다.
+- 대한민국 기관 최초의 **한영통합 언어 모델 (=ChatBaker-PLM)** 공개 [more](#chatbaker-plm-사전-학습-모델)
+- ChatBaker-PLM 기반의 **생성형 언어 모델 (=ChatBaker-SFT)** 공개 [more](#chatbaker-sft-생성형-언어-모델)
 - 직접 구축한 (수집, 정제) 데이터, 자체 학습 인프라 사용
 
 뿐만아니라, [🤗ChatBaker-PLM 1.3B](허깅페이스 모델 페이지 링크)]와 [🤗ChatBaker-SFT 1.3B](허깅페이스 모델 페이지 링크)]를 공개했습니다.
@@ -34,7 +34,7 @@
 
 <figure align="center">
 <img src="asset/ChatBaker.gif" width="80%" height="80%" />
-<figcaption><b>ChatBaker-SFT의 example_cli.py 실행 예제</b></figcaption>
+<figcaption><b>ChatBaker-SFT의 [example_cli.py](#사용법) 실행 예제</b></figcaption>
 </figure>
 
 
@@ -56,7 +56,7 @@ ChatBaker-PLM은 [LLaMA 2](https://ai.meta.com/research/publications/llama-2-ope
 
 ### 학습
 
-ChatBaker-PLM의 학습은 NVIDIA A100 80G 256장을 사용했고, 학습에 소요된 시간은 아래와 같습니다.
+ChatBaker-PLM의 학습은 A100 80G 256장을 사용했고, 학습에 소요된 시간은 아래와 같습니다.
 
 | Model | ChatBaker-PLM |
 | -- | -- |
@@ -100,8 +100,8 @@ ChatBaker-PLM 및 비슷한 파라미터 크기의 타 PLM과의 성능을 비�
 
 #### 영어
 - 비교대상:
-  - [OPT 1.3B](https://huggingface.co/facebook/opt-1.3b): GPT-3 아키텍쳐를 기반으로 영어 300B 토큰 데이터셋으로 학습한 모델
-  - [MPT 1B](https://huggingface.co/mosaicml/mpt-1b-redpajama-200b): [MPT](https://www.mosaicml.com/blog/mpt-7b) 아키텍쳐를 기반으로 RedPajama 데이터에 200B 토큰 학습한 모델
+  - [OPT 1.3B](https://huggingface.co/facebook/opt-1.3b): GPT-3 아키텍쳐로 영어 300B 토큰을 학습한 모델
+  - [MPT 1B](https://huggingface.co/mosaicml/mpt-1b-redpajama-200b): [MPT](https://www.mosaicml.com/blog/mpt-7b) 아키텍쳐로 RedPajama 데이터의 200B 토큰을 학습한 모델
   - XGLM 1.7B
   - PolyLM 1.7B
 
@@ -220,7 +220,7 @@ $ python example_cli.py --help
 
 
 ## 유의사항
-ChatBaker를 통해 생성한 내용은 42dot의 입장과 무관하며, 42dot은 응답 내용 및 이로인해 발생하는 문제에 대해 책임지지 않습니다.
+ChatBaker를 통해 생성한 내용은 42dot의 입장과 무관하며, 42dot은 생성 내용 및 이로인해 발생하는 문제에 대해 책임지지 않습니다.
 
 ## Citation
 
