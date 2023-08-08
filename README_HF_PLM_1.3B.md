@@ -106,7 +106,7 @@ The ChatBaker-PLM is licensed under the Apache License, Version 2.0.
 ```
 @misc{42dot2023chatbaker,
       title={ChatBaker: Instruction Tuned Large Language Model of 42dot},
-      author={Woo-Jong Ryu and SangKil Park and Jinwoo Park and Sungmin Lee and Yongkeun Hwang},
+      author={Woo-Jong Ryu and Sang-Kil Park and Jinwoo Park and Sungmin Lee and Yongkeun Hwang},
       year={2023},
       url = {https://gitlab.42dot.ai/NLP/hyperai/ChatBaker},
       version = {pre-release},
