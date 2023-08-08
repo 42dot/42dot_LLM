@@ -168,7 +168,7 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 
 | Model | GPT-3.5 | GPT-4 | Bard | KORani | ChatBaker |
 | :-- | :--: | :--: | :--: | :--: | :--: |
-| Params | 175 B | 1,760 B | 137 B | 13 B | 1.3 B |
+| Params | Unknown | Unknown | Unknown | 13 B | 1.3 B |
 
 - 평가 데이터셋:
   - 10가지의 카테고리에서 총 121개의 태스크로 구성했습니다. [dataset](eval/benchmark_set_v2.csv)
