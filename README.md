@@ -33,7 +33,7 @@
 
 
 <figure align="center">
-<img src="asset/ChatBaker.gif" width="80%" height="80%" />
+<img src="asset/ChatBaker-demo.gif" width="80%" height="80%" />
 <figcaption><b>ChatBaker-SFT의 [example_cli.py](#사용법) 실행 예제</b></figcaption>
 </figure>
 
