@@ -29,7 +29,7 @@
 - ChatBaker-PLM 기반의 **생성형 언어 모델 (=ChatBaker-SFT)** 공개 [more](#chatbaker-sft-생성형-언어-모델)
 - 직접 구축한 (수집, 정제) 데이터, 자체 학습 인프라 사용
 
-뿐만아니라, [🤗ChatBaker-PLM 1.3B](허깅페이스 모델 페이지 링크)]와 [🤗ChatBaker-SFT 1.3B](허깅페이스 모델 페이지 링크)]를 공개했습니다.
+뿐만아니라, [🤗ChatBaker-PLM 1.3B](허깅페이스 모델 페이지 링크)와 [🤗ChatBaker-SFT 1.3B](허깅페이스 모델 페이지 링크)를 공개했습니다.
 
 
 <figure align="center">
@@ -72,7 +72,7 @@ ChatBaker-PLM의 학습 데이터는 모두 웹 상에 공개된 데이터를 �
   - [The Pile](https://github.com/EleutherAI/the-pile), [RedPajama](https://github.com/togethercomputer/RedPajama-Data), [C4](https://huggingface.co/datasets/c4) 등 포함
 
 ### 토크나이저
-Byte-level BPE 토크나이저를 사용했고, 학습 데이터셋에서 1,000만건의 문서를 샘플링해 학습했습니다. Vocaburaly 크기는 약 50K 입니다.
+Byte-level BPE 토크나이저를 사용했고, 학습 데이터셋에서 1,000만건의 문서를 샘플링해 학습했습니다. Vocabulary 크기는 약 50K 입니다.
 
 ### Zero-shot 성능 평가
 ChatBaker-PLM 및 비슷한 파라미터 크기의 타 PLM과의 성능을 비교하기 위해 한국어 및 영어 Zero-shot 벤치마크를 진행했고, 아래의 평가결과는 [lm-eval-harness](https://github.com/EleutherAI/lm-evaluation-harness/tree/polyglot)를 이용해 도출했습니다.
