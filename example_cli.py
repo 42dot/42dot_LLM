@@ -62,6 +62,33 @@ class RichChatIO:
     def prompt_for_output(self, role: str):
         self._console.print(f"[bold]{role}:")
 
+    def stream_output_debug(self, output_stream):
+        """Stream output for debug mode."""
+
+        for i, outputs in enumerate(output_stream):
+            # If this is the last output, stop.
+            if 'candidates' not in outputs:
+                break
+            self._console.print("=" * 12, end='')
+            self._console.print(f' #{i + 1} ', end='')
+            self._console.print("=" * 12)
+            # Print candidates tokens.
+            for candidates in outputs['candidates']:
+                for k, v in candidates.items():
+                    self._console.print(f"{k}: {v}")
+            self._console.print("-" * 3)
+            # Print selected tokens.
+            for j, selected in enumerate(outputs['selected']):
+                for k, v in selected.items():
+                    if j == 0:
+                        # It's an actual selected token.
+                        self._console.print(f"{k}: {v}", style="on yellow")
+                    else:
+                        self._console.print(f"{k}: {v}")
+            self._console.print()
+
+        return outputs['text'], outputs['finish_reason']
+
     def stream_output(self, output_stream):
         """Stream output from a role."""
 
@@ -97,10 +124,10 @@ class RichChatIO:
                 live.update(markdown)
         self._console.print()
 
-        return text, outputs['finish_reason'] if 'finish_reason' in outputs else text
+        return text, outputs['finish_reason']
 
-    def print_output(self, text: str):
-        self.stream_output([{"text": text}])
+    def print_output(self, text: str, end='\n', highlight=True):
+        self._console.print(text, end=end, highlight=highlight)
 
     def print_banner(self):
         self._console.print("=" * 60)
@@ -130,11 +157,10 @@ def assign_free_gpus(threshold_vram_usage=7000):
         gpu_info = [
             int(x.split(":")[1].replace("MiB", "").strip()) for x in gpu_info
         ]  # Remove garbage
-        # Keep gpus under threshold only
-        free_gpu = [
+        # Returns the first available GPU.
+        return [
             str(i) for i, mem in enumerate(gpu_info) if mem < threshold_vram_usage
         ][0]
-        return free_gpu
 
     if not torch.cuda.is_available():
         return 'cpu'
@@ -161,12 +187,12 @@ def chat_loop(
     if device == 'auto':
         device = assign_free_gpus()
         if device.startswith('cuda'):
-            chatio._console.print(f"[yellow]Using [u]GPU:{device[-1]}[/u][/yellow]", end=' / ')
+            chatio.print_output(f"[yellow]Using [u]GPU:{device[-1]}[/u][/yellow]", end=' / ')
         else:
-            chatio._console.print("[yellow]Using [u]CPU[/u][/yellow]", end=' / ')
+            chatio.print_output("[yellow]Using [u]CPU[/u][/yellow]", end=' / ')
 
     # Load a model.
-    chatio._console.print("[bold]Loading ChatBaker model ...")
+    chatio.print_output("[bold]Loading ChatBaker model ...")
     t = time.time()
     model, tokenizer, logits_processor = load_model(
         model,
@@ -176,7 +202,7 @@ def chat_loop(
         top_k,
         device,
     )
-    chatio.print_output(f'{round(time.time() - t, 2)}s elapsed.')
+    chatio.print_output(f'{round(time.time() - t, 2)}s elapsed.', highlight=False)
 
     system_prompt = (
         '호기심 많은 인간 (human)과 인공지능 봇 (AI bot)의 대화입니다. '
@@ -199,7 +225,7 @@ def chat_loop(
             chatio.print_output('대화를 입력해 주세요.')
             continue
 
-        # Remove oldest conversation if the prompt size exceeds the limit.
+        # Remove the oldest conversation if the prompt size exceeds the limit.
         while True:
             prompt = (f'{system_prompt}'
                       f'{"".join(conv)}'
@@ -211,7 +237,12 @@ def chat_loop(
         # Streaming output with model generation.
         chatio.prompt_for_output('<bot>')
         t = time.time()
-        outputs, finish_reason = chatio.stream_output(generate_stream(
+        if debug:
+            generate_stream_func = chatio.stream_output_debug
+        else:
+            generate_stream_func = chatio.stream_output
+
+        outputs, finish_reason = generate_stream_func(generate_stream(
             model,
             tokenizer,
             logits_processor,
@@ -222,8 +253,10 @@ def chat_loop(
             top_k,
             max_new_tokens,
             device,
+            debug,
         ))
 
+        # Provides a variety of information useful for debug mode.
         if debug:
             prompt_tokens = len(tokenizer.encode(prompt))
             completion_tokens = len(tokenizer.encode(outputs))
