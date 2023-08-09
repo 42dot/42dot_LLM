@@ -73,11 +73,12 @@ def generate_stream(
         top_k: int,
         max_new_tokens: int,
         device: str,
+        debug: False,
 ):
     input_ids = tokenizer(prompt).input_ids
     output_ids = list(input_ids)
     input_echo_len = len(input_ids)
-    stream_interval = 2
+    stream_interval = 1 if debug else 2
 
     for i in range(max_new_tokens):
         if i == 0:
@@ -102,23 +103,38 @@ def generate_stream(
         else:
             all_output_ids = None
 
-        # Transformer's LogitsProcessor using the last token's logit.
+        # Aggregate raw probability tokens.
+        candidates = []
+        candidates_probs = torch.softmax(logits[:, -1, :][0], dim=-1)
+        _, indices = torch.topk(candidates_probs, 5)
+        for index in indices:
+            candidates.append({
+                index.item(): [tokenizer.decode(index.item()), round(candidates_probs[index].item(), 4)]
+            })
+
+        # Process transformers' LogitsProcessor using the last token's logit.
         last_token_logits = logits_processor(all_output_ids, logits[:, -1, :])[0]
 
-        if temperature < 1e-5 or top_p < 1e-8:  # Greedy for very small option value.
-            _, indices = torch.topk(last_token_logits, 2)
-            tokens = [int(index) for index in indices.tolist()]
-        else:
-            probs = torch.softmax(last_token_logits, dim=-1)
-            # Sampled from the multinomial probability distribution.
-            indices = torch.multinomial(probs, num_samples=2)
-            tokens = [int(token) for token in indices.tolist()]
+        # Sampling from the multinomial probability distribution.
+        probs = torch.softmax(last_token_logits, dim=-1)
+        indices = torch.multinomial(probs, num_samples=5)
+        tokens = [int(token) for token in indices.tolist()]
 
+        # Aggregate processed probability tokens.
+        selected = []
+        for index in indices:
+            selected.append({
+                index.item(): [tokenizer.decode(index.item()), round(probs[index].item(), 4)]
+            })
+
+        # We saves only one token.
         last_token = tokens[0]
         output_ids.append(last_token)
 
+        # We've met `<|endoftext|>` token.
         stopped = True if last_token == tokenizer.eos_token_id else False
 
+        # Streaming output.
         if i % stream_interval == 0 or i == max_new_tokens - 1 or stopped:
             tmp_output_ids = output_ids[input_echo_len:]
             output = tokenizer.decode(
@@ -128,11 +144,20 @@ def generate_stream(
                 clean_up_tokenization_spaces=True,
             )
 
-            yield {
-                "text": output,
-                "finish_reason": None,
-            }
+            if debug:
+                yield {
+                    "text": output,
+                    "candidates": candidates,
+                    "selected": selected,
+                    "finish_reason": None,
+                }
+            else:
+                yield {
+                    "text": output,
+                    "finish_reason": None,
+                }
 
+        # Cause We've Ended As Lovers.
         if stopped:
             break
 
@@ -154,7 +179,7 @@ def generate_stream(
         "finish_reason": finish_reason,
     }
 
-    # Clean
+    # We come out with a clean slate.
     del past_key_values, out
     gc.collect()
     torch.cuda.empty_cache()
