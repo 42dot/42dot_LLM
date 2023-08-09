@@ -82,7 +82,7 @@ class RichChatIO:
                 for k, v in selected.items():
                     if j == 0:
                         # It's an actual selected token.
-                        self._console.print(f"{k}: {v}", style="on yellow")
+                        self._console.print(f"{k}: {v}", style="r")
                     else:
                         self._console.print(f"{k}: {v}")
             self._console.print()
@@ -126,8 +126,8 @@ class RichChatIO:
 
         return text, outputs['finish_reason']
 
-    def print_output(self, text: str, end='\n', highlight=True):
-        self._console.print(text, end=end, highlight=highlight)
+    def print_output(self, text: str, end='\n', highlight=True, style=None):
+        self._console.print(text, end=end, highlight=highlight, style=style)
 
     def print_banner(self):
         self._console.print("=" * 60)
@@ -172,7 +172,7 @@ def assign_free_gpus(threshold_vram_usage=7000):
 
 def chat_loop(
         chatio: RichChatIO,
-        model: str,
+        model_path: str,
         temperature: float,
         repetition_penalty: float,
         top_p: float,
@@ -187,22 +187,22 @@ def chat_loop(
     if device == 'auto':
         device = assign_free_gpus()
         if device.startswith('cuda'):
-            chatio.print_output(f"[yellow]Using [u]GPU:{device[-1]}[/u][/yellow]", end=' / ')
+            chatio.print_output(f"[yellow]Using [u]GPU:{device[-1]}[/u][/yellow]")
         else:
-            chatio.print_output("[yellow]Using [u]CPU[/u][/yellow]", end=' / ')
+            chatio.print_output("[yellow]Using [u]CPU[/u][/yellow]")
 
     # Load a model.
-    chatio.print_output("[bold]Loading ChatBaker model ...")
-    t = time.time()
-    model, tokenizer, logits_processor = load_model(
-        model,
-        temperature,
-        repetition_penalty,
-        top_p,
-        top_k,
-        device,
-    )
-    chatio.print_output(f'{round(time.time() - t, 2)}s elapsed.', highlight=False)
+    with chatio._console.status("Loading ChatBaker model ...") as _:
+        t = time.time()
+        model, tokenizer, logits_processor = load_model(
+            model_path,
+            temperature,
+            repetition_penalty,
+            top_p,
+            top_k,
+            device,
+        )
+    chatio.print_output(f'ChatBaker model has been loaded. {round(time.time() - t, 2)}s elapsed.', highlight=False)
 
     system_prompt = (
         '호기심 많은 인간 (human)과 인공지능 봇 (AI bot)의 대화입니다. '
@@ -277,7 +277,7 @@ def chat_loop(
 
 def main(
         # TODO: 아래는 오픈 직전에 허깅페이스 주소로 변경해야 합니다.
-        model='/6917396/models/v0.1.3_enko_1.3b_free_3ep_yk',
+        model_path='/6917396/models/v0.1.3_enko_1.3b_free_3ep_yk',
         # model='/Users/H6917396/workspace/gitlab.42dot.ai/hyperai/ChatBaker/model',
         temperature=0.5,
         repetition_penalty=1.2,
@@ -290,7 +290,7 @@ def main(
     try:
         chat_loop(
             RichChatIO(),
-            model=model,
+            model_path=model_path,
             temperature=temperature,
             repetition_penalty=repetition_penalty,
             top_p=top_p,

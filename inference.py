@@ -131,7 +131,7 @@ def generate_stream(
         last_token = tokens[0]
         output_ids.append(last_token)
 
-        # You've met `<|endoftext|>` token.
+        # We've met `<|endoftext|>` token.
         stopped = True if last_token == tokenizer.eos_token_id else False
 
         # Streaming output.
@@ -157,7 +157,7 @@ def generate_stream(
                     "finish_reason": None,
                 }
 
-        # If we've encountered `<|endoftext|>` token, stop here.
+        # Cause We've Ended As Lovers.
         if stopped:
             break
 
