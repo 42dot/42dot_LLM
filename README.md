@@ -166,9 +166,9 @@ A100 80G GPU 8장을 학습에 사용했습니다.
   <!-- - [Vicuna-7b-v1.3](https://huggingface.co/lmsys/vicuna-7b-v1.3): LLaMA 7B 모델에 ShareGPT 70k 데이터셋으로 SFT를 수행한 오픈소스 모델 -->
   <!--  - Polyglot-Ko-1.3B-SFT: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 ChatBaker와 동일한 데이터 및 세팅으로 학습한 모델 -->
 
-| Model | GPT-3.5 | GPT-4 | Bard | KORani | ChatBaker |
-| :-- | :--: | :--: | :--: | :--: | :--: |
-| Params | Unknown | Unknown | Unknown | 13 B | 1.3 B |
+| Model | GPT-3.5  |  GPT-4   |   Bard   | KORani | ChatBaker |
+| :-- |:--------:|:--------:|:--------:|:------:|:---------:|
+| Params | 175B(추정) | 220B(추정) | 137B(추정) |  13B   |   1.3B    |
 
 - 평가 데이터셋:
   - 10가지의 카테고리에서 총 121개의 태스크로 구성했습니다. [dataset](eval/benchmark_set_v2.csv)
