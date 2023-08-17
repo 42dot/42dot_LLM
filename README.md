@@ -22,26 +22,26 @@
 
 <img src="asset/42dot.png" width="25%" height="25%" /><img src="asset/tagline.png" width="25%" height="25%" /><img src="asset/asterisk.png" width="10%" height="10%" />
 
-# 챗베이커 (ChatBaker)
+# 42dot LM
 
-**챗베이커** (**ChatBaker**)는 [**포티투닷**](https://42dot.ai/) ([**42dot**](https://42dot.ai/))에서 자체 개발한 언어 모델들의 시리즈로, 다음의 특징을 가지고 있습니다.
-- 대한민국 기관 최초의 **한영통합 언어 모델 (=ChatBaker-PLM)** 공개 [more](#chatbaker-plm-사전-학습-모델)
-- ChatBaker-PLM 기반의 **생성형 언어 모델 (=ChatBaker-SFT)** 공개 [more](#chatbaker-sft-생성형-언어-모델)
+**42dot LM**은 [**포티투닷**](https://42dot.ai/) ([**42dot**](https://42dot.ai/))에서 자체 개발한 언어 모델들의 시리즈로, 다음의 특징을 가지고 있습니다.
+- 대한민국 기관 최초의 **한영통합 언어 모델 (=42dot-PLM)** [more](#42dot-plm-사전-학습-모델)
+- 42dot-PLM 기반의 **생성형 언어 모델 (=42dot-SFT)** [more](#42dot-sft-생성형-언어-모델)
 - 직접 구축한 (수집, 정제) 데이터, 자체 학습 인프라 사용
 
-뿐만 아니라, [🤗ChatBaker-PLM 1.3B](허깅페이스 모델 페이지 링크)와 [🤗ChatBaker-SFT 1.3B](허깅페이스 모델 페이지 링크)를 공개했습니다.
+뿐만 아니라, [🤗42dot-PLM 1.3B](허깅페이스 모델 페이지 링크)와 [🤗42dot-SFT 1.3B](허깅페이스 모델 페이지 링크)를 공개했습니다.
 
 
 <figure align="center">
-<img src="asset/ChatBaker-demo.gif" width="80%" height="80%" />
-<figcaption><b>ChatBaker-SFT의 [example_cli.py](#사용법) 실행 예제</b></figcaption>
+<img src="asset/42dot-sft-demo.gif" width="80%" height="80%" />
+<figcaption><b>42dot-SFT의 [example_cli.py](#사용법) 실행 예제</b></figcaption>
 </figure>
 
 ---
 
-## ChatBaker-PLM (사전 학습 모델)
+## 42dot-PLM (사전 학습 모델)
 ### 아키텍처
-ChatBaker-PLM은 [LLaMA 2](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/) 와 유사한 Transformer decoder 아키텍처를 사용했고, 모델 하이퍼파라미터는 아래와 같습니다.
+42dot-PLM은 [LLaMA 2](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/) 와 유사한 Transformer decoder 아키텍처를 사용했고, 모델 하이퍼파라미터는 아래와 같습니다.
 
 | Params | Layers | Attention heads | Hidden size | FFN size |
 | :-- | :--: | :--: | :--: | :--: |
@@ -57,15 +57,15 @@ ChatBaker-PLM은 [LLaMA 2](https://ai.meta.com/research/publications/llama-2-ope
 
 ### 학습
 
-ChatBaker-PLM의 학습은 A100 80G 256장을 사용했고, 학습에 소요된 시간은 아래와 같습니다.
+42dot-PLM의 학습은 A100 80G 256장을 사용했고, 학습에 소요된 시간은 아래와 같습니다.
 
-| Model | ChatBaker-PLM |
+| Model | 42dot-PLM |
 | :-- | :--: |
 | Time (approx.) | 6 days |
 
 
 ### 학습 데이터셋
-ChatBaker-PLM의 학습 데이터는 모두 웹 상에 공개된 데이터를 이용해 진행했고, 그 구성은 아래와 같습니다.
+42dot-PLM의 학습 데이터는 모두 웹 상에 공개된 데이터를 이용해 진행했고, 그 구성은 아래와 같습니다.
 - 한국어: 약 100B 토큰
   - [직지 프로젝트](http://jikji.duckdns.org/), [mC4](https://huggingface.co/datasets/mc4), [LBox Open](https://github.com/lbox-kr/lbox-open), [KLUE](https://huggingface.co/datasets/klue), [위키피디아 (한국어)](https://ko.wikipedia.org/) 등 포함
 - 영어: 약 1.3T 토큰
@@ -75,7 +75,7 @@ ChatBaker-PLM의 학습 데이터는 모두 웹 상에 공개된 데이터를 �
 Byte-level BPE 토크나이저를 사용했고, 학습 데이터셋에서 1,000만 건의 문서를 샘플링해 학습했습니다. Vocabulary 크기는 약 50K입니다.
 
 ### Zero-shot 성능 평가
-ChatBaker-PLM 및 비슷한 파라미터 크기의 타 PLM과의 성능을 비교하기 위해 한국어 및 영어 Zero-shot 벤치마크를 진행했고, 아래의 평가결과는 [lm-eval-harness](https://github.com/EleutherAI/lm-evaluation-harness/tree/polyglot)를 이용해 도출했습니다.
+42dot-PLM 및 비슷한 파라미터 크기의 타 PLM과의 성능을 비교하기 위해 한국어 및 영어 Zero-shot 벤치마크를 진행했고, 아래의 평가결과는 [lm-eval-harness](https://github.com/EleutherAI/lm-evaluation-harness/tree/polyglot)를 이용해 도출했습니다.
 #### 한국어
 - 비교대상:
   - [Polyglot-Ko 1.3B](https://github.com/EleutherAI/polyglot): [GPT-NeoX](https://github.com/EleutherAI/gpt-neox) 아키텍처로 한국어 213B 토큰 (863 GB)을 학습한 모델
@@ -87,10 +87,10 @@ ChatBaker-PLM 및 비슷한 파라미터 크기의 타 PLM과의 성능을 비�
 
 <figure align="center">
 <img src="asset/plm_benchmark_ko.png" width="90%" height="90%"/>
-<figcaption><b>ChatBaker-PLM의 한국어 성능</b></figcaption>
+<figcaption><b>42dot-PLM의 한국어 성능</b></figcaption>
 </figure>
 
-|Tasks / Macro-F1|[KoGPT2](https://github.com/SKT-AI/KoGPT2) <br>1.2B|[Polyglot-Ko](https://github.com/EleutherAI/polyglot) <br>1.3B|[XGLM](https://huggingface.co/facebook/xglm-1.7B) <br>1.7B|[PolyLM](https://huggingface.co/DAMO-NLP-MT/polylm-1.7b) <br>1.7B|ChatBaker-PLM <br>1.3B|
+|Tasks / Macro-F1|[KoGPT2](https://github.com/SKT-AI/KoGPT2) <br>1.2B|[Polyglot-Ko](https://github.com/EleutherAI/polyglot) <br>1.3B|[XGLM](https://huggingface.co/facebook/xglm-1.7B) <br>1.7B|[PolyLM](https://huggingface.co/DAMO-NLP-MT/polylm-1.7b) <br>1.7B|42dot-PLM <br>1.3B|
 |--------------|-----------|----------------|---------|-----------|------------------------|
 |boolq         |0.337      |0.355           |**0.502**    |0.334      |0.424                   |
 |copa          |0.67       |**0.721**           |0.616    |0.513      |0.698                   |
@@ -108,11 +108,11 @@ ChatBaker-PLM 및 비슷한 파라미터 크기의 타 PLM과의 성능을 비�
 
 <figure align="center">
 <img src="asset/plm_benchmark_en.png" width="90%" height="90%"/>
-<figcaption><b>ChatBaker-PLM의 영어 성능</b></figcaption>
+<figcaption><b>42dot-PLM의 영어 성능</b></figcaption>
 </figure>
 
 
-| Tasks / Metric         | MPT <br>1B | OPT <br>1.3B | XGLM <br>1.7B | PolyLM <br>1.7B | ChatBaker-PLM <br>1.3B |
+| Tasks / Metric         | MPT <br>1B | OPT <br>1.3B | XGLM <br>1.7B | PolyLM <br>1.7B | 42dot-PLM <br>1.3B |
 | ---------------------- | ------ | -------- | --------- | ----------- | ------------------------ |
 | anli_r1/acc            | 0.309  | **0.341**    | 0.334     | 0.336       | 0.303                    |
 | anli_r2/acc            | 0.334  | **0.339**    | 0.331     | 0.314       | 0.337                    |
@@ -140,33 +140,31 @@ ChatBaker-PLM 및 비슷한 파라미터 크기의 타 PLM과의 성능을 비�
 
 ---
 
-## ChatBaker-SFT (생성형 언어 모델)
-ChatBaker-SFT는 ChatBaker-PLM에 SFT (Supervised Fine-Tuning)를 수행한 모델로, 학습을 위한 파라미터는 아래와 같습니다.
+## 42dot-SFT (생성형 언어 모델)
+42dot-SFT는 42dot-PLM에 SFT (Supervised Fine-Tuning)를 수행한 모델로, 학습을 위한 파라미터는 아래와 같습니다.
 
 | Model | Global Batch Size | Learning rate | Epochs | Max length | Weight decay | Warmup ratio |
 | :-- | :--: | :--: | :--: | :--: | :--: | :--: |
-| ChatBaker-SFT | 16 | 2e-5 | 3 | 2,048 | 0 | 0.03 |
+| 42dot-SFT | 16 | 2e-5 | 3 | 2,048 | 0 | 0.03 |
 
 A100 80G GPU 8장을 학습에 사용했습니다.
 
-| Model | ChatBaker-SFT |
+| Model | 42dot-SFT |
 | :-- | :--: |
 | Time | 20 hours |
 
 ### 학습 데이터셋
 
 질문/요청 및 이에 대한 응답으로 이루어진 Single/Multi-turn 형태의 대화 데이터를 학습에 사용했습니다.
-- ChatBaker-SFT의 학습 데이터 관련 내용은 공개하지 않습니다. 대신, 이미 공개되어 있는 다양한 한국어 ([evolve-instruct](https://github.com/lcw99/evolve-instruct), [ko-lima-vicuna](https://huggingface.co/datasets/changpt/ko-lima-vicuna), 등) 및 영어 ([ShareGPT](https://sharegpt.com), [OpenAssistant](https://huggingface.co/datasets/OpenAssistant/oasst1), etc.)의 Single/Multi-turn 대화 데이터를 참고할 수 있습니다.
+- 42dot-SFT의 학습 데이터 관련 내용은 공개하지 않습니다. 대신, 이미 공개되어 있는 다양한 한국어 ([evolve-instruct](https://github.com/lcw99/evolve-instruct), [ko-lima-vicuna](https://huggingface.co/datasets/changpt/ko-lima-vicuna), 등) 및 영어 ([ShareGPT](https://sharegpt.com), [OpenAssistant](https://huggingface.co/datasets/OpenAssistant/oasst1), etc.)의 Single/Multi-turn 대화 데이터를 참고할 수 있습니다.
 
 ### 평가
 - 비교대상:
   - [ChatGPT](https://chat.openai.com/): OpenAI가 공개한 생성형 언어 모델 서비스 (GPT-3.5 및 GPT-4)
   - [Bard](https://bard.google.com/): Google이 공개한 생성형 언어 모델 서비스
   - [KORani-v2-13B](https://huggingface.co/KRAFTON/KORani-v1-13B): LLaMA 13B을 한국어 데이터셋으로 파인튜닝한 모델
-  <!-- - [Vicuna-7b-v1.3](https://huggingface.co/lmsys/vicuna-7b-v1.3): LLaMA 7B 모델에 ShareGPT 70k 데이터셋으로 SFT를 수행한 오픈소스 모델 -->
-  <!--  - Polyglot-Ko-1.3B-SFT: [Polyglot-Ko-1.3B](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 모델에 ChatBaker와 동일한 데이터 및 세팅으로 학습한 모델 -->
 
-| Model | GPT-3.5 |  GPT-4   |   Bard   | KORani | ChatBaker |
+| Model | GPT-3.5 |  GPT-4   |   Bard   | KORani | 42dot-SFT |
 | :-- |:-------:|:--------:|:--------:|:------:|:---------:|
 | Params | Unknown | Unknown | Unknown |  13B   |   1.3B    |
 
@@ -181,16 +179,16 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 </figure>
 
 <figure align="center">
-<img src="asset/ChatBaker-vs.png" width="70%" height="70%"/>
-<figcaption><b>상용 서비스와 ChatBaker의 응답 비교</b></figcaption>
+<img src="asset/42dot-SFT-vs.png" width="70%" height="70%"/>
+<figcaption><b>상용 서비스와 42dot-SFT의 응답 비교</b></figcaption>
 </figure>
 
 ---
 
 ### 모델 공개
 
-- 🤗[ChatBaker-PLM 1.3B](허깅페이스 링크)
-- 🤗[ChatBaker-SFT 1.3B](허깅페이스 링크)
+- 🤗[42dot-PLM 1.3B](허깅페이스 링크)
+- 🤗[42dot-SFT 1.3B](허깅페이스 링크)
 
 ---
 
@@ -211,20 +209,16 @@ $ python example_cli.py --help
 ---
 
 ## 한계점
-다른 LLM과 마찬가지로 ChatBaker도 여러 한계를 가지고 있습니다. ChatBaker를 활용할 때 이러한 한계점들을 감안하기 바랍니다.
-- 언어 모델은 [환각 (Hallucination)](https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence))이라는 근본적인 문제가 있습니다. 마찬가지로 언어 모델인 ChatBaker도 이러한 환각 문제를 가지고 있으며, 생성하는 내용이 사실과 일치하지 않을 수 있습니다.
-- 자체적으로 ChatBaker-SFT의 학습 데이터를 구축하면서 케이스를 최대한 다양화했지만, 미처 포함하지 못한 질문-응답 케이스가 존재할 수 있기 때문에 기대하는 형태의 응답을 생성하지 못할 수 있습니다. 
-- ChatBaker-SFT는 랜덤 샘플링 방식을 따르고 있습니다. 이로 인해, 동일한 입력에 대해 매번 다른 응답을 생성할 수 있습니다. 또한, 사용자가 입력한 질문/요청인 프롬프트에 민감합니다. 예를 들어, 주어진 질문에 정확한 답변을 생성했더라도, 동일한 내용에 표현 방식만 다른 질문/요청에 전혀 다른 응답을 생성할 수 있습니다.
-- ChatBaker는 생성 결과에 별도의 필터링을 적용하지 않았습니다. 따라서 도덕, 인종, 문화, 성별, 나이, 지역, 종교, 정치성향 등에 대해 편향적이거나 부적절한 응답을 생성할 수 있습니다.
-
-
-[//]: # (이를 해결하기 위해 개발을 진행 중입니다.)
-[//]: # (이러한 케이스는 사용자 피드백을 통해 지속적으로 보완해 나갈 계획입니다.)
+다른 LLM과 마찬가지로 42dot LM도 여러 한계를 가지고 있습니다. 42dot LM를 활용할 때 이러한 한계점들을 감안하기 바랍니다.
+- 언어 모델은 [환각 (Hallucination)](https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence))이라는 근본적인 문제가 있습니다. 마찬가지로 언어 모델인 42dot LM도 이러한 환각 문제를 가지고 있으며, 생성하는 내용이 사실과 일치하지 않을 수 있습니다.
+- 자체적으로 42dot-SFT의 학습 데이터를 구축하면서 케이스를 최대한 다양화했지만, 미처 포함하지 못한 질문-응답 케이스가 존재할 수 있기 때문에 기대하는 형태의 응답을 생성하지 못할 수 있습니다. 
+- 동일한 입력에 대해 매번 다른 응답을 생성할 수 있습니다. 또한, 사용자가 입력한 질문/요청인 프롬프트에 민감합니다. 예를 들어, 주어진 질문에 정확한 답변을 생성했더라도, 동일한 내용에 표현 방식만 다른 질문/요청에 전혀 다른 응답을 생성할 수 있습니다.
+- 생성 결과에 별도의 필터링을 적용하지 않았습니다. 따라서 도덕, 인종, 문화, 성별, 나이, 지역, 종교, 정치성향 등에 대해 편향적이거나 부적절한 응답을 생성할 수 있습니다.
 
 ---
 
 ## 라이센스
-- 데이터: ChatBaker-SFT 학습에 ShareGPT를 포함한 ChatGPT의 데이터를 일부 사용했습니다. 해당 데이터에 대해서는 OpenAI에 의해 생성된 데이터의 [약관](https://openai.com/policies/terms-of-use)과 ShareGPT의 [Privacy Practices](https://chrome.google.com/webstore/detail/sharegpt-share-your-chatg/daiacboceoaocpibfodeljbdfacokfjb)를 따릅니다.
+- 데이터: 42dot-SFT 학습에 ShareGPT를 포함한 ChatGPT의 데이터를 일부 사용했습니다. 해당 데이터에 대해서는 OpenAI에 의해 생성된 데이터의 [약관](https://openai.com/policies/terms-of-use)과 ShareGPT의 [Privacy Practices](https://chrome.google.com/webstore/detail/sharegpt-share-your-chatg/daiacboceoaocpibfodeljbdfacokfjb)를 따릅니다.
 - 모델: [공개한 모델](#모델-공개)은 42dot의 R&D 결과물로서, [Apache License 2.0](LICENSE)를 따릅니다.
 
 ---
