@@ -61,7 +61,7 @@ Byte-level BPE 토크나이저를 사용했고, 학습 데이터셋에서 1,000�
   - [XGLM 1.7B](https://huggingface.co/facebook/xglm-1.7B): [GPT-3](https://arxiv.org/abs/2005.14165) 아키텍처로 한국어를 포함한 30개 국어, 500B 토큰을 학습한 모델
   - [PolyLM 1.7B](https://huggingface.co/DAMO-NLP-MT/polylm-1.7b): LLaMA 아키텍처로 한국어를 포함한 18개 국어, 640B 토큰을 학습한 모델
 - 평가 데이터셋:
-  - [KoBEST](https://huggingface.co/datasets/skt/kobest_v1): BoolQ, COPA, HellaSwag, SentiNeg, WiC의 5개 태스크
+  - [KoBEST](https://huggingface.co/datasets/skt/kobest_v1): BoolQ, COPA, HellaSwag, SentiNeg 의 4개 태스크
 
 <figure align="center">
 <img src="asset/plm_benchmark_ko.png" width="90%" height="90%"/>
@@ -74,9 +74,7 @@ Byte-level BPE 토크나이저를 사용했고, 학습 데이터셋에서 1,000�
 |copa          |0.67       |**0.721**           |0.616    |0.513      |0.698                   |
 |hellaswag     |0.404      |0.401           |0.374    |0.321      |**0.438**                   |
 |sentineg      |0.606      |0.679           |0.46     |0.382      |**0.74**                   |
-|wic           |0.328      |0.328           |0.328    |0.328      |**0.328**                   |
-|**average**       |0.469      |0.497           |0.456    |0.376      |**0.526**                   |
-
+|**average**       |0.504      |0.539           |0.488    |0.388      |**0.575**                   |
 #### 영어
 - 비교대상:
   - [OPT 1.3B](https://huggingface.co/facebook/opt-1.3b): GPT-3 아키텍처로 영어 300B 토큰을 학습한 모델
