@@ -209,8 +209,8 @@ $ python example_cli.py --help
 ## Citation
 
 ```
-@misc{42dot2023chatbaker,
-      title={ChatBaker: Instruction Tuned Large Language Model by 42dot},
+@misc{42dot2023lm,
+      title={42dot LM: Instruction Tuned Large Language Model by 42dot},
       author={Woo-Jong Ryu and Sang-Kil Park and Jinwoo Park and Seongmin Lee and Yongkeun Hwang},
       year={2023},
       url = {https://gitlab.42dot.ai/NLP/hyperai/ChatBaker},

@@ -10,14 +10,14 @@ tags:
 - causal-lm
 license: apache-2.0
 ---
-# ChatBaker-PLM 1.3B
+# 42dot-PLM 1.3B
 
-**ChatBaker-PLM** is a pre-trained language model (PLM) developed by [**42dot**](https://42dot.ai/) which is trained using Korean and English text corpus. This repository contains a 1.3B-parameter version of the model.
+**42dot-PLM** is a pre-trained language model (PLM) developed by [**42dot**](https://42dot.ai/) which is trained using Korean and English text corpus. This repository contains a 1.3B-parameter version of the model.
 
 ## Model Description
 
 ### Hyperparameters
-ChatBaker-PLM is built upon a Transformer decoder architecture similar to the [LLaMA 2](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/) and its hyperparameters are listed below.
+42dot-PLM is built upon a Transformer decoder architecture similar to the [LLaMA 2](https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/) and its hyperparameters are listed below.
 
 | Params | Layers | Attention heads | Hidden size | FFN size |
 | -- | -- | -- | -- | -- |
@@ -44,14 +44,14 @@ We used a set of publicly available text corpus, including:
 The tokenizer is based on Byte-level BPE algorithm. We trained its vocabulary from scratch using a subset of the pre-training corpus. For constructing subset, 10M and 10M documents are sampled from Korean and English corpus respectively. The resulting vocabulary sizes about 50K.
 
 ### Zero-shot evaluations
-We evaluate ChatBaker-PLM on a variety of academic benchmarks both on Korean and English. All the results are obtained using [lm-eval-harness](https://github.com/EleutherAI/lm-evaluation-harness/tree/polyglot) and models released on the Hugging Face Hub. 
+We evaluate 42dot-PLM on a variety of academic benchmarks both on Korean and English. All the results are obtained using [lm-eval-harness](https://github.com/EleutherAI/lm-evaluation-harness/tree/polyglot) and models released on the Hugging Face Hub. 
 #### Korean (KOBEST)
 
 <figure align="center">
 <img src="asset/plm_benchmark_ko.png" width="90%" height="90%"/>
 </figure>
 
-|Tasks / Macro-F1|[KoGPT2](https://github.com/SKT-AI/KoGPT2) <br>1.2B|[Polyglot-Ko](https://github.com/EleutherAI/polyglot) <br>1.3B|[XGLM](https://huggingface.co/facebook/xglm-1.7B) <br>1.7B|[PolyLM](https://huggingface.co/DAMO-NLP-MT/polylm-1.7b) <br>1.7B|ChatBaker-PLM <br>1.3B ko-en|
+|Tasks / Macro-F1|[KoGPT2](https://github.com/SKT-AI/KoGPT2) <br>1.2B|[Polyglot-Ko](https://github.com/EleutherAI/polyglot) <br>1.3B|[XGLM](https://huggingface.co/facebook/xglm-1.7B) <br>1.7B|[PolyLM](https://huggingface.co/DAMO-NLP-MT/polylm-1.7b) <br>1.7B|42dot-PLM <br>1.3B ko-en|
 |--------------|-----------|----------------|---------|-----------|------------------------|
 |boolq         |0.337      |0.355           |**0.502**    |0.334      |0.424                   |
 |copa          |0.67       |**0.721**           |0.616    |0.513      |0.698                   |
@@ -67,7 +67,7 @@ We evaluate ChatBaker-PLM on a variety of academic benchmarks both on Korean and
 <img src="asset/plm_benchmark_en.png" width="90%" height="90%"/>
 </figure>
 
-| Tasks / Metric         | [MPT](https://huggingface.co/mosaicml/mpt-1b-redpajama-200b) <br>1B | [OPT](https://huggingface.co/facebook/opt-1.3b) <br>1.3B | XGLM <br>1.7B | PolyLM <br>1.7B | ChatBaker-PLM <br>1.3B ko-en |
+| Tasks / Metric         | [MPT](https://huggingface.co/mosaicml/mpt-1b-redpajama-200b) <br>1B | [OPT](https://huggingface.co/facebook/opt-1.3b) <br>1.3B | XGLM <br>1.7B | PolyLM <br>1.7B | 42dot-PLM <br>1.3B ko-en |
 | ---------------------- | ------ | -------- | --------- | ----------- | ------------------------ |
 | anli_r1/acc            | 0.309  | **0.341**    | 0.334     | 0.336       | 0.303                    |
 | anli_r2/acc            | 0.334  | **0.339**    | 0.331     | 0.314       | 0.337                    |
@@ -93,19 +93,19 @@ We evaluate ChatBaker-PLM on a variety of academic benchmarks both on Korean and
 | **avearge**                | 0.479  | 0.482    | 0.452     | 0.429       | **0.485**                    |
 
 ## Limitations and Ethical Considerations
-ChatBaker-PLM shares a number of well-known limitations of other large language models (LLMs). For example, it may generate false and misinformative contents since ChatBaker-PLM is also subject to [hallucination](https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)). In addition, ChatBaker-PLM may generate toxic, harmful and biased contents due to use of web-available training corpus. We strongly suggest that ChatBaker-PLM users should beware of those limitations and take necessary steps for mitigating those issues.
+42dot-PLM shares a number of well-known limitations of other large language models (LLMs). For example, it may generate false and misinformative contents since 42dot-PLM is also subject to [hallucination](https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)). In addition, 42dot-PLM may generate toxic, harmful and biased contents due to use of web-available training corpus. We strongly suggest that 42dot-PLM users should beware of those limitations and take necessary steps for mitigating those issues.
 
 ## Disclaimer
-The contents generated by ChatBaker series models ("ChatBaker models") do not necessarily reflect the views or opinions of 42dot Inc. ("42dot"). 42dot disclaims any and all liability to any part for any direct, indirect, implied, punitive, special, incidental or other consequential damages arising any use of the ChatBaker models and theirs generated contents.
+The contents generated by 42dot LM series ("42dot LMs") do not necessarily reflect the views or opinions of 42dot Inc. ("42dot"). 42dot disclaims any and all liability to any part for any direct, indirect, implied, punitive, special, incidental or other consequential damages arising any use of the 42dot LMs and theirs generated contents.
 
 ## License
-The ChatBaker-PLM is licensed under the Apache License, Version 2.0.
+The 42dot-PLM is licensed under the Apache License, Version 2.0.
 
 ## Citation
 
 ```
-@misc{42dot2023chatbaker,
-      title={ChatBaker: Instruction Tuned Large Language Model of 42dot},
+@misc{42dot2023lm,
+      title={42dot LM: Instruction Tuned Large Language Model of 42dot},
       author={Woo-Jong Ryu and Sang-Kil Park and Jinwoo Park and Sungmin Lee and Yongkeun Hwang},
       year={2023},
       url = {https://gitlab.42dot.ai/NLP/hyperai/ChatBaker},
