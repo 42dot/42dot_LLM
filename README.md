@@ -1,25 +1,3 @@
-<!--
-## 목차
-- [챗베이커 (ChatBaker)](#챗베이커-chatbaker)
-  - [생성형 언어 모델](#생성형-언어-모델)
-    - [학습 데이터셋](#학습-데이터셋)
-    - [평가](#평가)
-  - [사전 학습 모델 (PLM)](#사전-학습-모델-plm)
-    - [아키텍처](#아키텍처)
-    - [학습](#학습)
-    - [학습 데이터셋](#학습-데이터셋-1)
-    - [토크나이저](#토크나이저)
-    - [Zero-shot 성능 평가](#zero-shot-성능-평가)
-      - [한국어](#한국어)
-      - [영어](#영어)
-    - [모델 공개](#모델-공개)
-  - [사용법](#사용법)
-  - [한계점](#한계점)
-  - [라이센스](#라이센스)
-  - [유의사항](#유의사항)
-  - [Citation](#citation)
--->
-
 <img src="asset/42dot.png" width="25%" height="25%" /><img src="asset/tagline.png" width="25%" height="25%" /><img src="asset/asterisk.png" width="10%" height="10%" />
 
 # 42dot LM
@@ -145,13 +123,13 @@ Byte-level BPE 토크나이저를 사용했고, 학습 데이터셋에서 1,000�
 
 | Model | Global Batch Size | Learning rate | Epochs | Max length | Weight decay | Warmup ratio |
 | :-- | :--: | :--: | :--: | :--: | :--: | :--: |
-| 42dot-SFT | 16 | 2e-5 | 3 | 2,048 | 0 | 0.03 |
+| 1.3B | 16 | 2e-5 | 3 | 2,048 | 0 | 0.03 |
 
 A100 80G GPU 8장을 학습에 사용했습니다.
 
 | Model | 42dot-SFT |
 | :-- | :--: |
-| Time | 20 hours |
+| Time (approx.) | 20 hours |
 
 ### 학습 데이터셋
 
@@ -224,7 +202,7 @@ $ python example_cli.py --help
 ---
 
 ## 유의사항
-ChatBaker를 통해 생성한 내용은 42dot의 입장과 무관하며, 42dot은 생성 내용 및 이로 인해 발생하는 문제에 대해 책임지지 않습니다.
+42dot LM을 통해 생성한 내용은 42dot의 입장과 무관하며, 42dot은 생성 내용 및 이로 인해 발생하는 문제에 대해 책임지지 않습니다.
 
 ---
 
