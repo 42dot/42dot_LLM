@@ -131,8 +131,8 @@ class RichChatIO:
 
     def print_banner(self):
         self._console.print("=" * 60)
-        self._console.print(' ' * 20, end='')
-        self._console.print("[bold]ChatBaker by 42dot :car:")
+        self._console.print(' ' * 24, end='')
+        self._console.print("[bold]:minibus: 42dot LLM")
         self._console.print("=" * 60)
 
 
@@ -186,13 +186,14 @@ def chat_loop(
     # Automatic CPU/GPU allocation.
     if device == 'auto':
         device = assign_free_gpus()
-        if device.startswith('cuda'):
-            chatio.print_output(f"[yellow]Using [u]GPU:{device[-1]}[/u][/yellow]")
-        else:
-            chatio.print_output("[yellow]Using [u]CPU[/u][/yellow]")
+
+    if device.startswith('cuda'):
+        chatio.print_output(f"[yellow]Using [u]GPU:{device[-1]}[/u][/yellow]")
+    else:
+        chatio.print_output("[yellow]Using [u]CPU[/u][/yellow]")
 
     # Load a model.
-    with chatio._console.status("Loading ChatBaker model ...") as _:
+    with chatio._console.status("Loading 42dot LLM ...") as _:
         t = time.time()
         model, tokenizer, logits_processor = load_model(
             model_path,
@@ -202,7 +203,7 @@ def chat_loop(
             top_k,
             device,
         )
-    chatio.print_output(f'ChatBaker model has been loaded. {round(time.time() - t, 2)}s elapsed.', highlight=False)
+    chatio.print_output(f'42dot LLM has been loaded. {round(time.time() - t, 2)}s elapsed.', highlight=False)
 
     system_prompt = (
         '호기심 많은 인간 (human)과 인공지능 봇 (AI bot)의 대화입니다. '
@@ -278,7 +279,9 @@ def chat_loop(
 def main(
         # TODO: 아래는 오픈 직전에 허깅페이스 주소로 변경해야 합니다.
         model_path='/6917396/models/v0.1.3_enko_1.3b_free_3ep_yk',
-        # model='/Users/H6917396/workspace/gitlab.42dot.ai/hyperai/ChatBaker/model',
+        # model_path='/Users/H6917396/workspace/gitlab.42dot.ai/hyperai/ChatBaker/model',
+        # model_path='/6917396/models/output_fastchat-multi-09_16node-2ep-all_2308231758',
+        # model_path='/6917396/FastChat/output',
         temperature=0.5,
         repetition_penalty=1.2,
         top_p=0.95,
