@@ -1,8 +1,8 @@
 <img src="asset/42dot.png" width="25%" height="25%" /><img src="asset/tagline.png" width="25%" height="25%" /><img src="asset/asterisk.png" width="10%" height="10%" />
 
-# 42dot LM
+# 42dot LLM
 
-**42dot LM**은 [**포티투닷**](https://42dot.ai/) ([**42dot**](https://42dot.ai/))에서 자체 개발한 언어 모델들의 시리즈로, 다음의 특징을 가지고 있습니다.
+**42dot LLM**은 [**포티투닷**](https://42dot.ai/) ([**42dot**](https://42dot.ai/))에서 자체 개발한 언어 모델들의 시리즈로, 다음의 특징을 가지고 있습니다.
 - 대한민국 기관 최초의 **한영통합 언어 모델 (=42dot-PLM)** [more](#42dot-plm-사전-학습-모델)
 - 42dot-PLM 기반의 **생성형 언어 모델 (=42dot-SFT)** [more](#42dot-sft-생성형-언어-모델)
 - 직접 구축한 (수집, 정제) 데이터, 자체 학습 인프라 사용
@@ -185,8 +185,8 @@ $ python example_cli.py --help
 ---
 
 ## 한계점
-다른 LLM과 마찬가지로 42dot LM도 여러 한계를 가지고 있습니다. 42dot LM를 활용할 때 이러한 한계점들을 감안하기 바랍니다.
-- 언어 모델은 [환각 (Hallucination)](https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence))이라는 근본적인 문제가 있습니다. 마찬가지로 언어 모델인 42dot LM도 이러한 환각 문제를 가지고 있으며, 생성하는 내용이 사실과 일치하지 않을 수 있습니다.
+다른 LLM과 마찬가지로 42dot LLM도 여러 한계를 가지고 있습니다. 42dot LLM를 활용할 때 이러한 한계점들을 감안하기 바랍니다.
+- 언어 모델은 [환각 (Hallucination)](https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence))이라는 근본적인 문제가 있습니다. 마찬가지로 언어 모델인 42dot LLM도 이러한 환각 문제를 가지고 있으며, 생성하는 내용이 사실과 일치하지 않을 수 있습니다.
 - 자체적으로 42dot-SFT의 학습 데이터를 구축하면서 케이스를 최대한 다양화했지만, 미처 포함하지 못한 질문-응답 케이스가 존재할 수 있기 때문에 기대하는 형태의 응답을 생성하지 못할 수 있습니다. 
 - 동일한 입력에 대해 매번 다른 응답을 생성할 수 있습니다. 또한, 사용자가 입력한 질문/요청인 프롬프트에 민감합니다. 예를 들어, 주어진 질문에 정확한 답변을 생성했더라도, 동일한 내용에 표현 방식만 다른 질문/요청에 전혀 다른 응답을 생성할 수 있습니다.
 - 생성 결과에 별도의 필터링을 적용하지 않았습니다. 따라서 도덕, 인종, 문화, 성별, 나이, 지역, 종교, 정치성향 등에 대해 편향적이거나 부적절한 응답을 생성할 수 있습니다.
@@ -200,15 +200,15 @@ $ python example_cli.py --help
 ---
 
 ## 유의사항
-42dot LM을 통해 생성한 내용은 42dot의 입장과 무관하며, 42dot은 생성 내용 및 이로 인해 발생하는 문제에 대해 책임지지 않습니다.
+42dot LLM을 통해 생성한 내용은 42dot의 입장과 무관하며, 42dot은 생성 내용 및 이로 인해 발생하는 문제에 대해 책임지지 않습니다.
 
 ---
 
 ## Citation
 
 ```
-@misc{42dot2023lm,
-      title={42dot LM: Instruction Tuned Large Language Model by 42dot},
+@misc{42dot2023llm,
+      title={42dot LLM: Instruction Tuned Large Language Model by 42dot},
       author={Woo-Jong Ryu and Sang-Kil Park and Jinwoo Park and Seongmin Lee and Yongkeun Hwang},
       year={2023},
       url = {https://gitlab.42dot.ai/NLP/hyperai/ChatBaker},
