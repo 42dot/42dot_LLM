@@ -277,11 +277,7 @@ def chat_loop(
 
 
 def main(
-        # TODO: 아래는 오픈 직전에 허깅페이스 주소로 변경해야 합니다.
-        model_path='/6917396/models/v0.1.3_enko_1.3b_free_3ep_yk',
-        # model_path='/Users/H6917396/workspace/gitlab.42dot.ai/hyperai/ChatBaker/model',
-        # model_path='/6917396/models/output_fastchat-multi-09_16node-2ep-all_2308231758',
-        # model_path='/6917396/FastChat/output',
+        model_path='42dot/42dot-sft-1.3b',
         temperature=0.5,
         repetition_penalty=1.2,
         top_p=0.95,
