@@ -202,6 +202,12 @@ $ python example_cli.py --help
 ## 유의사항
 42dot LLM을 통해 생성한 내용은 42dot의 입장과 무관하며, 42dot은 생성 내용 및 이로 인해 발생하는 문제에 대해 책임지지 않습니다.
 
+## 채용안내
+저희와 함께 자체 언어 모델을 더욱 고도화해 나갈 인재를 모집하고 있습니다. 풍부한 GPU 인프라와 함께 최고의 LLM을 만들어나갈 분들의 많은 지원 바랍니다.
+
+- [LLM Research Engineer](https://42dot.ai/careers/openroles/4f10dddd-9022-4871-81ed-27c6cfc4c47d)
+- [LLM Data Engineer](https://42dot.ai/careers/openroles/d139f03e-6cf7-4019-be44-f97f441738ee)
+
 ---
 
 ## Citation
