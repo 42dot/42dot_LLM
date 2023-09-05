@@ -217,7 +217,7 @@ $ python example_cli.py --help
       title={42dot LLM: Instruction Tuned Large Language Model by 42dot},
       author={Woo-Jong Ryu and Sang-Kil Park and Jinwoo Park and Seongmin Lee and Yongkeun Hwang},
       year={2023},
-      url = {https://gitlab.42dot.ai/NLP/hyperai/ChatBaker},
+      url = {https://github.com/42dot/42dot_LLM},
       version = {pre-release},
 }
 ```
