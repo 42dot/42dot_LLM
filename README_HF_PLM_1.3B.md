@@ -29,7 +29,7 @@ Pre-training took 9 days using 256 * NVIDIA A100 GPUs. Related settings are list
 
 | Params | Global batch size\* | Initial learning rate | Train iter.\* | Max length\* | Weight decay |
 | -- | -- | -- | -- | -- | -- |
-| 1.3B | 4.0M | 4E-4 | 1.0T | 8K | 0.1 |
+| 1.3B | 4.0M | 4E-4 | 1.0T | 8,192 | 0.1 |
 
 (\* unit: tokens)
 
