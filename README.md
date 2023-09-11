@@ -7,7 +7,7 @@
 - 42dot-PLM 기반의 **생성형 언어 모델 (=42dot-SFT)** [more](#42dot-sft-생성형-언어-모델)
 - 직접 구축한 (수집, 정제) 데이터, 자체 학습 인프라 사용
 
-뿐만 아니라, [🤗42dot-PLM 1.3B](허깅페이스 모델 페이지 링크)와 [🤗42dot-SFT 1.3B](허깅페이스 모델 페이지 링크)를 공개했습니다.
+뿐만 아니라, [🤗42dot-PLM 1.3B](https://huggingface.co/42dot/42dot-plm-1.3b)와 [🤗42dot-SFT 1.3B](https://huggingface.co/42dot/42dot-sft-1.3b)를 공개했습니다.
 
 
 <figure align="center">
@@ -161,8 +161,8 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 
 ### 모델 공개
 
-- 🤗[42dot-PLM 1.3B](허깅페이스 링크)
-- 🤗[42dot-SFT 1.3B](허깅페이스 링크)
+- 🤗[42dot-PLM 1.3B](https://huggingface.co/42dot/42dot-plm-1.3b)
+- 🤗[42dot-SFT 1.3B](https://huggingface.co/42dot/42dot-sft-1.3b)
 
 ---
 
@@ -200,6 +200,12 @@ $ python example_cli.py --help
 ## 유의사항
 42dot LLM을 통해 생성한 내용은 42dot의 입장과 무관하며, 42dot은 생성 내용 및 이로 인해 발생하는 문제에 대해 책임지지 않습니다.
 
+## 채용안내
+저희와 함께 자체 언어 모델을 더욱 고도화해 나갈 인재를 모집하고 있습니다. 풍부한 GPU 인프라와 함께 최고의 LLM을 만들어나갈 분들의 많은 지원 바랍니다.
+
+- [LLM Research Engineer](https://42dot.ai/careers/openroles/4f10dddd-9022-4871-81ed-27c6cfc4c47d)
+- [LLM Data Engineer](https://42dot.ai/careers/openroles/d139f03e-6cf7-4019-be44-f97f441738ee)
+
 ---
 
 ## Citation
@@ -209,7 +215,7 @@ $ python example_cli.py --help
       title={42dot LLM: Instruction Tuned Large Language Model by 42dot},
       author={Woo-Jong Ryu and Sang-Kil Park and Jinwoo Park and Seongmin Lee and Yongkeun Hwang},
       year={2023},
-      url = {https://gitlab.42dot.ai/NLP/hyperai/ChatBaker},
+      url = {https://github.com/42dot/42dot_LLM},
       version = {pre-release},
 }
 ```
