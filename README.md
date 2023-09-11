@@ -163,8 +163,8 @@ A100 80G GPU 8장을 학습에 사용했습니다.
 
 ### 모델 공개
 
-- 🤗[42dot-PLM 1.3B](허깅페이스 링크)
-- 🤗[42dot-SFT 1.3B](허깅페이스 링크)
+- 🤗[42dot-PLM 1.3B](https://huggingface.co/42dot/42dot-plm-1.3b)
+- 🤗[42dot-SFT 1.3B](https://huggingface.co/42dot/42dot-sft-1.3b)
 
 ---
 
