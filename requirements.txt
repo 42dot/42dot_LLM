@@ -1,0 +1,5 @@
+torch
+transformers
+rich
+prompt_toolkit
+fire

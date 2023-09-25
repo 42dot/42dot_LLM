@@ -1,0 +1,410 @@
+id,question,category,task
+1,"짧은 이야기를 만들어라. 8문장 내외로 적어라.
+주제: 연애의 즐거움
+주인공: 중학생 때 첫사랑을 만나 연애를 시작한 20대 남성
+느낌: 풋풋한 설레임",Generation,Short story
+2,"은퇴한 어벤져스 토르, 캡틴아메리카, 호크아이가 모여서 함께 식사하는데, 토니 스타크와 블랙위도우를 그리워하는 이야기를 3문단으로 만들어줘",Generation,Long story
+3,결혼하는 친구를 축하하기 위한 시를 한편 지어줘,Generation,Poem
+4,"크리스마스날 가족이 모여 함께 볼 수 있는 따뜻한 영화 시나리오 만들어줄래?
+배경은 영국, 런던이야",Generation,Movie scenario
+5,"내일 장인, 장모님 처음 뵙는 자리에서 얘기를 어떻게 진행하면 좋을지 같이 시뮬레이션 돌려보자",Generation,Dialogue
+6,"초등학교 3학년 교사인데, 초등학교 3학년 아이들이 좋아할 개그같은 거 있을까?",Generation,Jokes
+7,직원들한테 워크샵 공지하는 이메일 작성해줘. 워크샵 일정 5/20일 금요일 9:00-18:00까지,Generation,Email
+8,경력 3년 미만의 주니어 데이터 분석가인데 자소서 써주라. 내 이름은 박미현이고 카네기멜론대학교에서 컴퓨터사이언스 전공했어.,Generation,Cover letter
+9,"커머스 운영팀에 제출할 내 이력서 써줘
+이름: 홍길동
+이메일: gildong.hong@gmail.com
+연락처: 010-1234-5678
+학력: 한국대학교 응용통계학과
+경력: 해외 제휴처 데이터 관리",Generation,Resume
+10,남성적인 분위기의 애스턴마틴에서 새로 출시한 자동차 광고 기획안 써줘. 컨셉은 이거 타면 마치 동물의 왕 사자처럼 느껴질 수 있게.,Generation,Commercial outline
+11,"최신 지능형 교통 시스템 기술과 도시 교통 혁신 사례를 조사하고, 지능형 교통 시스템이 도시 교통 효율성과 지속 가능성에 어떤 영향을 미치는지에 대해 리포트 적어야해.",Generation,Report
+12,코로나19 이후 전 세계적으로 재택근무 확대로 인한 오피스 부동산 시장의 변화가 관측되고 있는데 이슈에 대한 뉴스 쓰는거 가능할까?,Generation,News
+13,고양이가 사랑스러운 이유에 대한 에세이를 적어주면 안될까?,Generation,Essay
+14,고등학교 졸업식 연설문을 작성하는 데 어려움을 겪고 있는데. 2023학년도 졸업식 연설문을 작성하는 데 도움 좀 주라.,Generation,Speeches
+15,다음 달 06/07/2023 오후 3시에 신제품 론칭 미팅을 개최할 예정입니다. 장소는 쇼룸으로 정했습니다. 미팅 아젠다를 적어주세요.,Generation,Meeting agendas and minutes
+16,지속가능한 패션에 관심이 많고 친환경 의류 브랜드를 론칭하고 싶다. 상세한 사업 계획을 세우는 데 도움을 줄 수 있습니까?,Generation,Business proposals
+17,인재 채용과 면접 기술을 강화하기 위한 교육 자료를 만들어줘. 효과적인 면접 질문과 평가 방법이 포함되여야함.,Generation,Educational materials
+18,제네시스 G70에 대한 긍정적인 리뷰를 남기고 싶습니다.,Generation,Product review
+19,피카소의 여인의 얼굴에서 영감을 받은 재즈 노래 가사를 쓰세요.,Generation,Lyrics
+20,보다 지속 가능한 라이프스타일을 향한 여정을 공유하고 블로그 게시물에서 친환경 생활 팁을 제공하세요.,Generation,Blog posts
+21,장대한 판타지 영화 '반지의 제왕: 두 개의 탑'에 대한 리뷰를 작성해주실 수 있나요?,Generation,Movie review
+22,프로 운동선수이지만 심각한 부상으로 선수 생활을 마감하는 캐릭터 만들어볼까?,Generation,Character
+23,도쿄 여행을 얼마전에 다녀왔는데. 그곳에서의 경험에 대한 여행 리뷰 부탁할게,Generation,Travel review
+24,트위터에 #광고 라고 붙이고 광고 있다고 알리는 트윗 하나 작성해봐,Generation,SNS posts
+25,"주어진 정보로 제안요청서를 작성할 수 있나요?
+IT 서비스 회사: 하드웨어 및 소프트웨어 설치, 네트워크 지원, 사이버 보안 서비스를 포함한 IT 서비스에 대한 제안 요청.",Generation,Request for proposal
+26,"자연수 N이 주어졌을 때, 1부터 N까지 한 줄에 하나씩 출력하는 프로그램을 작성하시오.",Generation,Python code
+27,"사용자로부터 입력 M과 N을 읽고 ""isPerfectSquare"" 함수를 호출하여 M과 N 사이의 모든 완전제곱수를 식별하는 C++ 코드 스니펫을 구현합니다.",Generation,C++ code
+28,"사용자로부터 ""players"" 및 ""callings"" 배열을 읽고 ""rearrangePlayers"" 함수를 호출하여 재정렬된 배열을 가져오는 Java 코드 조각을 구현합니다.",Generation,Java code
+29,JavaScript 코드에서 오류 처리를 구현하여 입력 배열이 비어 있거나 유효하지 않은 문자가 포함된 경우를 처리하여 프로그램이 오류 없이 원활하게 실행되도록 합니다.,Generation,JavaScript code
+30,USED_GOODS_BOARD 테이블에서 가격이 가장 높은 게시물을 검색하는 SQL 쿼리를 구현합니다.,Generation,SQL code
+31,사용자 지정 색상 및 애니메이션 효과로 진행률 표시줄의 스타일을 지정하는 CSS 코드를 만듭니다.,Generation,CSS code
+32,HTML 코드 스니펫을 구현하여 이미지 간에 자동으로 전환되는 반응형 캐러셀/슬라이더를 만듭니다.,Generation,HTML code
+33,파일을 읽고 그 안의 단어 수를 세는 Golang 프로그램을 만듭니다.,Generation,Golang code
+34,"AVAudioPlayer를 사용하여 오디오 파일을 재생하고 재생, 일시 중지 및 중지 기능에 대한 컨트롤을 제공하는 iOS 앱을 만듭니다.",Generation,iOS code
+35,직각삼각형에서 빗변의 길이의 제곱은 다른 두 변의 길이의 제곱의 합과 같다는 피타고라스의 정리를 증명하십시오.,Generation,Mathematical proofs
+36,학부모 참여가 초등학생의 학업 성취도에 미치는 영향에 대한 연구 개요.,Generation,Research summaries
+37,15인치 노트북용 가방에 대해서 상품 설명을 적는거 좀 도와줘.,Generation,Product descriptions
+38,"인류 최초의 감미료라고 불리며, 이집트에서는 미라 보존을 위해 방부제로 사용한 것은 무엇이죠?",Generation,Trivia and quiz questions
+39,국가와 수도를 사용하여 단어 검색 퍼즐을 만드는 중이야. 적합한 단어 목록을 만들어줄래?,Generation,Word puzzles
+40,화석 연료를 대체하기에 원자력은 충분히 안전한가?,Generation,Debates and arguments
+41,레오나르도 다 빈치는 어떤 유명한 그림을 그렸을까요?,Generation,Quiz questions
+42,"출제자가 주변 사물이나 인물, 동물 따위의 주제를 제시하고 머릿속으로 적당한 단어를 생각하면 다른 사람이 출제자에게 최대 20개의 질문을 던지고, 질문에 대한 답을 바탕으로 출제자가 생각한 단어가 무엇인지 맞춰내는 방식의 게임을 하자. 답은 도시락",Generation,스무고개
+43,"Walt Disney Company의 테마파크 부문에 대한 SWOT 분석을 수행하여 엔터테인먼트 및 관광 부문의 강점, 약점, 기회 및 위협을 분석할 수 있습니까?",Generation,SWOT analysis
+44,옐로스톤의 가장 큰 지질학적 자랑은 무엇인가요? 200글자 내외로 적으세요.,OpenQA,geometry
+45,"프랑스 혁명 전쟁의 원인, 과정, 결과, 영향에 대해 10문장으로 간략하게 설명하세요.",OpenQA,history
+46,키스 자렛을 대표하는 앨범 세 곡을 설명과 함께 리스트 형식으로 추천하세요.,OpenQA,people
+47,"천왕성의 특징을 적어보세요.
+ 간략하게 적어보세요.
+ 세 단락으로 적어보세요.
+ 1000자로 적으세요.",OpenQA,astronomy
+48,평판이 좋은 출처에서 별자리 콘텐츠를 찾아보세요. 띠 중 물고기 자리의 행운의 아이템을 알려주시면 감사하겠습니다.,OpenQA,fortune
+49,불교에 대해 말해주세요. 200자로 적으세요.,OpenQA,religion
+50,"콜로라도에서 야생화를 볼 수 있는 시기와 꽃의 종류, 이름, 위치를 자세히 알려주세요.",OpenQA,식물
+51,거북이를 키우려면 어항 물을 얼마나 자주 갈아줘야 하나요? 100글자 내외로 적으세요.,OpenQA,동물
+52,숭례문에 대해 말해주세요. 200자 내외로 적어주세요.,OpenQA,건축물
+53,"계란, 참기름, 쌀, 양파, 고추, 간장을 넣어 맛있는 레시피를 만들어주세요. 참고로 저는 다이어트 중입니다. 300글자 내외로 적으세요.",OpenQA,free
+54,고양이에게 행복한 삶을주는 방법은 어떤게 있을까?,Brainstorming,general
+55,주방을 깨끗하고 깔끔하게 유지하는 방법,Brainstorming,life
+56,데이터 엔지니어가 되는 방법이 궁금해,Brainstorming,job
+57,미라클 모닝에 대한 사람들의 경험은 어떤가요?,Brainstorming,Personal experiences and opinions
+58,적은 비용으로 지금 시작하기 좋은 취미는 무엇인가요?,Brainstorming,Hobbies and interests
+59,어떤 교육이 커리어 개발에 도움이 될 수 있을까요? 저는 주니어 프론트엔드 엔지니어입니다.,Brainstorming,Career and education
+60,바람을 피울 사람을 어떻게 알아낼 수 있을까?,Brainstorming,Relationships and social connections
+61,사람들은 해외여행을 준비할 때 교통편과 문화차이에대해서 어떻게 준비하지?,Brainstorming,Travel and culture
+62,"소셜 미디어가 엔터테인먼트 산업을 어떻게 변화시켰으며, 그 결과 새롭게 떠오르는 트렌드는 무엇인가요?",Brainstorming,Entertainment and media
+63,사람들은 자신의 목표를 달성하는 것과 자신과 가까운 사람들의 목표와 욕구를 지원하는 것 사이에서 어떻게 균형을 잡을 수 있을까요?,Brainstorming,Life goals and aspirations
+64,"정의와 평등의 관계는 무엇이며, 윤리적 의사결정에 어떤 영향을 미치나요?",Brainstorming,Philosophy and ethics
+65,사람들에게 영원히 살 수 있는 기회가 주어진다면 사람들은 그렇게 할까요?,Brainstorming,Hypothetical situations
+66,"오염과 어획 남획으로부터 바다를 보호하려면 어떻게 해야 하며, 이를 위해 어떤 정책을 시행해야 하나요?",Brainstorming,environmental issues
+67,친환경적이고 휴대성이 뛰어난 새로운 텀블러 브랜드의 이름에 대한 아이디어를 제공해 주세요.,Brainstorming,브랜드 이름
+68,새로운 아웃도어 의류 라인에 대해 남성 고객과 여성 고객 모두에게 어필하기 위해 어떻게 마케팅 노력을 맞춤화할 수 있습니까?,Brainstorming,판매 타겟 설정
+69,"손님이 할 말을 예상한다면?
+
+옷가게에서 손님과 점원의 대화:
+손님: 이 셔츠 한 사이즈 작은 거 있나요?
+점원: 재고 확인드릴게요, 잠시만요.
+손님: 이 셔츠랑 어울리는 바지 있을까요?
+점원: 넵. 재고 확인됐는데, 같이 가져다 드리겠습니다.
+손님:",Chat,general
+70,"이 후 선생님과 학생의 대화를 쓰시오.
+
+교육에서 AI에 대해 이야기하는 교사와 학생:
+교사: AI는 교육을 변화시킬 잠재력이 있어. 교실에서의 AI는 어떤 것들이 있을 것 같니?
+학생: AI가 학습 경험을 개인화하고 지능적인 튜터링을 제공하는 방법이 흥미로워요. 하지만 실제 사람이 하는 교사의 역할이 어떻게 될지는 모르겠어요. 선생님은 어떻게 생각하세요?
+선생님:",Chat,ai
+71,"이 후 대화로 적절한 대화를 작성하시오.
+
+교사에게 자동차 정비에 대해 묻는 학생:
+학생: 최근에 운전면허증을 땄는데 차 점검할때, 어떤거 점검하는게 좋나요?
+교사: 차 수리할때? 정기적인 오일 교환, 타이어 공기압 점검 및 정기적인 유지 관리가 필수야. 부모님이 안 가르쳐주시니?
+학생:",Chat,car
+72,"다음에 올 대화를 생성해줘.
+
+에단과 올리비아의 대화:
+에단: 올리비아, 3D 프린터를 사용해 본 적이 있나요?
+올리비아: 아니요, 안 써봤어요. 이걸로 뭘 만들 수 있나요?
+에단: 장난감부터 도구, 심지어 인체 장기까지 모든 종류의 물건을 만들 수 있어요.
+올리비아:",Chat,Science and technology
+73,"연결될 대화를 만들어주세요.
+다니엘과 사만다의 대화:
+다니엘: 사만타, 르네상스에 대해 아는 게 있나요?
+사만다: 네, 알아요. 르네상스는 예술, 과학, 철학 분야에서 창의성과 혁신이 대단했던 시대죠.
+다니엘:",Chat,History
+74,"다음 대화를 만들어 보세요.
+
+다니엘과 사만다의 대화:
+다니엘: 사만타, 좋아하는 그림이 있나요?
+사만다: 네, 빈센트 반 고흐의 '별이 빛나는 밤'을 좋아해요. 색감과 붓터치가 정말 독특해요.
+다니엘: ",Chat,Art and literature
+75,"이 다음 대화는 어떻게 될지 알려주세요.
+
+소피아: 프렌즈' 보셨어요?
+리암: 네, 그 프로그램 정말 좋아해요. 정말 재밌어요.
+소피아: 전 한 번도 본 적이 없어요. 시즌 추천해줄래요?
+리암: ",Chat,Movies and TV shows
+76,"음악 장르에 대해 이야기하는 친구들:
+친구 1: 최근에 다른 음악 장르를 탐색하고 인디 록을 좋아하게 되었습니다.
+친구 2: 인디록은 독특한 매력이 있어요. 밴드의 생생하고 진정한 사운드는 매우 매력적입니다.
+친구 1: 동의합니다. 주류 관습에 얽매이지 않는 아티스트를 발견하는 것은 신선합니다.
+친구 2:",Chat,Music
+77,"도덕의 의미에 대해 토론하는 부모와 자녀:
+부모: 도덕의 개념을 어떻게 이해합니까? 무엇이 옳고 그른가?
+아이: 도덕이란 타인을 친절하고 공평하며 존중하는 마음으로 대하는 것이라고 생각합니다. 우리 행동의 결과를 고려하는 것입니다.
+부모: 그것들은 도덕의 본질적인 측면입니다. 다양한 윤리 이론을 탐구하면 도덕적 의사 결정에 대한 추가적인 통찰력을 얻을 수 있습니다.
+아이:",Chat,Philosophy and ethics
+78,"최근 여행에서 가장 좋았던 점을 공유한 동료들:
+동료 1: 태국의 길거리 음식은 정말 대단했어요! 나는 많은 새로운 맛을 시도했습니다.
+동료 2: 음식은 문화를 경험할 수 있는 훌륭한 방법입니다. 그것은 모든 나라의 요리 모험과 같습니다.
+동료 1:",Chat,Travel and culture
+79,"이 다음 대화는 어떻게 될지 알려주세요.
+
+사람 1: 안녕하세요! 요즘 어떻게 지내셨나요?
+사람 2: 별다른 일은 없고 대부분의 시간을 정원에서 보내고 있어요. 최근에 토마토와 오이를 좀 심었어요.
+사람 1: 오, 그거 좋네요. 정원에 다른 식물이 있나요?
+사람 2: 네, 꽃, 허브, 과일 등 다양한 식물을 키우고 있습니다. 정원을 가꾸는 것이 정말 힐링이 되거든요.
+사람 1: 정말 좋네요! 항상 정원을 가꾸고 싶었는데 어디서부터 시작해야 할지 모르겠어요.
+사람 2: 보기만큼 어렵지 않아요. 약간의 조사만 하고 작게 시작하면 돼요.
+",Chat,Hobbies and interests
+80,"근무 중 휴식의 이점에 대해 논의하는 동료:
+동료 1: 재충전과 집중력 향상을 위해 하루 종일 짧은 휴식을 취하는 것이 도움이 된다고 생각합니다.
+동료 2: 좋은 전략이네요. 나는 논스톱으로 일하는 경향이 있고 하루가 끝날 때까지 피곤함을 느낍니다.
+동료 1: 휴식을 취하면 실제로 생산성이 향상됩니다. 자기 관리를 우선시하도록 서로 격려합시다.
+동료 2:",Chat,Health and wellness
+81,"제2언어 학습의 이점에 대해 논의하는 동료들:
+동료 1: 새로운 언어를 배우면 많은 기회가 열립니다.
+동료 2: 물론입니다! 그것은 우리가 다른 문화권의 사람들과 소통할 수 있게 하고 인지 능력을 향상시킵니다.
+동료 1: 게다가 이력서를 보면 멋있어 보여요.
+동료 2:",Chat,Language learning
+82,"말장난 수수께끼로 서로 도전하는 친구들:
+친구 1: 나는 광산에서 끌려나와 나무로 된 상자에 갇혔습니다. 난 무엇인가?
+친구 2: 그것은 까다롭습니다. 힌트를 주실 수 있나요?
+친구 1: 읽고 쓰는 것입니다.
+친구 2:",Chat,Puzzles and riddles
+83,"학생에게 재귀의 개념을 설명하는 교사:
+교사: 재귀는 프로그래밍에서 강력한 기술입니다. 재귀를 사용하여 해결할 수 있는 문제를 생각할 수 있습니까?
+학생: 잘 모르겠습니다. 개념을 더 잘 이해하는 데 도움이 되는 간단한 예를 제공해 주시겠습니까?
+교사:",Chat,code q&a (like stackoverflow)
+84,"선호하는 게임 플랫폼에 대해 논의하는 게이머:
+게이머 1: 저는 PC 게이머입니다. 다양성과 그래픽 품질은 타의 추종을 불허합니다.
+게이머 2: 저는 콘솔 게이머에 가깝습니다. 저는 PlayStation에서 게임을 즐기는 것을 즐깁니다.
+게이머 1:",Chat,game
+85,"하프타임 중 축구 경기를 분석하는 스포츠 방송사:
+해설위원 1 : 전반전은 치열했습니다. 두 팀 모두 공격적인 모습이 좋았습니다.
+해설위원 2: 물론이죠. 미드필더 플레이는 예외적이어서 수많은 득점 기회를 창출했습니다.
+해설위원 1 : 후반부도 그만큼 짜릿할 것 같습니다.
+해설위원 2:",Chat,sports
+86,"동물 훈련 센터에서 훈련 기술을 논의하는 동물 조련사와 동료:
+훈련자 1: 긍정적 강화는 동물을 훈련시킬 때 핵심입니다. 원하는 행동을 배우고 수행하는 데 도움이 됩니다.
+조련사 2: 전적으로 동의합니다. 클리커 훈련이 좋은 행동을 강화하는 데 특히 효과적이라는 것을 알았습니다.
+훈련자 1: 우리가 훈련시키는 동물들과 강한 유대감을 형성하는 것도 성공적인 훈련을 위해 매우 중요합니다.
+조련사 2:",Chat,animal
+87,"패션 인플루언서 및 팔로워가 소셜 미디어에서 의상 영감에 대해 논의:
+인플루언서: 최근에 제 인스타그램에 보호에서 영감을 받은 의상을 올렸습니다. 빈티지와 모던한 요소가 어우러진 모습이 마음에 듭니다.
+팔로워: 당신의 스타일은 항상 매우 고무적입니다! 나는 당신의 게시물에서 내 자신의 의상에 대한 많은 아이디어를 얻습니다.
+인플루언서: 패션에는 전 세계 사람들에게 영감을 주고 연결하는 힘이 있습니다.
+팔로워:",Chat,fashion
+88,"회의 중 사무실 리노베이션에 대해 논의하는 동료들:
+동료 1: 사무실은 직원들의 사기를 진작시키기 위해 새로운 모습이 필요합니다. 편안한 좌석 공간과 식물을 추가하는 것은 어떻습니까?
+동료 2: 동의합니다. 또한 지정된 협업 공간을 만들어 팀워크와 창의성을 장려할 수 있습니다.
+동료 1: 인테리어 디자인은 긍정적이고 생산적인 작업 환경을 조성하는 데 중요한 역할을 합니다.
+동료 2:",Chat,interior
+89,"방문한 유명한 다리의 건축학적 특징에 대해 이야기하는 친구들:
+친구 1: 금문교는 공학적 경이로움입니다. 서스펜션 케이블과 아이코닉한 오렌지 색상이 정말 기억에 남습니다.
+친구 2: 당연하지! 다리의 디자인은 강한 바람과 아래 바다의 끊임없는 움직임을 견딜 수 있도록 합니다.
+친구 1: 다리가 물리적으로나 상징적으로나 공간과 사람을 연결하는 방식이 신기하지 않나요?
+친구 2:",Chat,structure
+90,"공공장소에서 애완동물 에티켓에 대해 말하는 개 주인:
+견주 1: 반려견을 산책시킬 때 뒷정리를 꼭 해줘야 할까요?
+견주 2: 물론이죠! 우리 개들이 공공 장소를 사용하는 다른 사람들에 대한 책임감과 배려를 보여 준 후 청소를 합니다.
+견주 1:",Chat,예절
+91,"이 광고 아웃라인을 인플루언서들도 쉽게 받아들이도록 다시 작성해줄 수 있겠어?
+제품: 디자이너 핸드백
+
+광고 개요:
+우아한 디자인과 장인정신이 돋보이는 디자이너 핸드백의 고급스러운 샷부터 시작하세요.
+주요 메시지 소개: 우리가 탐내는 핸드백 컬렉션으로 세련미와 스타일을 연출하세요.
+프리미엄 소재, 디테일에 대한 관심, 시대를 초월한 매력과 같은 주요 기능을 강조 표시합니다.
+
+바디:
+공식 행사에서 일상 행사에 이르기까지 다양한 환경에서 자신감 있는 개인이 착용하는 핸드백을 선보입니다.
+충분한 수납 공간 또는 다양한 휴대 옵션과 같은 핸드백의 기능을 강조하십시오.
+패션 인플루언서 또는 유명인의 평가를 포함하여 핸드백의 상태와 바람직함을 강조합니다.
+
+콜 투 액션:
+최신 핸드백 디자인을 살펴보려면 플래그십 매장이나 공인 판매점을 방문하도록 시청자를 독려하세요.
+개인화 된 스타일링 서비스 또는 사용자 정의 옵션을 제공하여 독특한 핸드백 경험을 만드십시오.
+고급스러움과 고급스러움을 구현하는 슬로건으로 결론을 내립니다.
+",Rewrite,commercial outline
+92,이 집에 바퀴벌레가 많이 나오나요?를 영어로 하면?,Rewrite,translate ko->en
+93,"""The curious cat gracefully leaped over the fence, landing softly on the lush green grass.""를 한국어로 번역해줘",Rewrite,translate en->ko
+94,"네비 길 안내한 글 한눈에 보기 좋게 다시 작성 부탁해
+
+킨텍스에서 12m앞 '킨텍스IC, 킨텍스하역장2' 방면으로 좌회전, 107m앞 '킨텍스IC, 킨텍스하역장2' 방면으로 비보호 좌회전, 224m앞 '한류월드' 방면으로 우회전, 154m 앞 '킨텍스IC'방면으로 우회전, 1.4km앞 킨텍스IC에서 '서울, 인천공항'방면으로 왼쪽 방향, 23km앞 마포대교북단에서 '공덕오거리' 방면으로 왼쪽 도시고속도로 출구, 1.5km 공덕오거리에서 '서울역(서부)'방면으로 오른쪽 1시 방향, 753m앞 우회전, 510m앞 회전교차로에서 2시 방향, 90m앞 좌회전, 숙명여자대학교 제1캠퍼스 도착",Rewrite,navigation
+95,"다음의 격식 없는 문자를 좀 더 격식 있게 써주세요.
+수신자: 김미형, 발신자:이희애
+토요일 밤에 저희 집에서 파티가 열릴 예정입니다. 곧 초대장을 더 보낼 예정이지만 먼저 개인적으로 연락드리고 싶었어요. 당신은 제가 가장 좋아하는 사람 중 한 명이고, 파티를 더욱 멋지게 만들어 주실 거라고 믿어요!",Rewrite,formal/unformal
+96,"다음 글에서 문법과 맞춤범 오류없이 써줘.
+어의가없네요. 맞춤범 좀 틀린다고 공항장애니 발암물질이니 하시는 분들 그거 지금 임신공격인거 아시죠?",Rewrite,grammar
+97,"프로젝트에서 개발자 액세스 권한이 있는 상태에서 코드를 git에 푸시할 때 문제가 발생하지만 마스터 액세스 권한이 있으면 모든 것이 정상입니다. 어디에서 문제가 발생하나요? 그리고 어떻게 해결하나요?
+
+오류 메시지:
+
+error: You are not allowed to push code to protected branches on this project.
+...
+error: failed to push some refs to ...",Rewrite,code fix
+98,"아래 메일을 내용을 팀 메신저에 공지할 수 있게 친근하게 다시 적어줘
+
+제목: 효과적인 커뮤니케이션을 위한 그룹 워크숍 초대
+
+팀 여러분
+
+2023년 6월 20일 오전 9시부터 오후 12시까지 그랜드 호텔에 위치한 센트럴 컨퍼런스룸에서 열리는 효과적인 커뮤니케이션을 위한 그룹 워크숍에 여러분을 초대하게 되어 기쁘게 생각합니다. 이 워크숍은 팀 내 및 고객과의 커뮤니케이션 기술을 향상시켜 더 나은 협업과 고객 만족을 보장하는 것을 목표로 합니다.
+
+워크숍에서는 적극적인 경청, 명확한 메시지 전달, 친밀감 형성을 위한 유용한 기술을 배우게 됩니다. 이러한 기술은 강력한 관계를 조성하고 비즈니스 목표를 달성하는 데 필수적입니다. 여러분의 참석과 적극적인 참여를 적극 권장합니다.
+
+달력에 일정을 표시하고 2023년 6월 10일까지 참석 가능 여부를 확인해 주시기 바랍니다. 여러분의 열정적인 참여와 팀의 성공에 긍정적인 영향을 미칠 수 있기를 기대합니다.
+
+감사합니다,
+
+에밀리 톰슨
+교육 및 개발 관리자",Rewrite,email
+99,"회의 재품 출시
+참석자 사라, 마크, 리사, 마이클
+안건
+
+재품 출시 계획 및 일정 검토
+마케팅 및 홍보 전략 논의
+우려 사항 또는 과제 해결
+성공적인 제품 출시를 위한 목표 설정
+
+참고사항:
+
+회의에서는 재품 출시 계획과 일정을 검토하여 모든 것이 순조롭게 진행되고 읻는지확인했습니다. 제품에 대한 인지도를 높이고 흥미를 유발하기 위한 마케팅 및 홍보 전략에 대해 논의했습니다.
+
+경젱 및 타갯 고객 참여 등 잠재적인 우려 사항과 과제를 해결했습니다. 고객 선호도를 더 잘 이해하고 그에 따라 마케팅 접근 방식을 개선하기 위해 시장 조사를 실시할 것을 제안했습니다.
+
+다음 단계: Sarah는 마케팅 팀과 협력하여 계획된 전략을 실행하고 진행 상황을 모니터링할 것입니다. Mark는 시장 동향과 경젱사 활동을 분석하여 잠재적 기회를 파악할 것입니다. Lisa와 Michael은 홍보 자료를 마무리하고 재품 출시 물류가 원활하게 이루어질 수 있도록 협력합니다.
+
+이 회의 노트를 보다 정확하게 편집하세요. 문법 오류를 수정하고 날짜와 장소 등 누락된 정보를 입력해 주세요.",Rewrite,meeting note
+100,"밑에 뉴스 세줄로 줄여줘
+
+美 부채한도 상향 합의안, 하원 운영위 가까스로 통과
+
+미국 연방정부의 디폴트(채무 불이행)를 피하기 위한 부채한도 상향 합의안이 의회의 첫 관문을 가까스로 통과했다. 공화당과 민주당 내 반란표가 어느 정도 확인된 상황이어서 최종 통과까지는 여전히 불투명하다는 전망이다.
+30일(현지시간) 뉴욕타임스(NYT) 등에 따르면 미 하원 운영위원회는 이날 회의를 열고 부채한도 상향 합의안을 전체회의에 회부하기로 결정했다. 위원회 위원 13명 중 7명이 찬성표를, 6명이 반대표를 던졌다. 불과 1표 차이로 전체회의에서 표결을 진행할 수 있게 된 것이다. 미 하원은 31일 합의안을 표결에 부칠 계획이다.
+
+NYT는 부채한도 상향 합의안이 하원 운영위를 통과함에 따라 의회 내 첫 문턱을 넘어섰다고 평가했다. 하원 운영위에는 공화당 의원 9명과 민주당 의원 4명이 소속돼 있는데, 양당 강경파들이 포진한 탓에 합의안이 부결될 수 있다는 우려가 적지 않았기 때문이다. 실제 이날 민주당 의원 전원과 공화당 의원 2명이 합의안에 반대했다.
+
+앞서 조 바이든 미 대통령과 케빈 매카시 미 하원의장은 지난 주말 부채한도 상향 논의를 진행하고 2025년 1월까지 연방정부의 부채 한도를 높이는 대신 2024~2025년 정부 예산 지출을 제한하기로 최종 합의했다. 양측은 또 국방비 지출을 늘리고 연방정부 복지 프로그램 수급 요건을 강화하는 데에도 의견을 같이 했다.
+
+연방정부 지출을 대폭 삭감해야 한다고 주장해 온 공화당 강경파는 여전히 이번 합의안에 불만을 제기하고 있다. 공화당 강경 보수파 의원 모임인 프리덤코커스는 매카시 의장의 사퇴까지 거론하고 있다. 민주당 일부 의원들도 연방정부 지출을 제한한 합의안에 불만을 품고 있다.
+
+이에 따라 부채한도 상향 합의안이 하원 문턱을 넘을 수 있을지 낙관하기 어렵다는 관측이 나온다. 합의안이 하원을 통과하기 위해선 전체 435석 중 과반(218표) 이상의 표를 얻어야 한다. 하킴 제프리스 민주당 하원 원내대표는 “처음에 우리는 공화당 하원의원 중 95%가 합의안을 지지할 것이라고 들었다”며 “(지금은) 그런 것 같진 않다”고 상황을 지적했다.
+
+매카시 의장 등 공화당 지도부는 공화당 하원의원 222명 가운데 최소 150명의 지지를 얻기 위해 표 단속을 강화하고 있다. 백악관 역시 민주당 의원들을 대상으로 합의안 내용을 설명하고 지지를 요청했다. 합의안이 하원에서 가결되면 상원으로 넘어가며, 늦어도 다음 달 5일까지는 상·하원을 모두 통과해야 연방정부의 디폴트를 피할 수 있다.
+",Summarization,news
+101,"총 균 쇠라는 책 소개인데 한줄 소개한다면?
+
+학문의 경계를 넘나드는 세계적 석학 재레드 다이아몬드. 인류 문명에 대한 예리한 통찰을 전해온 그의 대표작이자 1998년 퓰리처상 수상작 《총, 균, 쇠》를 새 번역, 새 편집으로 만난다.
+
+왜 어떤 국가는 부유하고 어떤 국가는 가난한가? 왜 어떤 민족은 다른 민족의 정복과 지배의 대상이 되었는가? 생물학, 지리학, 인류학, 역사학 등 다양한 학문의 융합을 통해 장대한 인류사를 풀어내며 오늘날 현대 세계가 불평등한 원인을 종합 규명한 혁신적 저작. 출간 25년 기념 뉴에디션에는 2023년 저자 특별서문과 서울대 인류학과 박한선 교수의 해제, 새 서문과 후기를 수록해 풍성한 읽을거리를 더했다.",Summarization,book
+102,"손흥민 위키에 나온 평가 요약 부탁할게
+
+프리미어 리그에서 득점왕을 차지하고 통산 100호골을 달성한 아시아 역사상 최초이자 유일무이한 선수다. 그뿐만 아니라 손흥민이 클럽에서 보여준 개인 퍼포먼스와 스탯 등은 진작 아시아 평균을 아득히 넘었다고 평가받지만, 아직까지 주요 리그 및 대회에서 우승 커리어가 없다는 게 유일한 흠으로 지적받는다. 하지만 그것을 감안하더라도 아시아에서 압도적인 개인 커리어, 전성기의 고점, 누적, 꾸준함 등 모든 것을 고려해 보면 역대 다른 아시아 선수들과 비교했을 때 압도적이기 때문에, 아시아 역대 최고의 선수라는 평가는 이견의 여지가 없는 편이다.
+
+실제로, 과거부터 현재까지 프리미어 리그에서 뛴 수많은 아시아 국적 선수들 중 한 시즌에 10골, 20골 이상을 넣은 선수는 손흥민을 제외하면 단 한 명도 없다. 또한 아시아 선수 최초로 프리미어 리그 이달의 선수 3회 수상, 2020-21 시즌엔 PFA 올해의 팀 선정, 2021-22 시즌에는 프리미어 리그 득점왕을 차지하였다.[62]
+
+아시아 선수 중 UEFA 챔피언스 리그, 프리미어 리그 등 유럽 5대 리그 통산 최다 득점과 프리미어 리그 득점왕, 발롱도르 11위, FIFA 푸스카스상 수상, 프리미어 리그 이달의 선수 3회 수상, PFA 올해의 팀 선정, 유럽 빅리그 통산 150골 돌파, 프리미어 리그 100골 돌파 등의 굵직한 개인 커리어를 보유하고 있으며, 또한 아시아 베스트 풋볼러 8회 수상, AFC 국제 선수상 4회 수상, AFC 아시안컵 베스트팀 등 아시아에서 주는 상들 역시 독식하고 있다.
+
+또한, 손흥민 한 명이 프리미어 리그에서 넣은 골이 PL에서 활약하는 모든 아시아인 선수들보다 더 많을 정도로 PL 내 위상은 단연 독보적이다.[63] 그리고 2021-22시즌 리그에서 아시아 선수 최초로 20골 이상을 기록하며 유럽 5대 리그[64] 아시아 선수 관련 골 기록은 모두 손흥민이 가지게 되었다.
+
+2018-19 시즌 이후 한준희 해설 위원은 차범근을 제치고 손흥민을 아시아 역대 No.1으로 인정하고 있다.[65] 해당 시즌에 박지성에 이어 두 번째로 챔스 결승 무대에 오르는 한국인 선수라는 점도 높은 평가에 한몫하며, 손흥민은 아직 현역이기 때문에 향후 활약과 우승 유무에 따라 평가가 점점 더 올라갈 가능성도 있다.
+
+2016-17 시즌부터 2021년 8월 16일까지 집계한 통계로는, 5대 리그에서 골 기대치 대비 골이 제일 높은 선수임이 밝혀졌고,[66] 이 수치는 리오넬 메시, 엘링 홀란드, 그리고 같은 팀에서 뛰고 있는 해리 케인보다 높은 수치였다. 따라서, 손흥민의 골 기대치 대비 골은 독보적이라는 평가를 받고 있다.#",Summarization,wiki
+103,"이 리뷰의 핵심 사항만 소개해줘.
+가우디 투어는 꼭 하는게 좋다고 해서
+후기보고 신청했어요!!
+젊은 여자 가이드분이였고
+목소리도 넘 좋으시고 설명도 요약해서 잘하셔서 좋았어요:)
+정말 바르셀로나를 좋아하시고,
+또 가이드 하시는걸 행복해하는게 느껴졌답니다.
+중간중간 노래도 선곡해서 틀어주시구요-
+한분한분 사진도 열정적으로 찍어주셨어요.
+짧지 않은 시간인데 항상 웃는 얼굴로 설명해주셔서
+정말 가이드분 잘 만났다고 생각했어요!
+아, 그리고 버스투어라고 해서 별로 안 걸을줄 알았는데
+건축물 외부 앞에서 거의 서서 듣거나
+지정되어있는 버스 주차장까지 가야해서
+은근 걷는 시간이 있습니다. 참고 하시길 바랍니다
+
+
+다만, 아쉬운 부분이라면 마지막 파밀리아 성당 건축물 설명에서는
+기독교적인 성경내용이라고 해야할까요.
+종교적인 설명디테일이 너무 깊게 들어가는거 같아서
+무교인이지만, 기독교를 별로 선호하지 않는
+저로서는 좀 힘들었어요
+건축물이 성당/ 가우디의 종교관이 들어가는 부분이라
+당연하긴 하지만, 교회에 와서 목사님 설명을 듣고 있나 싶은..?
+까사바뜨요-밀라-구엘공원에서의 설명은 너무 만족했습니다!",Summarization,review
+104,"이 특허의 핵심만 잘라서 알려줘.
+본 발명은 태양전지(14, 솔라)를 구비하여 충전배터리(16)에 전원을 충전시킨 대기상태에서 일정거리 선상에서 사람이 감지되며 감지센서(20)가 작동될 때만 전원을 인가하여 광고를 표출할 수 있도록 한 광고용 디스플레이장치에 관한 것으로, 이러한 본 발명은 수용공간(10)을 갖는 사각형상의 수용본체(12)와; 상기 수용본체(12)의 상면 일측에 비스듬히 설치되어 빛을 전기에너지로 변환하는 태양전지(14 ,솔라셀)와 전기적으로 연결되되, 수용본체(12)의 내부 일측에 설치되어 태양전지(14, 솔라셀)로부터 공급되는 전기에너지를 충전시키는 충전배터리(16)와; 상기 충전배터리(16)에 전기적으로 연결되되, 수용본체(12)의 내부 에 설치되어 충전배터리(16)로부터 공급되는 전기에너지를 공급받아 기 설정된 프로그램에 따라 전기적으로 연결된 부품들의 동작을 제어하는 제어부(18)와; 상기 수용본체(12)의 내면 전방향으로 설치되되, 제어부(18)에 전기적으로 연결되어 제어부(18)의 제어에 따라 전방향에 위치한 사람을 감지하는 감지센서(20)와; 상기 수용본체(12)의 배면에 착탈가능하게 나사 고정되되, 수용본체(12)와 결합하여 수용공간(10)을 형성되게 하는 배면판(22) 등을 포함하여 구성된다.",Summarization,patent
+105,"이 논문의 핵심 포인트만 빠짐없이 말해봐.
+(연구배경 및 목적) 최근 도시 공간의 공동체 환경에서 인간의 교류 단절로부터 나타난 사회 현상은 지역 커뮤니티 내부에서 소통부재와 같은 문제를 야기 시켰다. 이러한 문제를 개선하기 위하여 제공된 서비스는 거주민에 대한 수요와 요구를 제대로 반영하지 못하여 교류를 통한 삶의 질을 개선시키는 데 한계가 있다. 따라서 커뮤니티 공간의 교류를 활성화하고, 커뮤니티 거주민을 연결할 수 있는 콘텐츠의 연구가 본 연구의 목적이다. (연구방법) 본 연구에서는 지역 커뮤니티 내의 초등학교를 커뮤니티 공간으로 활용을 고찰해보고, 초등학교 교과의 체험 학습 교육 콘텐츠를 통하여 거주민까지 적용 가능한 서비스를 도출한다. (결과) 지역 커뮤니티 공간인 초등학교를 대상으로 체험학습을 증진 시킬 수 있는 서비스를 적용하였다. 이러한 서비스는 지역 거주민의 능동적인 참여를 통한 유대감 형성과 거주민을 위한 공간의 확장으로 지역 커뮤니티 활성화에 도움을 준다. 향후 문화·사회·복지 측면의 콘텐츠 확대로, 더 나은 체험학습 증진을 위한 스마트 서비스로의 발전을 기대한다.",Summarization,paper
+106,"다음 대화을 알기 쉽게 한번 요약해줄 수 있을까?
+
+지현: 승민아, 너는 자신의 몸과 마음을 건강하게 유지하기 위해 어떤 식으로 노력하고 있어?
+승민: 나는 요가와 명상을 통해 몸과 마음의 균형을 찾고, 건강한 식습관을 유지하면서 충분한 수면을 취하려고 노력하고 있어!
+",Summarization,dialogue
+107,"다음 영화 리뷰 글의 감정을 긍정과 부정 중 하나로 분류하라.
+
+리뷰: 두가지 토끼를 잡으려다 둘 다 놓친 영화",Classification,sentiment
+108,"영화 감독은 누구야?
+크리스토퍼 놀란, 브래드 피트, 메릴 스트립",Classification,select
+109,"아래 단어들 좀 더 위에 있는 개념들로 묶어줄래?
+
+봄, 여름, 가을",Classification,category
+110,"다음에서 설명하는 인간 본성에 대한 관점은?
+
+ 모든 사람은 태어날 때부터 다른 사람을 불쌍히 여기고 자신의 잘못을 부끄러워하는 마음을 가지고 태어난다.
+
+① 인간의 본성은 본래 선하다. 
+② 인간의 본성은 본래 악하다.
+③ 인간의 본성은 본래 선하지도 악하지도 않다. 
+④ 인간의 본성은 환경에 의해 결정되는 것이다.",ClosedQA,general
+111,호수에 얼음이 두껍게 얼수록 대류때문에 호수의 열손실은 느려진다? 오? 아님 엑스?,ClosedQA,physical
+112,"아래의 지문 속에서 말하는 필요한 장치를 골라볼래?
+
+엔진 오일은 되풀이해서 윤활에 사용하므로 마모된 금속 가루나 외부로부터의 이물질이 섞이게 된다.
+그대로 사용하면 윤활 효과가 약해질 뿐 아니라 오일도 열화(劣化)해서 순환 도중에 정화하는 장치가 필요하다.
+
+
+ㄱ. 오일 필터 ㄴ. 와이퍼 ㄷ.댐퍼 ㄹ.오일 쿨러",ClosedQA,car manual
+113,"This passage is adapted from Mary Helen Stefaniak, The Cailiffs of Baghdad, Georgia: A Novel. ©2010 by Mary Helen
+Stefaniak.
+Miss Grace Spivey arrived in Threestep, Georgia, in August 1938. She stepped off the train wearing a pair of thick-soled boots suitable for hiking, a navy Line blue dress, and a little white tam that rode the waves of her red hair at a gravity-defying angle. August was a hellish month to step off the train in Georgia, although it was nothing, she said, compared to the 119 degrees that greeted her when she arrived one time in Timbuktu, which, she assured us, was a real place in Africa. I believe her remark irritated some of the people gathered to welcome her on the burned grass alongside the tracks. When folks are sweating through their shorts, they don’t like to hear that this is nothing compared to someplace else. Irritated or not, the majority of those present were inclined to see the arrival of the new schoolteacher in a positive light. Hard times were still upon us in 1938, but, like my momma said, “We weren’t no poorer than we’d ever been,” and the citizens of Threestep were in the mood for a little excitement.
+Miss Spivey looked like just the right person to give it to them. She was, by almost anyone’s standards, a woman of the world. She’d gone to boarding schools since she was six years old; she’d studied French in Paris and drama in London; and during what she called a “fruitful intermission” in her formal education, she had traveled extensively in the Near East and Africa with a friend of her grandmother’s, one Janet Miller, who was a medical doctor from Nashville, Tennessee. After her travels with Dr. Miller, Miss Spivey continued her education by attending Barnard College in New York City. She told us all that at school the first day. When my little brother Ralphord asked what did she study at Barnyard College, Miss Spivey explained that Barnard, which she wrote on the blackboard, was the sister school of Columbia University, of which, she expected, we all had heard.
+It was there, she told us, in the midst of trying to find her true mission in life, that she wandered one afternoon into a lecture by the famous John Dewey, who was talking about his famous book, Democracy and Education. Professor Dewey was in his seventies by then, Miss Spivey said, but he still liked to chat with students after a lecture—especially female students, she added—sometimes over coffee, and see in their eyes the fire his words could kindle. It was after this lecture and subsequent coffee that Miss Spivey had marched to the Teacher’s College and 50 signed up, all aflame. Two years later, she told a cheery blue-suited woman from the WPA1 that she wanted to bring democracy and education to the poorest, darkest, most remote and forgotten corner of America.
+They sent her to Threestep, Georgia.
+Miss Spivey paused there for questions, avoiding my brother Ralphord’s eye.
+What we really wanted to know about—all twenty-six of us across seven grade levels in the one room—was the pearly white button hanging on a string in front of the blackboard behind the teacher’s desk up front. That button on a string was something new. When Mavis Davis (the only bona fide seventh grader, at age thirteen) asked what it was for, Miss Spivey gave the string a tug, and to our astonishment, the whole world—or at least a wrinkled map of it—unfolded before our eyes. Her predecessor, Miss Chandler, had never once made use of that map, which was older than our fathers, and until that moment, not a one of us knew it was there.
+Miss Spivey showed us on the map how she and Dr. Janet Miller had sailed across the Atlantic Ocean and past the Rock of Gibraltar into the Mediterranean Sea. Using the end of a ruler, she gently tapped such places as Morocco and Tunis and Algiers to mark their route along the top of Africa. They spent twenty hours on the train to Baghdad, she said, swathed in veils against the sand that crept in every crack and crevice.
+ “And can you guess what we saw from the train?” Miss Spivey asked. We could not. “Camels!” she said. “We saw a whole caravan of camels.” She looked around the room, waiting for us to be amazed and delighted at the thought.
+ We all hung there for a minute, thinking hard, until Mavis Davis spoke up.
+“She means like the three kings rode to Bethlehem,” Mavis said, and she folded her hands smugly on her seventh-grade desk in the back of the room.
+Miss Spivey made a mistake right then. Instead of beaming upon Mavis the kind of congratulatory smile that old Miss Chandler would have bestowed on her for having enlightened the rest of us, Miss Spivey simply said, “That’s right.”
+
+Which choice provides the best evidence for the
+answer to the previous question?
+A) Lines 2-5 (“She stepped... angle”)
+B) Lines 10-14 (“I believe... else”)
+C) Lines 14-20 (“Irritated... excitement”)
+D) Lines 23-25 (“She’d gone... London”)",ClosedQA,sat
+114,"Whereas    the    Elizabethans    struggled   with   the    transition   from   medieval   ___    experience    to   modern 
+individualism,   we   confront    an   electronic   technology    that   seems   likely    to   reverse    the    trend,   rendering 
+individualism    obsolete    and   interdependence   mandatory. 
+(A)         literary
+(B)          intuitive
+(C)          corporate
+(D)          heroic
+(E)          spiritual",ClosedQA,gre
+115,"Although prices at most supermarkets _______ from store to store, the differences 
+are not large enough to change consumer behavior.
+ (A) adapt
+ (B) vary
+ (C) convert
+ (D) reduce",ClosedQA,toeic
+116,"어느 고등학교 3학년의 네 학급에서 대표 2명씩 모두 8명의 학생이 참석하는 회의를 한다. 이 8명의 학 
+생이 일정한 간격을 두고 원 모양의 탁자에 모두 둘러앉을 때, 같은 학급 학생끼리 서로 이웃하게 되는 경 
+우의 수는? (단, 회전하여 일치하는 것은 같은 것으로 본다.)",ClosedQA,math problem & explain
+117,"이 문장에서 언급된 책의 이름을 추출합니다.
+""댄 브라운의 소설, 다빈치 코드를 내려놓을 수 없었습니다.""",Extract,title
+118,"이 문장에 언급된 드라마 영화의 제목을 찾으세요: 
+""대부의 강렬한 연기는 이 영화를 진정한 영화적 걸작으로 만들었다.""",Extract,movie title
+119,"이 문장에 언급된 노래 제목을 밝히세요: 
+""업타운 펑크의 활기찬 비트는 항상 저를 춤추게 합니다.""",Extract,song title
+120,"이 문장에서 간식의 이름을 추출하세요: 
+""저는 영화를 보면서 바삭한 감자칩을 씹는 것을 좋아합니다.""",Extract,food
+121,"다음 문장에서 약 이름 추출해봐:
+저는 페니실린에 알레르기가 있어서 아목시실린을 못 먹습니다.",Extract,drugs
