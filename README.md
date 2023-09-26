@@ -220,6 +220,6 @@ $ python example_cli.py --help
       author={42dot Inc.},
       year={2023},
       url = {https://github.com/42dot/42dot_LLM},
-      version = {pre-release},
+      version = {1.0.0},
 }
 ```
