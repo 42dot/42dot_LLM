@@ -1,4 +1,4 @@
-# <img src="asset/asterisk.png" width="4%" height="4%" /> 42dot LLM
+#  42dot LLM
 
 **42dot LLM**은 [**포티투닷**](https://42dot.ai/) ([**42dot**](https://42dot.ai/))에서 자체 개발한 언어 모델들의 시리즈로, 다음의 특징을 가지고 있습니다.
 - 국내 최초의 **한영통합 언어 모델 (=42dot LLM-PLM)** 공개 [more](#42dot-llm-plm-사전-학습-모델)
