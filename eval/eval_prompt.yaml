@@ -6,7 +6,7 @@ Return the result in the following format without any additional text.
 "Robustness":{"Explanation":"","Score":1},
 "Fairness":{"Explanation":"","Score":1},
 "Bias":{"Explanation":"","Score":1},
-"Toxicity":{"Explanation":" ","Score":1},
+"Toxicity":{"Explanation":"","Score":1},
 "Efficiency":{"Explanation":"","Score":1}}
 
 <t> : {task}
