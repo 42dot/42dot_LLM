@@ -205,7 +205,7 @@ $ python example_cli.py --help
 ## 채용안내
 저희는 42dot LLM이 언어 모델 기술 및 생태계, 나아가 서비스 확산에 기여하길 기대합니다. 아울러 미래 자동차의 핵심인 SDV (Software-Defined Vehicle)를 실현하기 위한 42dot의 여정을 함께할 분들을 기다리고 있습니다.
 
-- [LLM Research Engineer](https://42dot.ai/careers/openroles/4f10dddd-9022-4871-81ed-27c6cfc4c47d)
+- [NLP Engineer](https://42dot.ai/careers/openroles/89ee68e5-bfb6-4344-99f5-7d8a04dda893)
 - [LLM Data Engineer](https://42dot.ai/careers/openroles/d139f03e-6cf7-4019-be44-f97f441738ee)
 
 ---
