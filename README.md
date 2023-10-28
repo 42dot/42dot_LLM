@@ -183,6 +183,40 @@ $ python example_cli.py
 $ python example_cli.py --help
 ```
 
+## llama.cpp
+[허깅페이스에 올려주신 피드백](https://huggingface.co/42dot/42dot_LLM-SFT-1.3B/discussions/2)을 참고하여 llama.cpp에서도 구동할 수 있도록 Special Tokens를 패치하였습니다.
+
+<p align="center">
+  <img src="asset/617402.gif" width="80%">
+</p> 
+
+이제 아래 가이드를 참고하여 llama.cpp에서 42dot LLM-SFT 모델을 실행할 수 있습니다.
+
+1. 42dot LLM-SFT 모델을 ggml FP32 포맷으로 변환합니다.
+```
+$ python convert.py ./42dot_LLM-SFT-1.3B/ --vocabtype bpe
+```
+
+2. 모델을 4비트로 양자화합니다(선택사항).
+```
+$ ./quntize ./42dot_LLM-SFT-1.3B/ggml-model-f32.gguf ./42dot_LLM-SFT-1.3B/ggml-model-q4_0.gguf q4_0
+```
+
+3. 인퍼런스를 실행합니다. 저희가 제시하는 옵션을 그대로 사용하는 것을 권장합니다.
+```
+$ ./main -m ./42dot_LLM-SFT-1.3B/ggml-model-f32.gguf \
+--temp 0.5 \
+--top_p 0.95 \
+--top_k 20 \
+--n-predict 512 \
+--repeat-penalty 1.2 \
+--color \
+--prompt "호기심 많은 인간 (human)과 인공지능 봇 (AI bot)의 대화입니다. \n봇의 이름은 42dot LLM이고 포티투닷 (42dot)에서 개발했습니다. \n봇은 인간의 질문에 대해 친절하게 유용하고 상세한 답변을 제공합니다. \n" \
+--in-prefix "<human>: " \
+--in-suffix "<bot>:" \
+--interactive-first
+```
+
 ---
 
 ## 한계점
