@@ -221,6 +221,12 @@ $ ./main -m ./42dot_LLM-SFT-1.3B/ggml-model-f32.gguf \
 ## 유의사항
 42dot LLM을 통해 생성한 내용은 42dot의 입장과 무관하며, 42dot은 생성 내용 및 이로 인해 발생하는 문제에 대해 책임지지 않습니다.
 
+## 채용안내
+저희는 42dot LLM이 언어 모델 기술 및 생태계, 나아가 서비스 확산에 기여하길 기대합니다. 아울러 미래 자동차의 핵심인 SDV (Software-Defined Vehicle)를 실현하기 위한 42dot의 여정을 함께할 분들을 기다리고 있습니다.
+
+- [Generative NLP Engineer](https://42dot.ai/careers/openroles/35e65cf2-3b64-4859-9209-8beeb9f21a4e)
+- [LLM inference optimization engineer](https://42dot.ai/careers/openroles/e890e45c-0f26-41d3-8686-7ce3da601e13)
+
 ## Citation
 
 ```
